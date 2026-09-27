@@ -4,7 +4,11 @@ A Flappy Bird style game for the Commodore 128, written in C with Oscar64.
 The entire game uses **80 × 25 VDC character mode**, including the bird,
 pipes, lettering and ground. No bitmap mode or VIC-II sprites are used.
 
+![Flappy80 gameplay](screenshots/screen1.png)
+
 ## Play
+
+Add path to Oscar64 in Makefile
 
 ```sh
 make
