@@ -1,0 +1,3973 @@
+--------------------------------------------------------------------
+main: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:694
+$00 R0(I), $10 R1(P), $02 R2(I), $12 R3(I), $13 R4(I), $14 R5(I), $04 R6(C), $05 R7(C), $16 R8(C), $17 R9(C), $18 R10(C), $19 R11(C), $1a R12(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 181)		STOREG1		<-	V(6 'giocharmap')+0 , CC:1	{}
+0001 ( 700)		CALLN		<-	V(1 'dispmode80col')+0 	{}
+0002 ( 350)		STOREA1		<-	V(-1 '')+204 , CC:1	{V}
+0003 ( 702)		CALLN		<-	V(2 'sound_init')+0 	{}
+0004 ( 345)		CONST	R0(C)[147..147]	<-	CI:147	{S}
+0005 ( 193)		JSR		<-	R0(CF)[147..147], V(-1 '')+0 	{}
+0006 ( 704)		JSR		<-	V(-1 '')+0 	{}
+0007 ( 705)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+53265 	{V}
+0008 ( 706)		LOADA1	R8(C)[0..255]	<-	V(-1 '')+53296 	{V}
+0009 ( 707)		LOADA1	R9(C)[0..255]	<-	V(-1 '')+56320 	{V}
+000a ( 708)		LOADA1	R10(C)[0..255]	<-	V(-1 '')+56322 	{V}
+000b ( 709)		LOADA1	R11(C)[0..255]	<-	V(-1 '')+56323 	{V}
+000c ( 705)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+000d ( 705)		BINOP9	R3(I)[0..127]	<-	R0(IF)[0..255], CI:127	{}
+000e ( 710)		BINOP9	R0(I)[0..127]	<-	R3(I)[0..127], CI:111	{}
+000f ( 710)		STOREA1		<-	V(-1 '')+53265 , R0(CF)[0..127]	{V}
+0010 ( 711)		STOREA1		<-	V(-1 '')+53296 , CC:1	{V}
+0011 ( 712)		STOREA1		<-	V(-1 '')+56322 , CC:255	{V}
+0012 ( 713)		STOREA1		<-	V(-1 '')+56323 , CC:0	{V}
+0013 ( 714)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0014 (   6)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (2) Head P2260 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , R0(C)[0..36]	{V}
+0001 (  17)		JUMP		<-		{}
+		==> 21
+L21: <= D-1: (2) Head P2259 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  17)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  17)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  17)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 21
+		==> 22
+L22: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 715)		LEAG	R1(P)[0..36]	<-	V(8 'saved_regs' A)+0 , R0(I)[0..36]	{}
+0001 (  18)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54785 	{V}
+0002 ( 715)		STOREI1		<-	R1(PF)+0 {V(8 'saved_regs' A)} [0..36], R2(CF)[0..255]	{}
+0003 ( 714)		BINOP1	R0(I)[1..37]	<-	R0(IF)[0..36], CI:1	{}
+0004 ( 714)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..37], CI:37	{}
+0005 ( 714)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 15
+		==> 17
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:34	{V}
+0001 (  11)		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2) Head P2258 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 29
+L29: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:128	{V}
+0001 ( 717)		STOREC2		<-	V(0 '')+0 , CI:8192	{}
+0002 ( 717)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0003 ( 718)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0004 (  17)		JUMP		<-		{}
+		==> 253
+L253: <= D-1: (2) Head P2257 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  17)		JUMP		<-		{}
+		==> 35
+L35: <= D-1: (2) Head P2256 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  17)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  17)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  17)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 35
+		==> 36
+L36: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 719)		LEAG	R1(P)[0..3839]	<-	V(16 'saved_font' A)+0 , R0(I)[0..3839]	{}
+0001 (  18)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54785 	{V}
+0002 ( 719)		STOREI1		<-	R1(PF)+0 {V(16 'saved_font' A)} [0..3839], R2(CF)[0..255]	{}
+0003 ( 718)		BINOP1	R0(I)[1..3840]	<-	R0(IF)[0..3839], CI:1	{}
+0004 ( 718)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..3840], CI:3840	{}
+0005 ( 718)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 253
+		==> 33
+L33: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:28	{V}
+0001 ( 720)		LOADG1	R0(C)[0..255]	<-	V(8 'saved_regs' A)+28 	{}
+0002 ( 720)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0003 ( 720)		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0004 ( 720)		BINOP8	R4(I)[0..63]	<-	R0(IF)[0..15], CI:48	{}
+0005 (  11)		JUMP		<-		{}
+		==> 41
+L41: <= D-1: (2) Head P2255 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 41
+		==> 42
+L42: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R4(C)[0..63]	{V}
+0001 ( 721)		CALLN		<-	V(4 'make_shapes')+0 	{}
+0002 ( 722)		CALLN		<-	V(5 'make_poses')+0 	{}
+0003 ( 723)		STOREC2		<-	V(0 '')+0 , CI:8192	{}
+0004 ( 723)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0005 ( 724)		CONST	R12(C)[0..0]	<-	CI:0	{}
+0006 ( 726)		CONST	R5(I)[8192..8192]	<-	CI:8192	{}
+0007 ( 725)		JUMP		<-		{}
+		==> 44
+L44: <= D-1: (2) Head P2254 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 725)		STOREC1		<-	V(0 '')+0 , R12(C)[0..3]	{}
+0001 ( 725)		CALLN		<-	V(6 'pipe_shapes')+0 	{}
+0002 ( 726)		STOREC2		<-	V(0 '')+0 , R5(I)[8192..32768]	{}
+0003 ( 726)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0004 ( 728)		CONST	R0(I)[0..0]	<-	CI:0	{I}
+0005 ( 728)		JUMP		<-		{}
+		==> 48
+L48: <= D-1: (2) Head P2253 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 728)		BINOP16	R1(I)[0..1912]	<-	R0(I)[0..239], CI:3	{I}
+0001 ( 728)		LEAG	R1(P)[0..1912]	<-	V(17 'shapes' A)+0 , R1(IF)[0..1912]	{I}
+0002 ( 728)		CONST	R6(C)[0..0]	<-	CI:0	{}
+0003 ( 728)		JUMP		<-		{}
+		==> 52
+L52: <= D-1: (2) Head P2252 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 728)		CONV37	R2(I)[0..7]	<-	R6(C)[0..7]	{}
+0001 ( 728)		LEAI	R2(P)+0 {V(17 'shapes' A)} [0..1919]	<-	R1(P)+0 {V(17 'shapes' A)} [0..1912], R2(IF)[0..7]	{}
+0002 ( 728)		LOADI1	R2(C)[0..255]	<-	R2(PF)+0 {V(17 'shapes' A)} [0..1919]	{}
+0003 (  11)		JUMP		<-		{}
+		==> 56
+L56: <= D-1: (2) Head P2251 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R7(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R7(B)[0..1]	<-	R7(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R7(BF)[0..1]	{}
+		==> 56
+		==> 57
+L57: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R2(CF)[0..255]	{V}
+0001 ( 728)		BINOP1	R6(C)[1..8]	<-	R6(CF)[0..7], CI:1	{}
+0002 ( 728)		RELOP28	R2(B)[0..1]	<-	R6(C)[1..8], CC:8	{}
+0003 ( 728)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 52
+		==> 54
+L54: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 729)		CONST	R1(C)[8..8]	<-	CI:8	{}
+0001 (  11)		JUMP		<-		{}
+		==> 59
+L59: <= D-1: (2) Head P2250 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		JUMP		<-		{}
+		==> 63
+L63: <= D-1: (2) Head P2249 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 63
+		==> 64
+L64: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 ( 729)		BINOP2	R1(C)[0..7]	<-	R1(CF)[1..8], CI:1	{}
+0002 ( 729)		RELOP27	R2(B)[0..1]	<-	R1(C)[0..7], CC:0	{}
+0003 ( 729)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 59
+		==> 49
+L49: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 728)		BINOP1	R0(I)[1..240]	<-	R0(IF)[0..239], CI:1	{}
+0001 ( 727)		RELOP20	R1(B)[0..1]	<-	R0(I)[1..240], CI:240	{}
+0002 ( 727)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 48
+		==> 45
+L45: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 726)		BINOP1	R5(I)[16384..40960]	<-	R5(IF)[8192..32768], CI:8192	{}
+0001 ( 724)		BINOP1	R12(C)[1..4]	<-	R12(CF)[0..3], CI:1	{}
+0002 ( 724)		RELOP28	R0(B)[0..1]	<-	R12(C)[1..4], CC:4	{}
+0003 ( 724)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 44
+		==> 46
+L46: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:0	{V}
+0001 (  11)		JUMP		<-		{}
+		==> 68
+L68: <= D-1: (2) Head P2248 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 68
+		==> 69
+L69: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:126	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:2	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 73
+L73: <= D-1: (2) Head P2247 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 73
+		==> 74
+L74: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:102	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:3	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 78
+L78: <= D-1: (2) Head P2246 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 78
+		==> 79
+L79: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:73	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:4	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 83
+L83: <= D-1: (2) Head P2245 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 83
+		==> 84
+L84: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:32	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:5	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 88
+L88: <= D-1: (2) Head P2244 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 88
+		==> 89
+L89: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:7	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 93
+L93: <= D-1: (2) Head P2243 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 93
+		==> 94
+L94: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:29	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:8	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 98
+L98: <= D-1: (2) Head P2242 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 98
+		==> 99
+L99: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:12	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 103
+L103: <= D-1: (2) Head P2241 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 103
+		==> 104
+L104: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:13	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 108
+L108: <= D-1: (2) Head P2240 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 108
+		==> 109
+L109: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:20	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 113
+L113: <= D-1: (2) Head P2239 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 113
+		==> 114
+L114: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:8	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:21	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 118
+L118: <= D-1: (2) Head P2238 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 118
+		==> 119
+L119: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:28	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 123
+L123: <= D-1: (2) Head P2237 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 123
+		==> 124
+L124: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R4(CF)[0..63]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:1	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 128
+L128: <= D-1: (2) Head P2236 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 128
+		==> 129
+L129: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:80	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:6	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 133
+L133: <= D-1: (2) Head P2235 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 133
+		==> 134
+L134: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:25	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:9	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 138
+L138: <= D-1: (2) Head P2234 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 138
+		==> 139
+L139: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:7	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:23	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 143
+L143: <= D-1: (2) Head P2233 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 143
+		==> 144
+L144: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:7	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:22	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 148
+L148: <= D-1: (2) Head P2232 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 148
+		==> 149
+L149: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:120	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:10	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 153
+L153: <= D-1: (2) Head P2231 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 153
+		==> 154
+L154: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:32	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:24	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 158
+L158: <= D-1: (2) Head P2230 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 158
+		==> 159
+L159: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:128	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:25	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 163
+L163: <= D-1: (2) Head P2229 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 163
+		==> 164
+L164: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:71	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:27	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 168
+L168: <= D-1: (2) Head P2228 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 168
+		==> 169
+L169: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:26	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 173
+L173: <= D-1: (2) Head P2227 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 173
+		==> 174
+L174: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:6	{V}
+0001 ( 754)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0002 ( 754)		CONST	R1(I)[0..0]	<-	CI:0	{}
+0003 ( 754)		JUMP		<-		{}
+		==> 176
+L176: <= D-1: (2) Head P2226 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 754)		LEAG	R2(P)[0..48]	<-	V(25 'row_addr' A)+0 , R0(I)[0..48]	{}
+0001 ( 754)		STOREI2		<-	R2(PF)+0 {V(25 'row_addr' A)} [0..48], R1(I)[0..1920]	{}
+0002 ( 754)		BINOP1	R1(I)[80..2000]	<-	R1(IF)[0..1920], CI:80	{}
+0003 ( 754)		BINOP1	R0(I)[2..50]	<-	R0(IF)[0..48], CI:2	{}
+0004 ( 754)		RELOP20	R2(B)[0..1]	<-	R0(I)[2..50], CI:50	{}
+0005 ( 754)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 176
+		==> 178
+L178: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 755)		STOREG1		<-	V(26 'state')+0 , CC:0	{}
+0001 ( 756)		CALLN		<-	V(7 'reset_game')+0 	{}
+0002 ( 757)		CALLN		<-	V(14 'banner')+0 	{}
+0003 ( 759)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0004 ( 760)		JUMP		<-		{}
+		==> 180
+L180: <= D-1: (2) Head P2225 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 760)		RELOP20	R5(B)[0..1]	<-	R4(C)[0..1], CC:0	{}
+0001 ( 760)		BRANCH		<-	R5(B)[0..1]	{}
+		==> 865
+		==> 866
+L865: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 760)		STOREC2		<-	V(0 '')+0 , CI:4096	{}
+0001 ( 760)		JUMP		<-		{}
+		==> 867
+L867: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 760)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0001 ( 761)		CONST	R0(P)[0..0]	<-	CG2000(33:0 'screen' A)	{}
+0002 ( 761)		JUMP		<-		{}
+		==> 184
+L184: <= D-1: (2) Head P2224 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 761)		LOADI1	R1(C)[0..255]	<-	R0(P)+0 {V(33 'screen' A)} [0..1999]	{}
+0001 (  11)		JUMP		<-		{}
+		==> 188
+L188: <= D-1: (2) Head P2223 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 188
+		==> 189
+L189: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 ( 761)		LEAG	R0(P)[1..1999]	<-	R0(PF)[0..1999], CI:1	{}
+0002 ( 761)		RELOP20	R1(B)[0..1]	<-	R0(P)[1..1999], V(33 'screen' A)+2000 	{}
+0003 ( 761)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 184
+		==> 186
+L186: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 762)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 868
+		==> 869
+L868: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 762)		STOREC2		<-	V(0 '')+0 , CI:6144	{}
+0001 ( 762)		JUMP		<-		{}
+		==> 870
+L870: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 762)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0001 ( 763)		CONST	R0(P)[0..0]	<-	CG2000(34:0 'attr' A)	{}
+0002 ( 763)		JUMP		<-		{}
+		==> 191
+L191: <= D-1: (2) Head P2222 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 763)		LOADI1	R1(C)[0..255]	<-	R0(P)+0 {V(34 'attr' A)} [0..1999]	{}
+0001 (  11)		JUMP		<-		{}
+		==> 195
+L195: <= D-1: (2) Head P2221 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 195
+		==> 196
+L196: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 ( 763)		LEAG	R0(P)[1..1999]	<-	R0(PF)[0..1999], CI:1	{}
+0002 ( 763)		RELOP20	R1(B)[0..1]	<-	R0(P)[1..1999], V(34 'attr' A)+2000 	{}
+0003 ( 763)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 191
+		==> 181
+L181: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 759)		BINOP1	R4(C)[1..2]	<-	R4(CF)[0..1], CI:1	{}
+0001 ( 759)		RELOP28	R0(B)[0..1]	<-	R4(C)[1..2], CC:2	{}
+0002 ( 759)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 180
+		==> 182
+L182: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 765)		STOREC2		<-	V(2 '')+0 , CI:0	{}
+0001 ( 765)		STOREC2		<-	V(4 '')+0 , CI:2000	{}
+0002 ( 765)		CONST	R0(P)[0..0]	<-	CG2000(35:0 'marked' A)	{S}
+0003 ( 765)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(35 'marked' A)} [0..0]	{}
+0004 ( 765)		CALLN		<-	V(17 'memset')+0 	{}
+0005 ( 766)		STOREG2		<-	V(37 'dirty_count')+0 , CI:0	{}
+0006 ( 767)		CALLN		<-	V(18 'wait_frame')+0 	{E}
+0007 ( 768)		CALLN		<-	V(19 'show_frame')+0 	{}
+0008 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:34	{V}
+0009 ( 769)		LOADG1	R0(C)[0..255]	<-	V(8 'saved_regs' A)+34 	{}
+000a (  11)		JUMP		<-		{}
+		==> 200
+L200: <= D-1: (2) Head P2220 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 200
+		==> 201
+L201: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..255]	{V}
+0001 ( 772)		JUMP		<-		{}
+		==> 202
+L202: <= D-1: (2) Head P2219 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 772)		CALLN	R1(C)	<-	V(22 'keys')+0 	{}
+0001 ( 773)		CONV37	R0(I)[0..255]	<-	R1(C)	{}
+0002 ( 773)		BINOP9	R0(I)[0..16]	<-	R0(IF)[0..255], CI:16	{}
+0003 ( 773)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..16], CI:0	{}
+0004 ( 773)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 205
+		==> 208
+L205: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:34	{V}
+0001 (  11)		JUMP		<-		{}
+		==> 213
+L213: <= D-1: (2) Head P2218 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 213
+		==> 214
+L214: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:128	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:28	{V}
+0002 ( 782)		LOADG1	R0(C)[0..255]	<-	V(8 'saved_regs' A)+28 	{}
+0003 (  11)		JUMP		<-		{}
+		==> 218
+L218: <= D-1: (2) Head P2217 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 218
+		==> 219
+L219: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..255]	{V}
+0001 ( 783)		STOREC2		<-	V(0 '')+0 , CI:8192	{}
+0002 ( 783)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0003 ( 785)		CONST	R0(P)[0..0]	<-	CG3840(16:0 'saved_font' A)	{}
+0004 ( 785)		JUMP		<-		{}
+		==> 221
+L221: <= D-1: (2) Head P2216 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 785)		LOADI1	R1(C)[0..255]	<-	R0(P)+0 {V(16 'saved_font' A)} [0..3839]	{}
+0001 (  11)		JUMP		<-		{}
+		==> 225
+L225: <= D-1: (2) Head P2215 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 225
+		==> 226
+L226: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 ( 785)		LEAG	R0(P)[1..3839]	<-	R0(PF)[0..3839], CI:1	{}
+0002 ( 784)		RELOP20	R1(B)[0..1]	<-	R0(P)[1..3839], V(16 'saved_font' A)+3840 	{}
+0003 ( 784)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 221
+		==> 223
+L223: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 786)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 ( 787)		JUMP		<-		{}
+		==> 234
+L234: <= D-1: (2) Head P2214 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 787)		RELOP20	R1(B)[0..1]	<-	R0(I)[0..29], CI:17	{}
+0001 ( 787)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 231
+		==> 227
+L231: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 788)		LEAG	R1(P)[0..29]	<-	V(8 'saved_regs' A)+0 , R0(I)[0..29]	{}
+0001 ( 788)		LOADI1	R1(C)[0..255]	<-	R1(PF)+0 {V(8 'saved_regs' A)} [0..29]	{}
+0002 (   6)		STOREA1		<-	V(-1 '')+54784 , R0(C)[0..29]	{V}
+0003 (  11)		JUMP		<-		{}
+		==> 238
+L238: <= D-1: (2) Head P2213 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 238
+		==> 239
+L239: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 ( 786)		JUMP		<-		{}
+		==> 227
+L227: <= D-1: (3) Head P2212 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 786)		BINOP1	R0(I)[1..30]	<-	R0(IF)[0..29], CI:1	{}
+0001 ( 786)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..30], CI:30	{}
+0002 ( 786)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 228
+		==> 230
+L228: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 787)		RELOP20	R1(B)[0..1]	<-	R0(I)[1..29], CI:16	{}
+0001 ( 787)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 234
+		==> 2158
+L2158: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 787)		CONST	R0(I)[1..29]	<-	CI:16	{}
+0001 ( 787)		JUMP		<-		{}
+		==> 227
+L230: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:34	{V}
+0001 ( 789)		LOADG1	R0(C)[0..255]	<-	V(8 'saved_regs' A)+34 	{}
+0002 (  11)		JUMP		<-		{}
+		==> 243
+L243: <= D-1: (2) Head P2211 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 243
+		==> 244
+L244: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..255]	{V}
+0001 ( 790)		CALLN		<-	V(35 'sound_off')+0 	{}
+0002 ( 791)		STOREA1		<-	V(-1 '')+56320 , R9(CF)[0..255]	{V}
+0003 ( 792)		STOREA1		<-	V(-1 '')+56322 , R10(CF)[0..255]	{V}
+0004 ( 793)		STOREA1		<-	V(-1 '')+56323 , R11(CF)[0..255]	{V}
+0005 ( 794)		STOREA1		<-	V(-1 '')+53296 , R8(CF)[0..255]	{V}
+0006 ( 795)		STOREA1		<-	V(-1 '')+53265 , R3(CF)[0..127]	{V}
+0007 ( 796)		JSR		<-	V(-1 '')+0 	{}
+0008 ( 345)		CONST	R0(C)[147..147]	<-	CI:147	{S}
+0009 ( 193)		JSR		<-	R0(CF)[147..147], V(-1 '')+0 	{}
+000a ( 798)		STOREC1		<-	V(0 '')+0 , CC:35	{}
+000b ( 798)		STOREC1		<-	V(1 '')+0 , CC:10	{}
+000c ( 798)		CALLN		<-	V(36 'gotoxy')+0 	{}
+000d ( 799)		CONST	R1(C)[0..0]	<-	CI:0	{}
+000e ( 800)		JUMP		<-		{}
+		==> 248
+L248: <= D-1: (2) Head P2210 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 800)		CONV37	R0(I)[0..8]	<-	R1(C)[0..8]	{}
+0001 ( 800)		LEAG	R0(P)[0..8]	<-	V(152 '')+0 , R0(IF)[0..8]	{}
+0002 ( 800)		LOADI1	R0(C)[32..89]	<-	R0(PF)+0 {V(152 '')} [0..8]	{}
+0003 ( 800)		STOREC1		<-	V(0 '')+0 , R0(CF)[32..89]	{}
+0004 ( 800)		CALLN		<-	V(37 'putch')+0 	{}
+0005 ( 799)		BINOP1	R1(C)[1..9]	<-	R1(CF)[0..8], CI:1	{}
+0006 ( 799)		RELOP28	R0(B)[0..1]	<-	R1(C)[1..9], CC:9	{}
+0007 ( 799)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 248
+		==> 250
+L250: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 801)		RETV		<-	CI:0	{}
+L208: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 775)		STOREC1		<-	V(7 '')+0 , R1(CF)	{}
+0001 ( 775)		CALLN		<-	V(23 'prepare_frame')+0 	{}
+0002 ( 776)		CALLN		<-	V(33 'sound_tick')+0 	{}
+0003 ( 777)		CALLN		<-	V(34 'stage_frame')+0 	{}
+0004 ( 778)		CALLN		<-	V(18 'wait_frame')+0 	{E}
+0005 ( 779)		CALLN		<-	V(19 'show_frame')+0 	{}
+0006 ( 770)		JUMP		<-		{}
+		==> 202
+L869: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 762)		STOREC2		<-	V(0 '')+0 , CI:2048	{}
+0001 ( 762)		JUMP		<-		{}
+		==> 870
+L866: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 760)		STOREC2		<-	V(0 '')+0 , CI:0	{}
+0001 ( 760)		CONST	R4(C)[0..1]	<-	CI:0	{}
+0002 ( 760)		JUMP		<-		{}
+		==> 867
+--------------------------------------------------------------------
+dispmode80col: /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.h:23
+$00 R0(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 168)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+215 	{V}
+0001 ( 168)		RELOP28	R0(B)[0..1]	<-	R0(CF)[0..255], CC:128	{}
+0002 ( 168)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 172)		JSR		<-	V(-1 '')+0 	{}
+0001 ( 168)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 175)		RET		<-		{}
+--------------------------------------------------------------------
+sound_init: /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.h:11
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  39)		STOREG1		<-	V(7 'timer' A)+0 , CC:0	{}
+0001 (  39)		STOREG1		<-	V(7 'timer' A)+1 , CC:0	{}
+0002 (  39)		STOREG1		<-	V(7 'timer' A)+2 , CC:0	{}
+0003 (  34)		STOREA1		<-	V(-1 '')+54296 , CC:15	{V}
+0004 (  36)		STOREA1		<-	V(-1 '')+54276 , CC:0	{V}
+0005 (  37)		STOREA1		<-	V(-1 '')+54274 , CC:0	{V}
+0006 (  38)		STOREA1		<-	V(-1 '')+54275 , CC:8	{V}
+0007 (  36)		STOREA1		<-	V(-1 '')+54283 , CC:0	{V}
+0008 (  37)		STOREA1		<-	V(-1 '')+54281 , CC:0	{V}
+0009 (  38)		STOREA1		<-	V(-1 '')+54282 , CC:8	{V}
+000a (  36)		STOREA1		<-	V(-1 '')+54290 , CC:0	{V}
+000b (  37)		STOREA1		<-	V(-1 '')+54288 , CC:0	{V}
+000c (  38)		STOREA1		<-	V(-1 '')+54289 , CC:8	{V}
+000d (  41)		STOREA1		<-	V(-1 '')+54277 , CC:8	{V}
+000e (  41)		STOREA1		<-	V(-1 '')+54278 , CC:136	{V}
+000f (  42)		STOREA1		<-	V(-1 '')+54284 , CC:9	{V}
+0010 (  42)		STOREA1		<-	V(-1 '')+54285 , CC:10	{V}
+0011 (  43)		STOREA1		<-	V(-1 '')+54291 , CC:8	{V}
+0012 (  43)		STOREA1		<-	V(-1 '')+54292 , CC:137	{V}
+0013 (  44)		RET		<-		{}
+--------------------------------------------------------------------
+vdc_mem_addr: /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.h:76
+$00 R0(I), $00 R1(I), $00 R2(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:18	{V}
+0001 (  38)		LOADZ2	R0(I)[0..65535]	<-	V(0 '')+0 	{S}
+0002 (  38)		BINOP17	R1(I)[0..255]	<-	R0(I)[0..65535], CI:8	{S}
+0003 (  11)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2) Head P79 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 4
+		==> 5
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:19	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 9
+L9: <= D-1: (2) Head P78 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 9
+		==> 10
+L10: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..65535]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:31	{V}
+0002 (  43)		RET		<-		{}
+--------------------------------------------------------------------
+make_shapes: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:193
+$00 R0(I), $00 R1(I), $00 R2(I), $02 R3(I), $04 R4(P), $00 R5(I), $00 R6(P), $00 R7(C), $00 R8(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 196)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0001 ( 197)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P455 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 197)		CONV37	R0(I)[0..7]	<-	R2(C)[0..7]	{}
+0001 ( 197)		LEAG	R0(P)[0..7]	<-	V(17 'shapes' A)+0 , R0(IF)[0..7]	{}
+0002 ( 197)		STOREI1		<-	R0(P)+0 {V(17 'shapes' A)} [0..7], CC:255	{}
+0003 ( 197)		STOREI1		<-	R0(P)+8 {V(17 'shapes' A)} [0..7], CC:127	{}
+0004 ( 198)		STOREI1		<-	R0(P)+56 {V(17 'shapes' A)} [0..7], CC:254	{}
+0005 ( 199)		RELOP19	R1(B)[0..1]	<-	R2(C)[0..7], CC:1	{}
+0006 ( 199)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 148
+		==> 149
+L148: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 199)		CONST	R2(C)[0..7]	<-	CI:1	{}
+0001 ( 199)		CONST	R1(I)[0..0]	<-	CI:0	{}
+0002 ( 199)		JUMP		<-		{}
+		==> 150
+L150: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 199)		STOREI1		<-	R0(P)+16 {V(17 'shapes' A)} [0..7], R1(CF)[0..255]	{}
+0001 ( 200)		RELOP19	R3(B)[0..1]	<-	R2(C)[0..7], CC:0	{}
+0002 ( 200)		BRANCH		<-	R3(B)[0..1]	{}
+		==> 5
+		==> 8
+L5: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 200)		CONST	R1(I)[127..127]	<-	CI:127	{}
+0001 ( 200)		JUMP		<-		{}
+		==> 153
+L153: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 200)		STOREI1		<-	R0(P)+24 {V(17 'shapes' A)} [0..7], R1(CF)[96..127]	{}
+0001 ( 201)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 9
+		==> 12
+L9: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 201)		CONST	R1(I)[254..254]	<-	CI:254	{}
+0001 ( 201)		JUMP		<-		{}
+		==> 156
+L156: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 201)		STOREI1		<-	R0(PF)+32 {V(17 'shapes' A)} [0..7], R1(CF)[6..254]	{}
+0001 ( 196)		BINOP1	R2(C)[1..8]	<-	R2(CF)[0..7], CI:1	{}
+0002 ( 196)		RELOP28	R0(B)[0..1]	<-	R2(C)[1..8], CC:8	{}
+0003 ( 196)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 203)		CONST	R7(C)[0..0]	<-	CI:0	{}
+0001 ( 205)		CONST	R0(I)[0..0]	<-	CI:0	{I}
+0002 ( 205)		CONST	R1(I)[55..55]	<-	CI:55	{I}
+0003 ( 205)		CONST	R2(I)[48..48]	<-	CI:48	{I}
+0004 ( 205)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2) Head P454 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 205)		RELOP28	R3(B)[0..1]	<-	R7(C)[0..35], CC:10	{I}
+0001 ( 205)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 157
+		==> 158
+L157: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 205)		MOVE	R3(I)[48..83]	<-	R2(I)[48..83]	{}
+0001 ( 205)		JUMP		<-		{}
+		==> 159
+L159: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 205)		LEAG	R4(P)[0..245]	<-	V(18 'letters')+0 , R0(I)[0..245]	{I}
+0001 ( 205)		BINOP16	R3(I)[384..720]	<-	R3(IF)[48..90], CI:3	{I}
+0002 ( 205)		LEAG	R3(P)[384..720]	<-	V(17 'shapes' A)+0 , R3(IF)[384..720]	{I}
+0003 ( 204)		CONST	R8(C)[0..0]	<-	CI:0	{}
+0004 ( 205)		JUMP		<-		{}
+		==> 18
+L18: <= D-1: (2) Head P453 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 205)		CONV37	R5(I)[0..6]	<-	R8(C)[0..6]	{}
+0001 ( 205)		LEAI	R6(P)+0 {V(18 'letters')} [0..251]	<-	R4(P)+0 {V(18 'letters')} [0..245], R5(I)[0..6]	{}
+0002 ( 205)		LOADI1	R6(C)[1..31]	<-	R6(PF)+0 {V(18 'letters')} [0..251]	{}
+0003 ( 205)		CONV37	R6(I)[1..31]	<-	R6(CF)[1..31]	{}
+0004 ( 205)		BINOP16	R6(I)[2..62]	<-	R6(IF)[1..31], CI:1	{}
+0005 ( 205)		LEAI	R5(P)+0 {V(17 'shapes' A)} [384..726]	<-	R3(P)+0 {V(17 'shapes' A)} [384..720], R5(IF)[0..6]	{}
+0006 ( 205)		STOREI1		<-	R5(PF)+0 {V(17 'shapes' A)} [384..726], R6(CF)[2..62]	{}
+0007 ( 204)		BINOP1	R8(C)[1..7]	<-	R8(CF)[0..6], CI:1	{}
+0008 ( 204)		RELOP28	R5(B)[0..1]	<-	R8(C)[1..7], CC:7	{}
+0009 ( 204)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 18
+		==> 15
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 205)		BINOP1	R0(I)[7..252]	<-	R0(IF)[0..245], CI:7	{}
+0001 ( 205)		BINOP1	R1(I)[56..91]	<-	R1(IF)[55..90], CI:1	{}
+0002 ( 205)		BINOP1	R2(I)[49..84]	<-	R2(IF)[48..83], CI:1	{}
+0003 ( 203)		BINOP1	R7(C)[1..36]	<-	R7(CF)[0..35], CI:1	{}
+0004 ( 203)		RELOP28	R3(B)[0..1]	<-	R7(C)[1..36], CC:36	{}
+0005 ( 203)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 14
+		==> 16
+L16: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 208)		CONST	R0(I)[0..0]	<-	CI:0	{I}
+0001 ( 208)		CONST	R1(I)[248..248]	<-	CI:248	{I}
+0002 ( 208)		JUMP		<-		{}
+		==> 22
+L22: <= D-1: (2) Head P452 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 208)		CONST	R2(P)[136..136]	<-	CG1920(17:136 'shapes' A)	{}
+0001 ( 208)		JUMP		<-		{}
+		==> 26
+L26: <= D-1: (2) Head P451 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 208)		LEAI	R3(P)+0 {V(17 'shapes' A)} [384..]	<-	R2(P)+0 {V(17 'shapes' A)} [136..], R1(I)[248..255]	{}
+0001 ( 208)		LOADI1	R3(C)[0..255]	<-	R3(PF)+0 {V(17 'shapes' A)} [384..]	{}
+0002 ( 208)		CONV37	R3(I)[0..255]	<-	R3(CF)[0..255]	{}
+0003 ( 208)		UNOP15	R3(I)	<-	R3(IF)[0..255]	{}
+0004 ( 208)		LEAI	R4(P)+0 {V(17 'shapes' A)} [136..]	<-	R2(P)+0 {V(17 'shapes' A)} [136..], R0(I)[0..7]	{}
+0005 ( 208)		STOREI1		<-	R4(PF)+0 {V(17 'shapes' A)} [136..], R3(CF)	{}
+0006 ( 208)		LEAI	R2(P)+0 {V(17 'shapes' A)} [144..216]	<-	R2(PF)+0 {V(17 'shapes' A)} [136..208], CI:8	{}
+0007 ( 207)		RELOP20	R3(B)[0..1]	<-	R2(P)+0 {V(17 'shapes' A)} [144..216], V(17 'shapes' A)+216 	{}
+0008 ( 207)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 26
+		==> 28
+L28: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 209)		LEAG	R2(P)[664..671]	<-	V(17 'shapes' A)+664 , R0(I)[0..7]	{}
+0001 ( 209)		LOADI1	R2(C)[0..255]	<-	R2(PF)+0 {V(17 'shapes' A)} [664..671]	{}
+0002 ( 209)		CONV37	R2(I)[0..255]	<-	R2(CF)[0..255]	{}
+0003 ( 209)		UNOP15	R2(I)	<-	R2(IF)[0..255]	{}
+0004 ( 209)		LEAG	R3(P)[216..223]	<-	V(17 'shapes' A)+216 , R0(I)[0..7]	{}
+0005 ( 209)		STOREI1		<-	R3(P)+0 {V(17 'shapes' A)} [216..223], R2(CF)	{}
+0006 ( 210)		LEAG	R2(P)[528..535]	<-	V(17 'shapes' A)+528 , R0(I)[0..7]	{}
+0007 ( 210)		LOADI1	R2(C)[0..255]	<-	R2(PF)+0 {V(17 'shapes' A)} [528..535]	{}
+0008 ( 210)		CONV37	R2(I)[0..255]	<-	R2(CF)[0..255]	{}
+0009 ( 210)		UNOP15	R2(I)	<-	R2(IF)[0..255]	{}
+000a ( 210)		STOREI1		<-	R3(PF)+8 {V(17 'shapes' A)} [216..223], R2(CF)	{}
+000b ( 212)		CONST	R2(P)[520..520]	<-	CG1920(17:520 'shapes' A)	{}
+000c ( 212)		CONST	R3(P)[1024..1024]	<-	CG1920(17:1024 'shapes' A)	{}
+000d ( 212)		JUMP		<-		{}
+		==> 30
+L30: <= D-1: (2) Head P450 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 212)		LEAI	R4(P)+0 {V(17 'shapes' A)} [520..]	<-	R2(P)+0 {V(17 'shapes' A)} [520..], R0(I)[0..7]	{}
+0001 ( 212)		LOADI1	R4(C)[0..255]	<-	R4(PF)+0 {V(17 'shapes' A)} [520..]	{}
+0002 ( 212)		CONV37	R4(I)[0..255]	<-	R4(CF)[0..255]	{}
+0003 ( 212)		UNOP15	R4(I)	<-	R4(IF)[0..255]	{}
+0004 ( 212)		LEAI	R5(P)+0 {V(17 'shapes' A)} [1024..]	<-	R3(P)+0 {V(17 'shapes' A)} [1024..], R0(I)[0..7]	{}
+0005 ( 212)		STOREI1		<-	R5(PF)+0 {V(17 'shapes' A)} [1024..], R4(CF)	{}
+0006 ( 212)		LEAI	R2(P)+0 {V(17 'shapes' A)} [528..]	<-	R2(PF)+0 {V(17 'shapes' A)} [520..], CI:8	{}
+0007 ( 212)		LEAI	R3(P)+0 {V(17 'shapes' A)} [1032..1232]	<-	R3(PF)+0 {V(17 'shapes' A)} [1024..1224], CI:8	{}
+0008 ( 211)		RELOP20	R4(B)[0..1]	<-	R3(P)+0 {V(17 'shapes' A)} [1032..1232], V(17 'shapes' A)+1232 	{}
+0009 ( 211)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 30
+		==> 23
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 208)		BINOP1	R0(I)[1..8]	<-	R0(IF)[0..7], CI:1	{}
+0001 ( 208)		BINOP1	R1(I) {V(17 'shapes' A)} [249..256]	<-	R1(IF) {V(17 'shapes' A)} [248..255], CI:1	{}
+0002 ( 206)		RELOP20	R2(B)[0..1]	<-	R1(I) {V(17 'shapes' A)} [249..256], CI:256	{}
+0003 ( 206)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 22
+		==> 24
+L24: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 214)		CONST	R5(C)[0..0]	<-	CI:0	{}
+0001 ( 216)		JUMP		<-		{}
+		==> 34
+L34: <= D-1: (2) Head P449 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 216)		CONV37	R0(I)[0..7]	<-	R5(C)[0..7]	{}
+0001 ( 216)		LEAG	R1(P)[0..7]	<-	V(19 'round')+0 , R0(I)[0..7]	{}
+0002 ( 216)		LOADI1	R6(C)[0..255]	<-	R1(PF)+0 {V(19 'round')} [0..7]	{}
+0003 ( 217)		CONV37	R1(I)[0..255]	<-	R6(C)[0..255]	{I}
+0004 ( 217)		CONST	R2(I)[0..0]	<-	CI:0	{}
+0005 ( 216)		CONST	R3(C)[0..0]	<-	CI:0	{}
+0006 ( 217)		JUMP		<-		{}
+		==> 38
+L38: <= D-1: (2) Head P448 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 217)		BINOP16	R4(I)[1..128]	<-	CI:1, R2(I)[0..7]	{}
+0001 ( 217)		BINOP9	R4(I)[0..255]	<-	R4(IF)[1..128], R1(I)[0..255]	{}
+0002 ( 217)		RELOP20	R4(B)[0..1]	<-	R4(IF)[0..255], CI:0	{}
+0003 ( 217)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 41
+		==> 37
+L41: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 217)		BINOP17	R4(I)	<-	CI:128, R2(I)[0..7]	{}
+0001 ( 217)		CONV37	R3(I)[0..255]	<-	R3(CF)	{}
+0002 ( 217)		BINOP8	R3(I)	<-	R3(IF)[0..255], R4(IF)	{}
+0003 ( 217)		JUMP		<-		{}
+		==> 37
+L37: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 217)		BINOP1	R2(I)[1..8]	<-	R2(IF)[0..7], CI:1	{}
+0001 ( 217)		RELOP20	R4(B)[0..1]	<-	R2(I)[1..8], CI:8	{}
+0002 ( 217)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 38
+		==> 40
+L40: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 218)		LEAG	R1(P)[1232..1239]	<-	V(17 'shapes' A)+1232 , R0(I)[0..7]	{}
+0001 ( 218)		STOREI1		<-	R1(P)+0 {V(17 'shapes' A)} [1232..1239], R6(C)[0..255]	{}
+0002 ( 218)		STOREI1		<-	R1(PF)+8 {V(17 'shapes' A)} [1232..1239], R3(C)	{}
+0003 ( 219)		BINOP2	R0(I)[0..7]	<-	CI:7, R0(IF)[0..7]	{}
+0004 ( 219)		LEAG	R0(P)[1248..1255]	<-	V(17 'shapes' A)+1248 , R0(IF)[0..7]	{}
+0005 ( 219)		STOREI1		<-	R0(P)+0 {V(17 'shapes' A)} [1248..1255], R6(CF)[0..255]	{}
+0006 ( 219)		STOREI1		<-	R0(PF)+8 {V(17 'shapes' A)} [1248..1255], R3(CF)	{}
+0007 ( 214)		BINOP1	R5(C)[1..8]	<-	R5(CF)[0..7], CI:1	{}
+0008 ( 214)		RELOP28	R0(B)[0..1]	<-	R5(C)[1..8], CC:8	{}
+0009 ( 214)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 34
+		==> 36
+L36: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 221)		RET		<-		{}
+L158: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 205)		MOVE	R3(I)[55..90]	<-	R1(I)[55..90]	{}
+0001 ( 205)		JUMP		<-		{}
+		==> 159
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 201)		RELOP19	R1(B)[0..1]	<-	R2(C)[0..7], CC:7	{}
+0001 ( 201)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 9
+		==> 10
+L10: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 201)		CONST	R1(I)[6..6]	<-	CI:6	{}
+0001 ( 201)		JUMP		<-		{}
+		==> 156
+L8: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 200)		RELOP19	R1(B)[0..1]	<-	R2(C)[0..7], CC:7	{}
+0001 ( 200)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 5
+		==> 6
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 200)		CONST	R1(I)[96..96]	<-	CI:96	{}
+0001 ( 200)		JUMP		<-		{}
+		==> 153
+L149: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 199)		CONST	R1(I)[255..255]	<-	CI:255	{}
+0001 ( 199)		JUMP		<-		{}
+		==> 150
+--------------------------------------------------------------------
+make_poses: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:224
+$00 R0(I), $00 R1(I), $00 R2(I), $00 R3(I), $00 R4(I), $01 R5(I), $00 R6(I), $00 R7(I), $00 R8(C), $02 R9(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 227)		STOREC2		<-	V(0 '')+0 , CI:36864	{}
+0001 ( 227)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0002 ( 232)		CONST	R0(I)[0..0]	<-	CI:0	{I}
+0003 ( 233)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P359 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 233)		BINOP17	R1(I)[0..2]	<-	R0(I)[0..23], CI:3	{I}
+0001 ( 233)		BINOP3	R1(I)[0..120]	<-	R1(IF)[0..2], CI:60	{I}
+0002 ( 232)		BINOP9	R2(I)[0..7]	<-	R0(I)[0..23], CI:7	{I}
+0003 ( 232)		CONST	R3(I)[0..0]	<-	CI:0	{I}
+0004 ( 232)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head P358 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 232)		BINOP16	R4(I)[0..16]	<-	R3(I)[0..2], CI:3	{I}
+0001 ( 230)		CONST	R8(C)[0..0]	<-	CI:0	{}
+0002 ( 232)		JUMP		<-		{}
+		==> 10
+L10: <= D-1: (2) Head P357 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 232)		BINOP2	R5(I)[-7..16]	<-	R4(I)[0..16], R2(I)[0..7]	{}
+0001 ( 231)		CONST	R9(C)[8..8]	<-	CI:8	{}
+0002 ( 233)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2) Head P356 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 233)		RELOP28	R6(B)[0..1]	<-	R5(I)[-7..23], CI:12	{}
+0001 ( 233)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 18
+		==> 19
+L18: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 233)		BINOP3	R6(I)[0..55]	<-	R5(I)[0..11], CI:5	{}
+0001 ( 233)		BINOP1	R6(I)[0..175]	<-	R6(IF)[0..55], R1(I)[0..120]	{}
+0002 ( 233)		CONV37	R7(I)[0..4]	<-	R8(C)[0..4]	{}
+0003 ( 233)		BINOP1	R6(I) {V(20 'bird_art')} [0..179]	<-	R7(IF)[0..4], R6(IF)[0..175]	{}
+0004 ( 233)		LEAG	R6(P)[0..179]	<-	V(20 'bird_art')+0 , R6(IF) {V(20 'bird_art')} [0..179]	{}
+0005 ( 233)		LOADI1	R6(C)[0..255]	<-	R6(PF)+0 {V(20 'bird_art')} [0..179]	{}
+0006 ( 233)		CONV37	R6(I)[0..255]	<-	R6(CF)[0..255]	{}
+0007 ( 233)		JUMP		<-		{}
+		==> 22
+L22: <= D-1: (3) Head P355 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R7(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R7(B)[0..1]	<-	R7(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R7(BF)[0..1]	{}
+		==> 22
+		==> 23
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R6(CF)[0..255]	{V}
+0001 ( 232)		BINOP1	R5(I)[-6..24]	<-	R5(IF)[-7..23], CI:1	{}
+0002 ( 231)		BINOP2	R9(C)[0..7]	<-	R9(CF)[1..8], CI:1	{}
+0003 ( 231)		RELOP27	R6(B)[0..1]	<-	R9(C)[0..7], CC:0	{}
+0004 ( 231)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 14
+		==> 16
+L16: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 235)		CONST	R5(C)[8..8]	<-	CI:8	{}
+0001 (  11)		JUMP		<-		{}
+		==> 25
+L25: <= D-1: (2) Head P354 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head P353 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R6(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R6(B)[0..1]	<-	R6(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 29
+		==> 30
+L30: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:0	{V}
+0001 ( 235)		BINOP2	R5(C)[0..7]	<-	R5(CF)[1..8], CI:1	{}
+0002 ( 235)		RELOP27	R6(B)[0..1]	<-	R5(C)[0..7], CC:0	{}
+0003 ( 235)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 25
+		==> 11
+L11: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 230)		BINOP1	R8(C)[1..5]	<-	R8(CF)[0..4], CI:1	{}
+0001 ( 230)		RELOP28	R5(B)[0..1]	<-	R8(C)[1..5], CC:5	{}
+0002 ( 230)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 10
+		==> 7
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 232)		BINOP1	R3(I)[1..3]	<-	R3(IF)[0..2], CI:1	{}
+0001 ( 229)		RELOP20	R4(B)[0..1]	<-	R3(I)[1..3], CI:3	{}
+0002 ( 229)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 6
+		==> 3
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 232)		BINOP1	R0(I)[1..24]	<-	R0(IF)[0..23], CI:1	{}
+0001 ( 228)		RELOP20	R1(B)[0..1]	<-	R0(I)[1..24], CI:24	{}
+0002 ( 228)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 237)		RET		<-		{}
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 233)		CONST	R6(I)[0..0]	<-	CI:0	{}
+0001 ( 233)		JUMP		<-		{}
+		==> 22
+--------------------------------------------------------------------
+pipe_shapes: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:241
+$00 R0(I), $00 R1(I), $00 R2(I), $00 R3(I), $00 R4(I), $00 R5(C), $01 R6(B), $02 R7(C), $03 R8(C), $00 R9(B), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 252)		LOADZ1	R0(C)[0..255]	<-	V(0 '')+0 	{IS}
+0001 ( 252)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{IS}
+0002 ( 252)		BINOP16	R0(I)[0..510]	<-	R0(IF)[0..255], CI:1	{IS}
+0003 ( 244)		CONST	R5(C)[10..10]	<-	CI:10	{}
+0004 ( 248)		CONST	R1(I)[10..10]	<-	CI:10	{I}
+0005 ( 248)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P278 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 248)		RELOP19	R6(B)[0..1]	<-	R5(C)[2..16], CC:13	{I}
+0001 ( 245)		CONST	R7(C)[0..0]	<-	CI:0	{}
+0002 ( 246)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head P277 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 246)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0001 ( 247)		CONST	R8(C)[0..0]	<-	CI:0	{}
+0002 ( 248)		BRANCH		<-	R6(B)[0..1]	{}
+		==> 13
+		==> 14
+L13: <= D-1: (2) Head P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 252)		CONST	R3(I)[-8..-8]	<-	CI:-8	{}
+0001 ( 248)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (5) Head P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 252)		CONV37	R4(I)[0..7]	<-	R8(C)[0..7]	{}
+0001 ( 252)		BINOP1	R3(I)[-8..63]	<-	R4(I)[0..7], R3(IF)[-8..56]	{}
+0002 ( 252)		BINOP1	R3(I)[-8..573]	<-	R3(IF)[-8..63], R0(I)[0..510]	{}
+0003 ( 253)		RELOP26	R9(B)[0..1]	<-	R5(C)[1..16], CC:12	{I}
+0004 ( 253)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 26
+		==> 27
+L26: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 254)		RELOP21	R9(B)[0..1]	<-	R3(I)[-8..573], CI:8	{}
+0001 ( 254)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 32
+		==> 9
+L32: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 254)		RELOP28	R3(B)[0..1]	<-	R3(IF)[8..573], CI:56	{}
+0001 ( 254)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 29
+		==> 9
+L29: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 254)		BINOP17	R4(I)	<-	CI:128, R4(IF)[0..7]	{}
+0001 ( 254)		CONV37	R2(I)[0..255]	<-	R2(CF)	{}
+0002 ( 254)		BINOP8	R2(I)	<-	R2(IF)[0..255], R4(IF)	{}
+0003 ( 247)		JUMP		<-		{}
+		==> 9
+L9: <= D-1: (5)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 247)		BINOP1	R8(C)[1..8]	<-	R8(CF)[0..7], CI:1	{}
+0001 ( 247)		RELOP28	R3(B)[0..1]	<-	R8(C)[1..8], CC:8	{}
+0002 ( 247)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 10
+		==> 12
+L10: <= D-1: (1) Head P276 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 248)		BRANCH		<-	R6(B)[0..1]	{}
+		==> 13
+		==> 14
+L14: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 249)		RELOP19	R3(B)[0..1]	<-	R5(C)[1..16], CC:12	{I}
+0001 ( 249)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 16
+		==> 17
+L16: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 249)		CONST	R5(C)[1..16]	<-	CI:12	{}
+0001 ( 252)		CONST	R3(I)[48..48]	<-	CI:48	{}
+0002 ( 248)		JUMP		<-		{}
+		==> 15
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 250)		RELOP19	R3(B)[0..1]	<-	R5(C)[1..16], CC:16	{I}
+0001 ( 250)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 19
+		==> 20
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 250)		CONST	R5(C)[1..16]	<-	CI:16	{}
+0001 ( 252)		CONST	R3(I)[56..56]	<-	CI:56	{}
+0002 ( 248)		JUMP		<-		{}
+		==> 15
+L20: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 251)		RELOP19	R3(B)[0..1]	<-	R5(C)[1..16], CC:10	{I}
+0001 ( 251)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 22
+		==> 25
+L22: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 252)		CONST	R3(I)[0..0]	<-	CI:0	{}
+0001 ( 248)		JUMP		<-		{}
+		==> 15
+L25: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 251)		RELOP19	R3(B)[0..1]	<-	R5(C)[1..16], CC:14	{I}
+0001 ( 251)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 22
+		==> 23
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 252)		CONST	R3(I)[24..24]	<-	CI:24	{}
+0001 ( 248)		JUMP		<-		{}
+		==> 15
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 260)		CONV37	R3(I)[0..7]	<-	R7(C)[0..7]	{}
+0001 ( 260)		BINOP16	R4(I)[8..128]	<-	R1(I)[1..16], CI:3	{}
+0002 ( 260)		BINOP1	R3(I)[8..135]	<-	R4(IF)[8..128], R3(IF)[0..7]	{}
+0003 ( 260)		LEAG	R3(P)[8..135]	<-	V(17 'shapes' A)+0 , R3(IF)[8..135]	{}
+0004 ( 260)		STOREI1		<-	R3(PF)+0 {V(17 'shapes' A)} [8..135], R2(CF)	{}
+0005 ( 245)		BINOP1	R7(C)[1..8]	<-	R7(CF)[0..7], CI:1	{}
+0006 ( 245)		RELOP28	R2(B)[0..1]	<-	R7(C)[1..8], CC:8	{}
+0007 ( 245)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 6
+		==> 3
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 248)		BINOP1	R1(I)[2..17]	<-	R1(IF)[1..16], CI:1	{}
+0001 ( 244)		BINOP1	R5(C)[2..17]	<-	R5(CF)[1..16], CI:1	{}
+0002 ( 244)		RELOP26	R2(B)[0..1]	<-	R5(C)[2..17], CC:16	{}
+0003 ( 244)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 266)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0001 ( 267)		CONST	R1(I)[0..0]	<-	CI:0	{}
+0002 ( 267)		JUMP		<-		{}
+		==> 44
+L44: <= D-1: (2) Head P275 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 267)		CONST	R2(I)[255..255]	<-	CI:255	{}
+0001 ( 267)		JUMP		<-		{}
+		==> 106
+L106: <= D-1: (2) Head P274 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 267)		LEAG	R3(P)[40..47]	<-	V(17 'shapes' A)+40 , R1(I)[0..7]	{}
+0001 ( 267)		STOREI1		<-	R3(PF)+0 {V(17 'shapes' A)} [40..47], R2(CF)[15..255]	{}
+0002 ( 266)		BINOP1	R4(C)[1..8]	<-	R4(CF)[0..7], CI:1	{}
+0003 ( 266)		RELOP28	R2(B)[0..1]	<-	R4(C)[1..8], CC:8	{}
+0004 ( 266)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 47
+		==> 43
+L47: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 267)		BINOP1	R1(I)[1..8]	<-	R1(IF)[0..7], CI:1	{}
+0001 ( 267)		RELOP25	R2(B)[0..1]	<-	R4(C)[1..7], CC:6	{}
+0002 ( 267)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 44
+		==> 45
+L45: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 267)		BINOP1	R2(I)[9..15]	<-	R1(I)[1..7], CI:8	{}
+0001 ( 267)		BINOP2	R2(I)[-501..15]	<-	R2(IF)[9..15], R0(I)[0..510]	{}
+0002 ( 267)		BINOP9	R2(I)[0..7]	<-	R2(IF)[-501..15], CI:7	{}
+0003 ( 267)		LEAG	R2(P)[0..7]	<-	V(22 'stripe')+0 , R2(IF)[0..7]	{}
+0004 ( 267)		LOADI1	R2(C)[15..240]	<-	R2(PF)+0 {V(22 'stripe')} [0..7]	{}
+0005 ( 267)		CONV37	R2(I)[15..240]	<-	R2(CF)[15..240]	{}
+0006 ( 267)		JUMP		<-		{}
+		==> 106
+L43: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 268)		RET		<-		{}
+L27: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 255)		RELOP28	R9(B)[0..1]	<-	R3(I)[-8..573], CI:64	{}
+0001 ( 255)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 36
+		==> 9
+L36: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 256)		RELOP20	R9(B)[0..1]	<-	R7(C)[0..7], CC:1	{I}
+0001 ( 256)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 29
+		==> 39
+L39: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 256)		CONST	R7(C)[0..7]	<-	CI:1	{}
+0001 ( 256)		RELOP19	R9(B)[0..1]	<-	R3(I)[0..63], CI:0	{}
+0002 ( 256)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 29
+		==> 38
+L38: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 256)		RELOP19	R3(B)[0..1]	<-	R3(IF)[0..63], CI:63	{}
+0001 ( 256)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 29
+		==> 9
+--------------------------------------------------------------------
+reset_game: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:449
+$00 R0(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 457)		STOREG2		<-	V(31 'pipes' A)+0 , CI:84	{}
+0001 ( 452)		STOREG2		<-	V(27 'score')+0 , CI:0	{}
+0002 ( 452)		STOREG2		<-	V(28 'velocity')+0 , CI:0	{}
+0003 ( 452)		STOREG2		<-	V(29 'bird_y')+0 , CI:1408	{}
+0004 ( 452)		STOREG1		<-	V(30 'phase')+0 , CC:0	{}
+0005 ( 459)		CALLN	R0(C)	<-	V(8 'gap_next')+0 	{}
+0006 ( 459)		STOREG1		<-	V(31 'pipes' A)+2 , R0(CF)	{}
+0007 ( 459)		STOREG1		<-	V(31 'pipes' A)+3 , CC:0	{}
+0008 ( 457)		STOREG2		<-	V(31 'pipes' A)+4 , CI:113	{}
+0009 ( 459)		CALLN	R0(C)	<-	V(8 'gap_next')+0 	{}
+000a ( 459)		STOREG1		<-	V(31 'pipes' A)+6 , R0(CF)	{}
+000b ( 459)		STOREG1		<-	V(31 'pipes' A)+7 , CC:0	{}
+000c ( 457)		STOREG2		<-	V(31 'pipes' A)+8 , CI:142	{}
+000d ( 459)		CALLN	R0(C)	<-	V(8 'gap_next')+0 	{}
+000e ( 459)		STOREG1		<-	V(31 'pipes' A)+10 , R0(CF)	{}
+000f ( 459)		STOREG1		<-	V(31 'pipes' A)+11 , CC:0	{}
+0010 ( 457)		STOREG2		<-	V(31 'pipes' A)+12 , CI:171	{}
+0011 ( 459)		CALLN	R0(C)	<-	V(8 'gap_next')+0 	{}
+0012 ( 459)		STOREG1		<-	V(31 'pipes' A)+14 , R0(CF)	{}
+0013 ( 459)		STOREG1		<-	V(31 'pipes' A)+15 , CC:0	{}
+0014 ( 461)		CALLN		<-	V(9 'field')+0 	{}
+0015 ( 461)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0016 ( 462)		RET		<-		{}
+--------------------------------------------------------------------
+gap_next: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:160
+$00 R0(I), $00 R1(I), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 162)		LOADG2	R0(I)[0..65535]	<-	V(32 'random_state')+0 	{}
+0001 ( 162)		BINOP9	R1(I)[0..1]	<-	R0(I)[0..65535], CI:1	{}
+0002 ( 162)		RELOP20	R1(B)[0..1]	<-	R1(IF)[0..1], CI:0	{}
+0003 ( 162)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 2
+		==> 3
+L2: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 162)		CONST	R1(I)[46080..46080]	<-	CI:46080	{}
+0001 ( 162)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 162)		BINOP17	R0(I)[0..32767]	<-	R0(IF)[0..65535], CI:1	{}
+0001 ( 162)		BINOP10	R0(I)	<-	R0(IF)[0..32767], R1(IF)[0..46080]	{}
+0002 ( 162)		STOREG2		<-	V(32 'random_state')+0 , R0(I)	{}
+0003 ( 163)		BINOP6	R0(I)[0..11]	<-	R0(IF), CI:12	{}
+0004 ( 163)		BINOP1	R0(I)[2..13]	<-	R0(IF)[0..11], CI:2	{}
+0005 ( 163)		RETV		<-	R0(CF)[2..13]	{}
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 162)		CONST	R1(I)[0..0]	<-	CI:0	{}
+0001 ( 162)		JUMP		<-		{}
+		==> 4
+--------------------------------------------------------------------
+field: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:439
+$00 R0(I), $07 R1(C), $00 R2(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 442)		CONST	R1(C)[0..0]	<-	CI:0	{}
+0001 ( 443)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P96 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 443)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0001 ( 443)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head P95 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 443)		STOREC1		<-	V(0 '')+0 , R2(C)[0..79]	{}
+0001 ( 443)		STOREC1		<-	V(1 '')+0 , R1(C)[0..24]	{}
+0002 ( 443)		CALLN		<-	V(10 'background')+0 	{}
+0003 ( 443)		BINOP1	R2(C)[1..80]	<-	R2(CF)[0..79], CI:1	{}
+0004 ( 443)		RELOP28	R0(B)[0..1]	<-	R2(C)[1..80], CC:80	{}
+0005 ( 443)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 6
+		==> 3
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 442)		BINOP1	R1(C)[1..25]	<-	R1(CF)[0..24], CI:1	{}
+0001 ( 442)		RELOP28	R0(B)[0..1]	<-	R1(C)[1..25], CC:25	{}
+0002 ( 442)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 444)		STOREC1		<-	V(0 '')+0 , CC:2	{}
+0001 ( 444)		STOREC1		<-	V(1 '')+0 , CC:23	{}
+0002 ( 444)		STOREC1		<-	V(2 '')+0 , CC:27	{}
+0003 ( 444)		STOREC1		<-	V(3 '')+0 , CC:13	{}
+0004 ( 444)		CALLN		<-	V(11 'cell')+0 	{}
+0005 ( 445)		STOREC1		<-	V(0 '')+0 , CC:72	{}
+0006 ( 445)		STOREC1		<-	V(1 '')+0 , CC:23	{}
+0007 ( 445)		STOREC1		<-	V(2 '')+0 , CC:28	{}
+0008 ( 445)		STOREC1		<-	V(3 '')+0 , CC:13	{}
+0009 ( 445)		CALLN		<-	V(11 'cell')+0 	{}
+000a ( 446)		STOREC1		<-	V(4 '')+0 , CC:4	{}
+000b ( 446)		LOADG2	R0(I)[0..65535]	<-	V(27 'score')+0 	{}
+000c ( 446)		STOREC2		<-	V(5 '')+0 , R0(IF)[0..65535]	{}
+000d ( 446)		CALLN		<-	V(12 'number')+0 	{}
+000e ( 446)		STOREC1		<-	V(4 '')+0 , CC:74	{}
+000f ( 446)		LOADG2	R0(I)[0..65535]	<-	V(44 'best')+0 	{}
+0010 ( 446)		STOREC2		<-	V(5 '')+0 , R0(IF)[0..65535]	{}
+0011 ( 446)		CALLN		<-	V(12 'number')+0 	{}
+0012 ( 447)		RET		<-		{}
+--------------------------------------------------------------------
+background: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:166
+$00 R0(I), $02 R1(I), $00 R2(I), $04 R3(I), $00 R4(I), $00 R5(I), $00 R6(I), $00 R7(C), $00 R8(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 169)		LOADZ1	R1(C)[0..255]	<-	V(0 '')+0 	{S}
+0001 ( 190)		STOREC1		<-	V(0 '')+0 , R1(C)[0..255]	{}
+0002 ( 190)		LOADZ1	R7(C)[0..255]	<-	V(1 '')+0 	{S}
+0003 ( 190)		STOREC1		<-	V(1 '')+0 , R7(C)[0..255]	{}
+0004 ( 168)		CONST	R0(C)[32..32]	<-	CI:32	{}
+0005 ( 168)		CONST	R8(C)[4..4]	<-	CI:4	{}
+0006 ( 169)		RELOP25	R2(B)[0..1]	<-	R1(C)[0..255], CC:80	{S}
+0007 ( 169)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 3
+		==> 2
+L3: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 190)		STOREC1		<-	V(2 '')+0 , R0(CF)[0..32]	{}
+0001 ( 190)		STOREC1		<-	V(3 '')+0 , R8(CF)[4..13]	{}
+0002 ( 190)		CALLN		<-	V(11 'cell')+0 	{}
+0003 ( 191)		RET		<-		{}
+L2: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 170)		RELOP19	R2(B)[0..1]	<-	R7(C)[0..255], CC:21	{S}
+0001 ( 170)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 170)		CONST	R0(C)[5..5]	<-	CI:5	{}
+0001 ( 170)		CONST	R8(C)[5..5]	<-	CI:5	{}
+0002 ( 170)		JUMP		<-		{}
+		==> 3
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 171)		RELOP27	R2(B)[0..1]	<-	R7(C)[0..255], CC:21	{S}
+0001 ( 171)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 8
+		==> 9
+L8: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 171)		CONST	R0(C)[0..0]	<-	CI:0	{}
+0001 ( 171)		CONST	R8(C)[13..13]	<-	CI:13	{}
+0002 ( 171)		JUMP		<-		{}
+		==> 3
+L9: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 174)		CONV37	R1(I)[0..79]	<-	R1(CF)[0..79]	{IS}
+0001 ( 174)		CONST	R2(I)[0..0]	<-	CI:0	{}
+0002 ( 174)		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (2) Head P183 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 174)		BINOP16	R3(I)[0..12]	<-	R2(I)[0..3], CI:2	{}
+0001 ( 174)		LEAG	R3(P)[0..12]	<-	V(31 'pipes' A)+0 , R3(IF)[0..12]	{}
+0002 ( 174)		LOADI2	R4(I)[-32768..32767]	<-	R3(P)+0 {V(31 'pipes' A)} [0..12]	{}
+0003 ( 174)		BINOP2	R4(I)[-32767..32847]	<-	R1(I)[0..79], R4(IF)[-32768..32767]	{}
+0004 ( 176)		RELOP21	R5(B)[0..1]	<-	R4(I)[-32767..32847], CI:-1	{}
+0005 ( 176)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 19
+		==> 11
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 176)		RELOP24	R5(B)[0..1]	<-	R4(I)[-1..32767], CI:8	{}
+0001 ( 176)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 18
+		==> 11
+L18: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 175)		LOADI1	R6(C)[0..255]	<-	R3(PF)+2 {V(31 'pipes' A)} [0..12]	{}
+0001 ( 176)		CONV37	R3(I)[0..255]	<-	R6(C)[0..255]	{}
+0002 ( 176)		CONV37	R5(I)[0..21]	<-	R7(C)[0..21]	{S}
+0003 ( 176)		RELOP28	R6(B)[0..1]	<-	R7(C)[0..21], R6(CF)[0..255]	{}
+0004 ( 176)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 15
+		==> 20
+L15: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 177)		BINOP2	R3(I)[-1..254]	<-	R3(IF)[0..255], CI:1	{}
+0001 ( 177)		RELOP19	R6(B)[0..1]	<-	R5(I)[0..21], R3(I)[-1..254]	{}
+0002 ( 177)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 21
+		==> 24
+L21: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 181)		CONST	R8(C)[5..5]	<-	CI:5	{}
+0001 ( 178)		RELOP19	R0(B)[0..1]	<-	R4(I)[-1..7], CI:-1	{}
+0002 ( 178)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 25
+		==> 26
+L25: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 178)		CONST	R0(C)[13..13]	<-	CI:13	{}
+0001 ( 173)		JUMP		<-		{}
+		==> 11
+L11: <= D-1: (11)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 174)		BINOP1	R2(I)[1..4]	<-	R2(IF)[0..3], CI:1	{}
+0001 ( 173)		RELOP20	R3(B)[0..1]	<-	R2(I)[1..4], CI:4	{}
+0002 ( 173)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 12
+		==> 3
+L26: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 179)		RELOP19	R0(B)[0..1]	<-	R4(I)[-1..7], CI:0	{}
+0001 ( 179)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 29
+L28: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 178)		CONST	R0(C)[14..14]	<-	CI:14	{}
+0001 ( 173)		JUMP		<-		{}
+		==> 11
+L29: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 180)		RELOP19	R0(B)[0..1]	<-	R4(IF)[-1..7], CI:7	{}
+0001 ( 180)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 60
+		==> 61
+L60: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 180)		CONST	R0(I)[16..16]	<-	CI:16	{}
+0001 ( 180)		JUMP		<-		{}
+		==> 11
+L61: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 180)		CONST	R0(I)[15..15]	<-	CI:15	{}
+0001 ( 180)		JUMP		<-		{}
+		==> 11
+L24: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 177)		BINOP1	R3(I)[7..262]	<-	R3(IF)[-1..254], CI:8	{}
+0001 ( 177)		RELOP19	R3(B)[0..1]	<-	R5(IF)[0..21], R3(IF)[7..262]	{}
+0002 ( 177)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 21
+		==> 22
+L22: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 182)		RELOP26	R3(B)[0..1]	<-	R4(I)[-1..7], CI:6	{}
+0001 ( 182)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 31
+		==> 11
+L31: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 185)		CONST	R8(C)[4..4]	<-	CI:4	{}
+0001 ( 183)		RELOP19	R0(B)[0..1]	<-	R4(I)[0..6], CI:0	{}
+0002 ( 183)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 35
+		==> 36
+L35: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 183)		CONST	R0(C)[10..10]	<-	CI:10	{}
+0001 ( 173)		JUMP		<-		{}
+		==> 11
+L36: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 184)		RELOP19	R0(B)[0..1]	<-	R4(IF)[0..6], CI:6	{}
+0001 ( 184)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 63
+		==> 64
+L63: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 184)		CONST	R0(I)[12..12]	<-	CI:12	{}
+0001 ( 184)		JUMP		<-		{}
+		==> 11
+L64: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 184)		CONST	R0(I)[11..11]	<-	CI:11	{}
+0001 ( 184)		JUMP		<-		{}
+		==> 11
+L20: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 176)		BINOP1	R6(I)[7..262]	<-	R3(I)[0..255], CI:7	{}
+0001 ( 176)		RELOP25	R6(B)[0..1]	<-	R5(I)[0..21], R6(IF)[7..262]	{}
+0002 ( 176)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 15
+		==> 11
+--------------------------------------------------------------------
+cell: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:147
+$00 R0(I), $00 R1(I), $02 R2(I), $00 R3(I), $00 R4(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 149)		LOADZ1	R0(C)[0..255]	<-	V(0 '')+0 	{S}
+0001 ( 149)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{S}
+0002 ( 149)		LOADZ1	R1(C)[0..24]	<-	V(1 '')+0 	{S}
+0003 ( 149)		CONV37	R1(I)[0..24]	<-	R1(CF)[0..24]	{S}
+0004 ( 149)		BINOP16	R1(I)[0..48]	<-	R1(IF)[0..24], CI:1	{S}
+0005 ( 149)		LEAG	R1(P)[0..48]	<-	V(25 'row_addr' A)+0 , R1(IF)[0..48]	{S}
+0006 ( 149)		LOADI2	R1(I)[0..1999]	<-	R1(PF)+0 {V(25 'row_addr' A)} [0..48]	{}
+0007 ( 149)		BINOP1	R0(I)[0..1999]	<-	R1(IF)[0..1999], R0(IF)[0..255]	{}
+0008 ( 137)		LEAG	R1(P)[0..2254]	<-	V(33 'screen' A)+0 , R0(I)[0..1999]	{}
+0009 ( 137)		LOADI1	R2(C)[0..255]	<-	R1(P)+0 {V(33 'screen' A)} [0..2254]	{}
+000a ( 149)		LOADZ1	R3(C)[0..255]	<-	V(2 '')+0 	{S}
+000b ( 137)		RELOP20	R2(B)[0..1]	<-	R2(CF)[0..255], R3(C)[0..255]	{}
+000c ( 137)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 2
+		==> 18
+L2: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 137)		STOREI1		<-	R1(PF)+0 {V(33 'screen' A)} [0..2254], R3(CF)[0..255]	{}
+0001 ( 137)		CONST	R2(C)[1..1]	<-	CI:1	{}
+0002 ( 137)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 138)		LEAG	R1(P)[0..1999]	<-	V(34 'attr' A)+0 , R0(I)[0..1999]	{}
+0001 ( 138)		LOADI1	R3(C)[0..255]	<-	R1(P)+0 {V(34 'attr' A)} [0..1999]	{}
+0002 ( 149)		LOADZ1	R4(C)[0..255]	<-	V(3 '')+0 	{S}
+0003 ( 138)		RELOP20	R3(B)[0..1]	<-	R3(CF)[0..255], R4(C)[0..255]	{}
+0004 ( 138)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 5
+		==> 7
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 138)		STOREI1		<-	R1(PF)+0 {V(34 'attr' A)} [0..1999], R4(CF)[0..255]	{}
+0001 ( 138)		BINOP8	R2(C)[0..3]	<-	R2(CF)[0..1], CC:2	{}
+0002 ( 139)		BRANCH		<-	R2(C)[0..3]	{}
+		==> 10
+		==> 1
+L10: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 144)		CONV37	R1(I)[0..3]	<-	R2(CF)[0..3]	{}
+0001 ( 144)		BINOP16	R2(I)[0..12]	<-	R1(I)[0..3], CI:2	{}
+0002 ( 144)		BINOP8	R1(I)[0..15]	<-	R2(IF)[0..12], R1(IF)[0..3]	{}
+0003 ( 142)		LEAG	R2(P)[0..1999]	<-	V(35 'marked' A)+0 , R0(I)[0..1999]	{}
+0004 ( 142)		LOADI1	R4(C)[0..255]	<-	R2(P)+0 {V(35 'marked' A)} [0..1999]	{}
+0005 ( 143)		CONV37	R3(I)[0..255]	<-	R4(C)[0..255]	{}
+0006 ( 144)		BINOP8	R1(I)[0..255]	<-	R3(I)[0..255], R1(IF)[0..15]	{}
+0007 ( 144)		STOREI1		<-	R2(PF)+0 {V(35 'marked' A)} [0..1999], R1(CF)[0..255]	{}
+0008 ( 142)		BRANCH		<-	R4(CF)[0..255]	{}
+		==> 14
+		==> 12
+L14: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 143)		BINOP9	R3(I)[0..3]	<-	R3(IF)[0..255], CI:3	{}
+0001 ( 143)		BRANCH		<-	R3(IF)[0..3]	{}
+		==> 1
+		==> 15
+L1: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 150)		RET		<-		{}
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 143)		LOADG2	R0(I)[0..65535]	<-	V(38 'front_count')+0 	{}
+0001 ( 143)		BINOP1	R0(I)	<-	R0(IF)[0..65535], CI:1	{}
+0002 ( 143)		STOREG2		<-	V(38 'front_count')+0 , R0(IF)	{}
+0003 ( 143)		JUMP		<-		{}
+		==> 1
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 142)		LOADG2	R1(I)[0..1999]	<-	V(37 'dirty_count')+0 	{}
+0001 ( 142)		BINOP1	R2(I)[1..2000]	<-	R1(I)[0..1999], CI:1	{}
+0002 ( 142)		STOREG2		<-	V(37 'dirty_count')+0 , R2(IF)[1..2000]	{}
+0003 ( 142)		BINOP16	R1(I)[0..3998]	<-	R1(IF)[0..1999], CI:1	{}
+0004 ( 142)		LEAG	R1(P)[0..3998]	<-	V(36 'dirty' A)+0 , R1(IF)[0..3998]	{}
+0005 ( 142)		STOREI2		<-	R1(PF)+0 {V(36 'dirty' A)} [0..3998], R0(IF)[0..1999]	{}
+0006 ( 142)		JUMP		<-		{}
+		==> 14
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 139)		BRANCH		<-	R2(C)[0..3]	{}
+		==> 10
+		==> 1
+L18: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 136)		CONST	R2(C)[0..0]	<-	CI:0	{}
+0001 ( 137)		JUMP		<-		{}
+		==> 4
+--------------------------------------------------------------------
+number: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:152
+$04 R0(I), $00 R1(I), $00 R2(I), $06 R3(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 152)		LOADZ1	R0(C)[4..74]	<-	V(4 '')+0 	{S}
+0001 ( 156)		CONV37	R0(I)[4..74]	<-	R0(CF)[4..74]	{IS}
+0002 ( 156)		BINOP1	R2(I)[7..77]	<-	R0(IF)[4..74], CI:3	{I}
+0003 ( 155)		CONST	R3(C)[4..4]	<-	CI:4	{}
+0004 ( 156)		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2) Head P53 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 156)		STOREC1		<-	V(0 '')+0 , R2(C)[4..77]	{}
+0001 ( 156)		STOREC1		<-	V(1 '')+0 , CC:23	{}
+0002 ( 156)		STOREC1		<-	V(3 '')+0 , CC:13	{}
+0003 ( 156)		LOADZ2	R0(I)[0..65535]	<-	V(5 '')+0 	{}
+0004 ( 156)		BINOP6	R1(I)[0..9]	<-	R0(I)[0..65535], CI:10	{}
+0005 ( 156)		BINOP4	R0(I)[0..6553]	<-	R0(IF)[0..65535], CI:10	{}
+0006 ( 156)		BINOP1	R1(I)[17..26]	<-	R1(IF)[0..9], CI:17	{}
+0007 ( 156)		STOREC1		<-	V(2 '')+0 , R1(CF)[17..26]	{}
+0008 ( 156)		CALLN		<-	V(11 'cell')+0 	{}
+0009 ( 156)		STOREZ2		<-	V(5 '')+0 , R0(IF)[0..6553]	{}
+000a ( 156)		BINOP2	R2(I)[3..76]	<-	R2(IF)[4..77], CI:1	{}
+000b ( 155)		BINOP2	R3(C)[0..3]	<-	R3(CF)[1..4], CI:1	{}
+000c ( 155)		RELOP27	R0(B)[0..1]	<-	R3(C)[0..3], CC:0	{}
+000d ( 155)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 5
+		==> 7
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 152)		RET		<-		{}
+--------------------------------------------------------------------
+bird_draw: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:270
+$00 R0(I), $00 R1(I), $06 R2(I), $07 R3(I), $08 R4(C), $09 R5(C), $0a R6(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 273)		LOADG1	R4(C)[0..255]	<-	V(46 'bird_row')+0 	{}
+0001 ( 274)		LOADG2	R0(I)[-32768..32767]	<-	V(29 'bird_y')+0 	{}
+0002 ( 274)		BINOP18	R2(I)[-2048..2047]	<-	R0(IF)[-32768..32767], CI:4	{}
+0003 ( 275)		BINOP18	R3(I)[-256..255]	<-	R2(I)[-2048..2047], CI:3	{}
+0004 ( 275)		STOREG1		<-	V(46 'bird_row')+0 , R3(C)[-256..255]	{}
+0005 ( 279)		RELOP20	R0(B)[0..1]	<-	R4(C)[0..255], CC:255	{}
+0006 ( 279)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 280)		MOVE	R5(C)[0..255]	<-	R4(C)[0..255]	{}
+0001 ( 280)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2) Head P311 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 280)		CONV37	R0(I)[0..255]	<-	R4(C)[0..255]	{}
+0001 ( 280)		BINOP1	R0(I)[2..257]	<-	R0(IF)[0..255], CI:2	{}
+0002 ( 280)		CONV37	R1(I)[0..255]	<-	R5(C)[0..255]	{}
+0003 ( 280)		RELOP26	R0(B)[0..1]	<-	R1(I)[0..255], R0(IF)[2..257]	{}
+0004 ( 280)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 8
+		==> 3
+L8: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 280)		RELOP28	R0(B)[0..1]	<-	R5(C)[0..255], CC:21	{}
+0001 ( 280)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 5
+		==> 3
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 281)		RELOP28	R0(B)[0..1]	<-	R5(C)[0..20], R3(C)[-256..255]	{}
+0001 ( 281)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 12
+L9: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 282)		CONST	R1(C)[30..30]	<-	CI:30	{}
+0001 ( 282)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (2) Head P308 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 282)		STOREC1		<-	V(0 '')+0 , R1(C)[30..34]	{}
+0001 ( 282)		STOREC1		<-	V(1 '')+0 , R5(C)[0..20]	{}
+0002 ( 282)		CALLN		<-	V(10 'background')+0 	{}
+0003 ( 282)		BINOP1	R1(C)[31..35]	<-	R1(CF)[30..34], CI:1	{}
+0004 ( 282)		RELOP28	R0(B)[0..1]	<-	R1(C)[31..35], CC:35	{}
+0005 ( 282)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 6
+L6: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 280)		BINOP1	R5(C)[1..21]	<-	R5(CF)[0..20], CI:1	{}
+0001 ( 280)		JUMP		<-		{}
+		==> 4
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 281)		CONV37	R0(I)[0..255]	<-	R3(C)[-256..255]	{}
+0001 ( 281)		BINOP1	R0(I)[2..257]	<-	R0(IF)[0..255], CI:2	{}
+0002 ( 281)		RELOP27	R0(B)[0..1]	<-	R1(IF)[0..20], R0(IF)[2..257]	{}
+0003 ( 281)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 6
+L3: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 283)		LOADG2	R0(I)[0..65535]	<-	V(47 'frame_count')+0 	{V}
+0001 ( 283)		LOADG1	R1(C)[0..255]	<-	V(26 'state')+0 	{}
+0002 ( 283)		RELOP19	R1(B)[0..1]	<-	R1(CF)[0..255], CC:1	{}
+0003 ( 283)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 92
+		==> 93
+L92: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 283)		BINOP17	R0(I)[0..16383]	<-	R0(IF)[0..65535], CI:2	{}
+0001 ( 283)		BINOP9	R0(I)[0..3]	<-	R0(IF)[0..16383], CI:3	{}
+0002 ( 283)		LEAG	R0(P)[0..3]	<-	V(45 'flap')+0 , R0(IF)[0..3]	{}
+0003 ( 283)		LOADI1	R0(C)[0..2]	<-	R0(PF)+0 {V(45 'flap')} [0..3]	{}
+0004 ( 283)		CONV37	R0(I)[0..2]	<-	R0(CF)[0..2]	{}
+0005 ( 283)		JUMP		<-		{}
+		==> 94
+L94: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 283)		BINOP16	R0(I)[0..16]	<-	R0(IF)[0..2], CI:3	{}
+0001 ( 283)		BINOP9	R1(I)[0..7]	<-	R2(IF)[-2048..2047], CI:7	{}
+0002 ( 283)		BINOP1	R0(I)[0..23]	<-	R1(IF)[0..7], R0(IF)[0..16]	{}
+0003 ( 283)		STOREG1		<-	V(48 'bird_pose')+0 , R0(CF)[0..23]	{}
+0004 ( 284)		LOADG1	R0(C)[0..255]	<-	V(50 'shown_set')+0 	{}
+0005 ( 284)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0006 ( 284)		LOADG1	R1(C)[0..255]	<-	V(49 'shown_row')+0 	{}
+0007 ( 284)		RELOP19	R1(B)[0..1]	<-	R3(C)[-256..255], R1(CF)[0..255]	{}
+0008 ( 284)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 97
+		==> 96
+L97: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 284)		STOREG1		<-	V(51 'bird_set')+0 , R0(C)[0..255]	{}
+0001 ( 285)		BINOP3	R0(I)[0..3825]	<-	R0(IF)[0..255], CI:15	{}
+0002 ( 285)		BINOP1	R2(I)[96..3921]	<-	R0(IF)[0..3825], CI:96	{}
+0003 ( 286)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0004 ( 287)		JUMP		<-		{}
+		==> 18
+L18: <= D-1: (2) Head P310 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 287)		CONV37	R0(I)[0..255]	<-	R3(C)[-256..255]	{}
+0001 ( 287)		CONV37	R1(I)[0..2]	<-	R4(C)[0..2]	{}
+0002 ( 287)		BINOP1	R1(I)[0..257]	<-	R1(IF)[0..2], R0(IF)[0..255]	{}
+0003 ( 287)		RELOP25	R0(B)[0..1]	<-	R1(I)[0..257], CI:21	{}
+0004 ( 287)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 20
+		==> 23
+L20: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 291)		RET		<-		{}
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 288)		CONST	R5(C)[0..0]	<-	CI:0	{}
+0001 ( 289)		CONST	R6(C)[30..30]	<-	CI:30	{}
+0002 ( 289)		JUMP		<-		{}
+		==> 26
+L26: <= D-1: (2) Head P309 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 289)		STOREC1		<-	V(0 '')+0 , R6(C)[30..34]	{}
+0001 ( 289)		STOREC1		<-	V(1 '')+0 , R1(C)[0..20]	{}
+0002 ( 289)		STOREC1		<-	V(2 '')+0 , R2(C)[96..]	{}
+0003 ( 289)		CONV37	R0(I)[0..4]	<-	R5(C)[0..4]	{}
+0004 ( 289)		LEAG	R0(P)[0..4]	<-	V(52 'bird_colours')+0 , R0(IF)[0..4]	{}
+0005 ( 289)		LOADI1	R0(C)[9..15]	<-	R0(PF)+0 {V(52 'bird_colours')} [0..4]	{}
+0006 ( 289)		STOREC1		<-	V(3 '')+0 , R0(CF)[9..15]	{}
+0007 ( 289)		CALLN		<-	V(11 'cell')+0 	{}
+0008 ( 289)		BINOP1	R6(C)[31..35]	<-	R6(CF)[30..34], CC:1	{}
+0009 ( 289)		BINOP1	R2(C)[97..]	<-	R2(CF)[96..], CI:1	{}
+000a ( 288)		BINOP1	R5(C)[1..5]	<-	R5(CF)[0..4], CI:1	{}
+000b ( 288)		RELOP28	R0(B)[0..1]	<-	R5(C)[1..5], CC:5	{}
+000c ( 288)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 26
+		==> 19
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 286)		BINOP1	R4(C)[1..3]	<-	R4(CF)[0..2], CI:1	{}
+0001 ( 286)		RELOP28	R0(B)[0..1]	<-	R4(C)[1..3], CC:3	{}
+0002 ( 286)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 18
+		==> 20
+L96: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 284)		BINOP10	R0(I)[0..255]	<-	R0(IF)[0..255], CI:1	{}
+0001 ( 284)		JUMP		<-		{}
+		==> 97
+L93: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 283)		CONST	R0(I)[1..1]	<-	CI:1	{}
+0001 ( 283)		JUMP		<-		{}
+		==> 94
+--------------------------------------------------------------------
+banner: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:414
+$00 R0(I), $00 R1(I), $02 R2(I), $06 R3(I), $07 R4(C), $08 R5(B), $09 R6(C), $0a R7(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 417)		LOADG1	R4(C)[0..255]	<-	V(26 'state')+0 	{}
+0001 ( 417)		RELOP19	R5(B)[0..1]	<-	R4(C)[0..255], CC:0	{}
+0002 ( 417)		BRANCH		<-	R5(B)[0..1]	{}
+		==> 48
+		==> 49
+L48: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 417)		STOREG1		<-	V(53 'panel_y')+0 , CC:2	{}
+0001 ( 417)		CONST	R4(C)[0..255]	<-	CI:0	{}
+0002 ( 423)		CONST	R3(I)[2..2]	<-	CI:2	{I}
+0003 ( 417)		JUMP		<-		{}
+		==> 50
+L50: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 418)		CONST	R6(C)[0..0]	<-	CI:0	{}
+0001 ( 419)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P165 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 419)		CONST	R7(C)[0..0]	<-	CI:0	{}
+0001 ( 421)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0002 ( 420)		CONST	R1(C)[0..0]	<-	CI:0	{}
+0003 ( 421)		BRANCH		<-	R6(C)[0..7]	{}
+		==> 14
+		==> 52
+L14: <= D-1: (2) Head P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 421)		RELOP19	R2(B)[0..1]	<-	R6(C)[0..7], CC:7	{I}
+0001 ( 421)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 51
+		==> 163
+L51: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 421)		CONST	R6(C)[0..7]	<-	CI:7	{}
+0001 ( 422)		CONST	R1(I)[2..2]	<-	CI:2	{}
+0002 ( 422)		JUMP		<-		{}
+		==> 53
+L53: <= D-1: (2) Head P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 422)		RELOP20	R2(B)[0..1]	<-	R7(C)[0..23], CC:0	{}
+0001 ( 422)		CONV37	R2(I)[0..1]	<-	R2(CF)[0..1]	{}
+0002 ( 422)		BINOP1	R2(I)[154..155]	<-	R2(IF)[0..1], CI:154	{}
+0003 ( 422)		BINOP1	R1(I)[154..157]	<-	R2(IF)[154..155], R1(IF)[0..2]	{}
+0004 ( 421)		JUMP		<-		{}
+		==> 163
+L163: <= D-1: (3) Head P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 423)		STOREC1		<-	V(1 '')+0 , R3(C)[2..13]	{}
+0001 ( 423)		STOREC1		<-	V(2 '')+0 , R1(CF)[0..157]	{}
+0002 ( 423)		STOREC1		<-	V(3 '')+0 , CC:13	{}
+0003 ( 423)		BINOP1	R0(I)[28..51]	<-	R0(IF)[0..23], CI:28	{}
+0004 ( 423)		STOREC1		<-	V(0 '')+0 , R0(C)[28..51]	{}
+0005 ( 423)		CALLN		<-	V(11 'cell')+0 	{}
+0006 ( 419)		BINOP1	R7(C)[1..24]	<-	R7(CF)[0..23], CI:1	{}
+0007 ( 419)		RELOP28	R1(B)[0..1]	<-	R7(C)[1..24], CC:24	{}
+0008 ( 419)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 6
+		==> 3
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 421)		BINOP1	R0(I)[1..24]	<-	R0(IF)[28..51], CI:-27	{}
+0001 ( 420)		CONST	R1(C)[0..0]	<-	CI:0	{}
+0002 ( 421)		RELOP19	R2(B)[0..1]	<-	R7(C)[1..23], CC:23	{}
+0003 ( 421)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 12
+		==> 163
+L12: <= D-1: (1) Head P164 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 421)		BRANCH		<-	R6(C)[0..7]	{}
+		==> 14
+		==> 52
+L52: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 422)		CONST	R1(I)[0..0]	<-	CI:0	{}
+0001 ( 422)		JUMP		<-		{}
+		==> 53
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 423)		BINOP1	R3(I)[3..14]	<-	R3(IF)[2..13], CI:1	{}
+0001 ( 418)		BINOP1	R6(C)[1..8]	<-	R6(CF)[0..7], CI:1	{}
+0002 ( 418)		RELOP28	R0(B)[0..1]	<-	R6(C)[1..8], CC:8	{}
+0003 ( 418)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 425)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 15
+		==> 16
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 426)		STOREC1		<-	V(4 '')+0 , CC:2	{}
+0001 ( 426)		CONST	R0(P)[0..0]	<-	CG0(57:0 '')	{S}
+0002 ( 426)		STOREC2		<-	V(5 '')+0 , R0(PF)+0 {V(57 '')} [0..0]	{}
+0003 ( 426)		CALLN		<-	V(15 'panel_text')+0 	{}
+0004 ( 427)		STOREC1		<-	V(4 '')+0 , CC:5	{}
+0005 ( 427)		CONST	R0(P)[0..0]	<-	CG0(58:0 '')	{S}
+0006 ( 425)		JUMP		<-		{}
+		==> 87
+L87: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 432)		STOREC2		<-	V(5 '')+0 , R0(PF)+0 {V(63 '')} [0..0]	{}
+0001 ( 432)		CALLN		<-	V(15 'panel_text')+0 	{}
+0002 ( 428)		JUMP		<-		{}
+		==> 17
+L17: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 437)		RET		<-		{}
+L16: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 428)		RELOP19	R0(B)[0..1]	<-	R4(C)[0..255], CC:2	{}
+0001 ( 428)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 18
+		==> 19
+L18: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 429)		STOREC1		<-	V(4 '')+0 , CC:1	{}
+0001 ( 429)		CONST	R0(P)[0..0]	<-	CG0(59:0 '')	{S}
+0002 ( 429)		STOREC2		<-	V(5 '')+0 , R0(PF)+0 {V(59 '')} [0..0]	{}
+0003 ( 429)		CALLN		<-	V(15 'panel_text')+0 	{}
+0004 ( 430)		CONST	R0(P)[0..0]	<-	CG0(61:0 '')	{S}
+0005 ( 430)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(61 '')} [0..0]	{}
+0006 ( 430)		LOADG2	R0(I)[0..65535]	<-	V(27 'score')+0 	{}
+0007 ( 430)		STOREC2		<-	V(2 '')+0 , R0(IF)[0..65535]	{}
+0008 ( 430)		CALLN	R0(P)	<-	V(16 'score_line')+0 	{}
+0009 ( 430)		STOREC1		<-	V(4 '')+0 , CC:3	{}
+000a ( 430)		STOREC2		<-	V(5 '')+0 , R0(PF)	{}
+000b ( 430)		CALLN		<-	V(15 'panel_text')+0 	{}
+000c ( 431)		CONST	R0(P)[0..0]	<-	CG0(62:0 '')	{S}
+000d ( 431)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(62 '')} [0..0]	{}
+000e ( 431)		LOADG2	R0(I)[0..65535]	<-	V(44 'best')+0 	{}
+000f ( 431)		STOREC2		<-	V(2 '')+0 , R0(IF)[0..65535]	{}
+0010 ( 431)		CALLN	R0(P)	<-	V(16 'score_line')+0 	{}
+0011 ( 431)		STOREC1		<-	V(4 '')+0 , CC:4	{}
+0012 ( 431)		STOREC2		<-	V(5 '')+0 , R0(PF)	{}
+0013 ( 431)		CALLN		<-	V(15 'panel_text')+0 	{}
+0014 ( 432)		STOREC1		<-	V(4 '')+0 , CC:6	{}
+0015 ( 432)		CONST	R0(P)[0..0]	<-	CG0(63:0 '')	{S}
+0016 ( 428)		JUMP		<-		{}
+		==> 87
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 433)		RELOP19	R0(B)[0..1]	<-	R4(CF)[0..255], CC:3	{}
+0001 ( 433)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 21
+		==> 17
+L21: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 434)		STOREC1		<-	V(4 '')+0 , CC:2	{}
+0001 ( 434)		CONST	R0(P)[0..0]	<-	CG0(64:0 '')	{S}
+0002 ( 434)		STOREC2		<-	V(5 '')+0 , R0(PF)+0 {V(64 '')} [0..0]	{}
+0003 ( 434)		CALLN		<-	V(15 'panel_text')+0 	{}
+0004 ( 435)		STOREC1		<-	V(4 '')+0 , CC:5	{}
+0005 ( 435)		CONST	R0(P)[0..0]	<-	CG0(65:0 '')	{S}
+0006 ( 433)		JUMP		<-		{}
+		==> 87
+L49: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 417)		STOREG1		<-	V(53 'panel_y')+0 , CC:6	{}
+0001 ( 423)		CONST	R3(I)[6..6]	<-	CI:6	{I}
+0002 ( 417)		JUMP		<-		{}
+		==> 50
+--------------------------------------------------------------------
+panel_text: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:392
+$00 R0(P), $02 R1(I), $04 R2(I), $00 R3(P), $05 R4(I), $00 R5(C), $00 R6(B), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 395)		LOADZ2	R3(P)	<-	V(5 '')+0 	{}
+0001 ( 150)		LOADI1	R4(C)[0..255]	<-	R3(P)+0	{}
+0002 ( 150)		BRANCH		<-	R4(C)[0..255]	{}
+		==> 53
+		==> 12
+L53: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/string.c
+0000 ( 150)		MOVE	R0(P)+0	<-	R3(P)+0	{}
+0001 ( 392)		LOADZ1	R1(C)[0..6]	<-	V(4 '')+0 	{S}
+0002 ( 392)		CONV37	R1(I)[0..6]	<-	R1(CF)[0..6]	{S}
+0003 ( 394)		LOADG1	R2(C)[0..255]	<-	V(53 'panel_y')+0 	{}
+0004 ( 394)		CONV37	R2(I)[0..255]	<-	R2(CF)[0..255]	{}
+0005 ( 394)		BINOP1	R2(I)[0..261]	<-	R2(IF)[0..255], R1(IF)[0..6]	{}
+0006 ( 149)		CONST	R1(I)[0..0]	<-	CI:0	{}
+0007 ( 151)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head P159 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/string.c
+0000 ( 151)		BINOP1	R1(I)[1..]	<-	R1(IF)[0..], CI:1	{}
+0001 ( 150)		LEAI	R0(P)+0	<-	R0(PF)+0, CI:1	{}
+0002 ( 150)		LOADI1	R5(C)[0..255]	<-	R0(P)+0	{}
+0003 ( 150)		BRANCH		<-	R5(CF)[0..255]	{}
+		==> 6
+		==> 7
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 396)		BRANCH		<-	R4(CF)[0..255]	{}
+		==> 52
+		==> 12
+L52: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 395)		CONV37	R0(I)[1..255]	<-	R1(CF)[1..255]	{}
+0001 ( 395)		BINOP2	R0(I)[-231..23]	<-	CI:24, R0(IF)[1..255]	{}
+0002 ( 395)		BINOP5	R0(I)	<-	R0(IF)[-231..23], CI:2	{}
+0003 ( 395)		BINOP1	R4(I)	<-	R0(IF), CI:28	{}
+0004 ( 400)		JUMP		<-		{}
+		==> 10
+L10: <= D-1: (2) Head P158 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 400)		STOREC1		<-	V(3 '')+0 , CC:13	{}
+0001 ( 397)		LOADI1	R5(C)[0..255]	<-	R3(P)+0	{}
+0002 ( 398)		CONV37	R0(I)[0..255]	<-	R5(C)[0..255]	{}
+0003 ( 397)		CONST	R1(C)[0..0]	<-	CI:0	{}
+0004 ( 398)		RELOP25	R6(B)[0..1]	<-	R5(C)[0..255], CC:48	{}
+0005 ( 398)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 16
+		==> 14
+L16: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 398)		RELOP26	R6(B)[0..1]	<-	R5(C)[48..255], CC:57	{}
+0001 ( 398)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 13
+		==> 14
+L13: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 398)		BINOP2	R1(I)[-31..26]	<-	R0(IF)[0..57], CI:31	{}
+0001 ( 398)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 400)		STOREC1		<-	V(0 '')+0 , R4(C)	{}
+0001 ( 400)		STOREC1		<-	V(1 '')+0 , R2(C)[0..261]	{}
+0002 ( 400)		STOREC1		<-	V(2 '')+0 , R1(CF)[-31..153]	{}
+0003 ( 400)		CALLN		<-	V(11 'cell')+0 	{}
+0004 ( 396)		BINOP1	R4(C)	<-	R4(CF), CI:1	{}
+0005 ( 396)		LEAI	R3(P)+0	<-	R3(PF)+0, CI:1	{}
+0006 ( 396)		LOADI1	R0(C)[0..255]	<-	R3(P)+0	{}
+0007 ( 396)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 10
+		==> 12
+L12: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 392)		RET		<-		{}
+L14: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 399)		RELOP25	R6(B)[0..1]	<-	R5(C)[0..255], CC:65	{}
+0001 ( 399)		BRANCH		<-	R6(BF)[0..1]	{}
+		==> 20
+		==> 15
+L20: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 399)		RELOP26	R5(B)[0..1]	<-	R5(CF)[65..255], CC:90	{}
+0001 ( 399)		BRANCH		<-	R5(BF)[0..1]	{}
+		==> 17
+		==> 15
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 399)		BINOP2	R1(I)[63..153]	<-	R0(IF)[0..90], CI:-63	{}
+0001 ( 399)		JUMP		<-		{}
+		==> 15
+--------------------------------------------------------------------
+score_line: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:404
+$00 R0(P), $00 R1(I), $00 R2(P), $00 R3(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 408)		CONST	R3(C)[0..0]	<-	CI:0	{}
+0001 ( 408)		LOADZ2	R0(P)	<-	V(0 '')+0 	{IS}
+0002 ( 408)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P65 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 408)		CONV37	R1(I)[0..5]	<-	R3(C)[0..5]	{}
+0001 ( 408)		LEAI	R2(P)+0	<-	R0(P)+0, R1(I)[0..5]	{}
+0002 ( 408)		LOADI1	R2(C)[0..255]	<-	R2(PF)+0	{}
+0003 ( 408)		LEAG	R1(P)[0..5]	<-	V(60 'line' A)+0 , R1(IF)[0..5]	{}
+0004 ( 408)		STOREI1		<-	R1(PF)+0 {V(60 'line' A)} [0..5], R2(CF)[0..255]	{}
+0005 ( 408)		BINOP1	R3(C)[1..6]	<-	R3(CF)[0..5], CI:1	{}
+0006 ( 408)		RELOP28	R1(B)[0..1]	<-	R3(C)[1..6], CC:6	{}
+0007 ( 408)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 410)		STOREG1		<-	V(60 'line' A)+10 , CC:0	{}
+0001 ( 409)		LOADZ2	R0(I)[-32768..65535]	<-	V(2 '')+0 	{}
+0002 ( 409)		BINOP6	R1(I)[0..9]	<-	R0(I)[-32768..65535], CI:10	{}
+0003 ( 409)		BINOP4	R0(I)[0..6553]	<-	R0(IF)[-32768..65535], CI:10	{}
+0004 ( 409)		BINOP1	R1(I)[48..57]	<-	R1(IF)[0..9], CI:48	{}
+0005 ( 409)		STOREG1		<-	V(60 'line' A)+9 , R1(CF)[48..57]	{}
+0006 ( 409)		BINOP6	R1(I)[0..9]	<-	R0(I)[0..6553], CI:10	{}
+0007 ( 409)		BINOP4	R0(I)[0..655]	<-	R0(IF)[0..6553], CI:10	{}
+0008 ( 409)		BINOP1	R1(I)[48..57]	<-	R1(IF)[0..9], CI:48	{}
+0009 ( 409)		STOREG1		<-	V(60 'line' A)+8 , R1(CF)[48..57]	{}
+000a ( 409)		BINOP6	R1(I)[0..9]	<-	R0(I)[0..655], CI:10	{}
+000b ( 409)		BINOP4	R0(I)[0..65]	<-	R0(IF)[0..655], CI:10	{}
+000c ( 409)		BINOP1	R1(I)[48..57]	<-	R1(IF)[0..9], CI:48	{}
+000d ( 409)		STOREG1		<-	V(60 'line' A)+7 , R1(CF)[48..57]	{}
+000e ( 409)		BINOP6	R0(I)[0..9]	<-	R0(IF)[0..65], CI:10	{}
+000f ( 409)		BINOP1	R0(I)[48..57]	<-	R0(IF)[0..9], CI:48	{}
+0010 ( 409)		STOREG1		<-	V(60 'line' A)+6 , R0(CF)[48..57]	{}
+0011 ( 409)		CONST	R0(P)[0..0]	<-	CG11(60:0 'line' A)	{IS}
+0012 ( 411)		RETV		<-	R0(PF)+0 {V(60 'line' A)} [0..0]	{}
+--------------------------------------------------------------------
+memset: /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/string.h:28
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/string.c
+0000 ( 270)		JSR		<-	V(0 '')+0 , V(4 '')+0 , V(2 '')+0 , V(-1 '')+0 	{}
+0001 ( 291)		RET		<-		{}
+--------------------------------------------------------------------
+wait_frame: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:128
+$00 R0(I), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 130)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2) Head P83 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 130)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 ( 130)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 130)		BINOP9	R0(I)[0..32]	<-	R0(IF)[0..255], CI:32	{}
+0003 ( 130)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..32], CI:0	{}
+0004 ( 130)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 1
+		==> 4
+L4: <= D-1: (2) Head P82 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 131)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 ( 131)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 131)		BINOP9	R0(I)[0..32]	<-	R0(IF)[0..255], CI:32	{}
+0003 ( 131)		BRANCH		<-	R0(IF)[0..32]	{}
+		==> 6
+		==> 4
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 132)		RET		<-		{}
+--------------------------------------------------------------------
+show_frame: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:681
+$00 R0(I), $02 R1(I), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:28	{V}
+0001 ( 683)		LOADG1	R0(C)[0..255]	<-	V(8 'saved_regs' A)+28 	{}
+0002 ( 683)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0003 ( 683)		BINOP9	R0(I)[0..15]	<-	R0(IF)[0..255], CI:15	{}
+0004 ( 683)		BINOP8	R0(I)[0..31]	<-	R0(IF)[0..15], CI:16	{}
+0005 ( 683)		LOADG1	R1(C)[0..255]	<-	V(30 'phase')+0 	{}
+0006 ( 683)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0007 ( 683)		BINOP1	R1(I)[1..256]	<-	R1(IF)[0..255], CI:1	{}
+0008 ( 683)		BINOP16	R1(I)[32..8192]	<-	R1(IF)[1..256], CI:5	{}
+0009 ( 683)		BINOP8	R0(I)[0..16383]	<-	R1(IF)[32..8192], R0(IF)[0..31]	{}
+000a (  11)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2) Head P151 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 4
+		==> 5
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..16383]	{V}
+0001 ( 685)		LOADG1	R0(C)[0..255]	<-	V(66 'flash')+0 	{}
+0002 ( 685)		BRANCH		<-	R0(C)[0..255]	{}
+		==> 6
+		==> 8
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:26	{V}
+0001 ( 685)		BINOP1	R0(C)[-1..254]	<-	R0(CF)[0..255], CI:-1	{}
+0002 ( 685)		STOREG1		<-	V(66 'flash')+0 , R0(C)[-1..254]	{}
+0003 ( 685)		BRANCH		<-	R0(CF)[-1..254]	{}
+		==> 39
+		==> 40
+L39: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 685)		CONST	R0(I)[15..15]	<-	CI:15	{}
+0001 ( 685)		JUMP		<-		{}
+		==> 12
+L12: <= D-1: (3) Head P150 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 12
+		==> 13
+L13: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[6..15]	{V}
+0001 (  25)		JUMP		<-		{}
+		==> 8
+L8: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 687)		CALLN		<-	V(20 'load_pose')+0 	{}
+0001 ( 688)		LOADG1	R0(C)[0..255]	<-	V(51 'bird_set')+0 	{}
+0002 ( 688)		STOREG1		<-	V(50 'shown_set')+0 , R0(CF)[0..255]	{}
+0003 ( 688)		LOADG1	R0(C)[0..255]	<-	V(46 'bird_row')+0 	{}
+0004 ( 688)		STOREG1		<-	V(49 'shown_row')+0 , R0(CF)[0..255]	{}
+0005 ( 689)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0006 ( 689)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0007 ( 689)		BINOP9	R0(I)[0..32]	<-	R0(IF)[0..255], CI:32	{}
+0008 ( 689)		BRANCH		<-	R0(IF)[0..32]	{}
+		==> 73
+		==> 14
+L73: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 690)		LOADG2	R0(I)[0..65535]	<-	V(47 'frame_count')+0 	{V}
+0001 ( 690)		BINOP1	R0(I)	<-	R0(IF)[0..65535], CI:1	{}
+0002 ( 690)		STOREG2		<-	V(47 'frame_count')+0 , R0(IF)	{V}
+0003 ( 691)		LOADG1	R0(C)[0..255]	<-	V(84 'flip')+0 	{}
+0004 ( 691)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 19
+		==> 20
+L19: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 692)		RET		<-		{}
+L20: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 691)		LOADG2	R0(I)[0..65535]	<-	V(38 'front_count')+0 	{}
+0001 ( 691)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..65535], CI:0	{}
+0002 ( 691)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 17
+		==> 19
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 691)		STOREC1		<-	V(4 '')+0 , CC:3	{}
+0001 ( 691)		LOADG1	R0(C)[0..255]	<-	V(85 'page')+0 	{}
+0002 ( 691)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 42
+		==> 43
+L42: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 691)		STOREC2		<-	V(2 '')+0 , CI:4096	{}
+0001 ( 691)		JUMP		<-		{}
+		==> 44
+L44: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 691)		CALLN		<-	V(21 'write_cells')+0 	{}
+0001 ( 691)		JUMP		<-		{}
+		==> 19
+L43: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 691)		STOREC2		<-	V(2 '')+0 , CI:0	{}
+0001 ( 691)		JUMP		<-		{}
+		==> 44
+L14: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 689)		LOADG2	R0(I)[0..65535]	<-	V(83 'blank_overruns')+0 	{V}
+0001 ( 689)		BINOP1	R0(I)	<-	R0(IF)[0..65535], CI:1	{}
+0002 ( 689)		STOREG2		<-	V(83 'blank_overruns')+0 , R0(IF)	{V}
+0003 ( 691)		JUMP		<-		{}
+		==> 73
+L40: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 685)		CONST	R0(I)[6..6]	<-	CI:6	{}
+0001 ( 685)		JUMP		<-		{}
+		==> 12
+--------------------------------------------------------------------
+load_pose: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:314
+$00 R0(I), $00 R1(P), $00 R2(I), $00 R3(C), $00 R4(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 317)		LOADG1	R0(C)[0..1]	<-	V(51 'bird_set')+0 	{}
+0001 ( 317)		CONV37	R0(I)[0..1]	<-	R0(CF)[0..1]	{}
+0002 ( 317)		LEAG	R1(P)[0..1]	<-	V(67 'set_pose' A)+0 , R0(I)[0..1]	{}
+0003 ( 317)		LOADI1	R2(C)[0..255]	<-	R1(P)+0 {V(67 'set_pose' A)} [0..1]	{}
+0004 ( 317)		LOADG1	R3(C)[0..255]	<-	V(48 'bird_pose')+0 	{}
+0005 ( 317)		RELOP19	R2(B)[0..1]	<-	R2(CF)[0..255], R3(C)[0..255]	{}
+0006 ( 317)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 1
+		==> 3
+L1: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 317)		RET		<-		{}
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 318)		STOREI1		<-	R1(PF)+0 {V(67 'set_pose' A)} [0..1], R3(C)[0..255]	{}
+0001 ( 320)		BINOP3	R0(I)[0..240]	<-	R0(IF)[0..1], CI:240	{I}
+0002 ( 320)		BINOP1	R0(I)[9728..9968]	<-	R0(IF)[0..240], CI:9728	{I}
+0003 ( 321)		CONV37	R1(I)[0..255]	<-	R3(CF)[0..255]	{I}
+0004 ( 321)		BINOP3	R1(I)[0..61200]	<-	R1(IF)[0..255], CI:240	{I}
+0005 ( 321)		BINOP1	R1(I)	<-	R1(IF)[0..61200], CI:36864	{I}
+0006 ( 319)		CONST	R3(C)[4..4]	<-	CI:4	{}
+0007 (   6)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (2) Head P284 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:18	{V}
+0001 ( 307)		BINOP17	R2(I)[38..134]	<-	R0(I)[9728..34544], CI:8	{}
+0002 (  11)		JUMP		<-		{}
+		==> 13
+L13: <= D-1: (2) Head P283 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R4(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R4(B)[0..1]	<-	R4(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 13
+		==> 14
+L14: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R2(CF)[38..134]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:19	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 18
+L18: <= D-1: (2) Head P282 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 18
+		==> 19
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(C)[9728..34544]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:32	{V}
+0002 ( 309)		BINOP17	R2(I)[0..255]	<-	R1(I), CI:8	{}
+0003 (  11)		JUMP		<-		{}
+		==> 23
+L23: <= D-1: (2) Head P281 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R4(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R4(B)[0..1]	<-	R4(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 23
+		==> 24
+L24: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R2(CF)[0..255]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:33	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2) Head P280 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 28
+		==> 29
+L29: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(C)	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:30	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 33
+L33: <= D-1: (2) Head P279 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 33
+		==> 34
+L34: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , CC:240	{V}
+0001 ( 320)		BINOP1	R0(I)[17920..42736]	<-	R0(IF)[9728..34544], CI:8192	{}
+0002 ( 319)		BINOP2	R3(C)[0..3]	<-	R3(CF)[1..4], CI:1	{}
+0003 ( 319)		RELOP27	R2(B)[0..1]	<-	R3(C)[0..3], CC:0	{}
+0004 ( 319)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 6
+		==> 1
+--------------------------------------------------------------------
+write_cells: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:602
+$00 R0(I), $00 R1(P), $02 R2(P), $04 R3(I), $05 R4(P), $07 R5(I), $08 R6(P), $0a R7(I), $0c R8(P), $00 R9(C), $00 R10(C), $0e R11(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 604)		LOADG2	R0(I)[0..65535]	<-	V(37 'dirty_count')+0 	{}
+0001 ( 604)		BINOP16	R0(I)	<-	R0(IF)[0..65535], CI:1	{}
+0002 ( 604)		LEAG	R2(P)	<-	V(36 'dirty' A)+0 , R0(I)	{}
+0003 ( 602)		LOADZ1	R10(C)[3..12]	<-	V(4 '')+0 	{S}
+0004 ( 602)		CONV37	R3(I)[3..12]	<-	R10(C)[3..12]	{S}
+0005 ( 604)		CONST	R4(P)[0..0]	<-	CG4000(36:0 'dirty' A)	{}
+0006 ( 607)		RELOP20	R0(B)[0..1]	<-	CI:0, R0(IF)	{}
+0007 ( 607)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 221
+		==> 7
+L221: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 606)		BINOP9	R5(I)[0..5]	<-	R3(I)[3..12], CI:5	{S}
+0001 ( 607)		CONST	R6(P)[0..0]	<-	CG4000(36:0 'dirty' A)	{}
+0002 ( 605)		CONST	R0(I)[65535..65535]	<-	CI:65535	{}
+0003 ( 608)		JUMP		<-		{}
+		==> 5
+L5: <= D-1: (2) Head P513 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 608)		LOADI2	R7(I)[0..1999]	<-	R6(P)+0 {V(36 'dirty' A)} [0..]	{}
+0001 ( 609)		LEAG	R1(P)[0..1999]	<-	V(35 'marked' A)+0 , R7(I)[0..1999]	{}
+0002 ( 609)		LOADI1	R1(C)[0..255]	<-	R1(PF)+0 {V(35 'marked' A)} [0..1999]	{}
+0003 ( 609)		BINOP9	R1(C)	<-	R1(CF)[0..255], R5(C)[0..5]	{}
+0004 ( 609)		BRANCH		<-	R1(CF)	{}
+		==> 10
+		==> 4
+L10: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 610)		RELOP27	R1(B)[0..1]	<-	R7(I)[0..1999], R0(I)[1..65535]	{}
+0001 ( 610)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 15
+		==> 13
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 610)		BINOP2	R1(I)[-32768..1998]	<-	R7(I)[1..1999], R0(I)[1..65535]	{}
+0001 ( 610)		RELOP26	R1(B)[0..1]	<-	R1(IF)[-32768..1998], CI:2	{}
+0002 ( 610)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 56
+		==> 13
+L56: <= D-1: (2) Head P512 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 611)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..65535], R7(I)[1..1999]	{}
+0001 ( 611)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 17
+		==> 14
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 611)		LEAG	R1(P)[1..1998]	<-	V(33 'screen' A)+0 , R0(I)[1..1998]	{}
+0001 ( 611)		LOADI1	R1(C)[0..255]	<-	R1(PF)+0 {V(33 'screen' A)} [1..1998]	{}
+0002 ( 611)		BINOP1	R0(I)[2..1999]	<-	R0(IF)[1..1998], CI:1	{}
+0003 (  11)		JUMP		<-		{}
+		==> 20
+L20: <= D-1: (2) Head P506 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R8(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R8(B)[0..1]	<-	R8(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R8(BF)[0..1]	{}
+		==> 20
+		==> 21
+L21: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 ( 611)		JUMP		<-		{}
+		==> 56
+L14: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 614)		LEAG	R0(P)[0..1999]	<-	V(33 'screen' A)+0 , R7(I)[0..1999]	{}
+0001 ( 614)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0 {V(33 'screen' A)} [0..1999]	{}
+0002 (  11)		JUMP		<-		{}
+		==> 26
+L26: <= D-1: (2) Head P511 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 26
+		==> 27
+L27: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..255]	{V}
+0001 ( 615)		BINOP1	R0(I)[1..2000]	<-	R7(IF)[0..1999], CI:1	{}
+0002 ( 607)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 607)		LEAI	R6(P)+0 {V(36 'dirty' A)} [2..]	<-	R6(PF)+0 {V(36 'dirty' A)} [0..], CI:2	{}
+0001 ( 607)		RELOP20	R1(B)[0..1]	<-	R6(P)+0 {V(36 'dirty' A)} [2..], R2(P)+0 {V(36 'dirty' A)} 	{}
+0002 ( 607)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 5
+		==> 7
+L7: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 621)		RELOP20	R0(B)[0..1]	<-	V(36 'dirty' A)+0 , R2(P)+0 {V(36 'dirty' A)} 	{}
+0001 ( 621)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 222
+		==> 31
+L222: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 620)		BINOP9	R3(I)[0..10]	<-	R3(IF)[3..12], CI:10	{S}
+0001 ( 620)		LOADZ2	R0(I)[0..65535]	<-	V(2 '')+0 	{S}
+0002 ( 620)		BINOP1	R5(I)	<-	R0(IF)[0..65535], CI:2048	{S}
+0003 ( 621)		CONST	R6(P)[0..0]	<-	CG4000(36:0 'dirty' A)	{}
+0004 ( 620)		CONST	R0(I)[65535..65535]	<-	CI:65535	{}
+0005 ( 622)		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head P510 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 622)		LOADI2	R7(I)[0..1999]	<-	R6(P)+0 {V(36 'dirty' A)} [0..]	{}
+0001 ( 623)		LEAG	R8(P)[0..1999]	<-	V(35 'marked' A)+0 , R7(I)[0..1999]	{}
+0002 ( 623)		LOADI1	R11(C)[0..255]	<-	R8(P)+0 {V(35 'marked' A)} [0..1999]	{}
+0003 ( 624)		BINOP9	R1(C)	<-	R11(C)[0..255], R3(C)[0..10]	{}
+0004 ( 624)		BRANCH		<-	R1(CF)	{}
+		==> 32
+		==> 34
+L32: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 625)		RELOP27	R1(B)[0..1]	<-	R7(I)[0..1999], R0(I)[1..65535]	{}
+0001 ( 625)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 38
+		==> 36
+L38: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 625)		BINOP2	R1(I)[-32768..1998]	<-	R7(I)[1..1999], R0(I)[1..65535]	{}
+0001 ( 625)		RELOP26	R1(B)[0..1]	<-	R1(IF)[-32768..1998], CI:2	{}
+0002 ( 625)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 59
+		==> 36
+L59: <= D-1: (2) Head P509 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 626)		RELOP28	R1(B)[0..1]	<-	R0(I)[1..65535], R7(I)[1..1999]	{}
+0001 ( 626)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 40
+		==> 37
+L40: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 626)		LEAG	R1(P)[1..1998]	<-	V(34 'attr' A)+0 , R0(I)[1..1998]	{}
+0001 ( 626)		LOADI1	R1(C)[0..255]	<-	R1(PF)+0 {V(34 'attr' A)} [1..1998]	{}
+0002 ( 626)		BINOP1	R0(I)[2..1999]	<-	R0(IF)[1..1998], CI:1	{}
+0003 (  11)		JUMP		<-		{}
+		==> 43
+L43: <= D-1: (2) Head P507 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R9(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R9(B)[0..1]	<-	R9(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 43
+		==> 44
+L44: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 ( 626)		JUMP		<-		{}
+		==> 59
+L37: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 629)		LEAG	R0(P)[0..1999]	<-	V(34 'attr' A)+0 , R7(I)[0..1999]	{}
+0001 ( 629)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0 {V(34 'attr' A)} [0..1999]	{}
+0002 (  11)		JUMP		<-		{}
+		==> 49
+L49: <= D-1: (2) Head P508 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 49
+		==> 50
+L50: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..255]	{V}
+0001 ( 630)		BINOP1	R0(I)[1..2000]	<-	R7(I)[0..1999], CI:1	{}
+0002 ( 624)		JUMP		<-		{}
+		==> 34
+L34: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 632)		CONV37	R1(I)[0..255]	<-	R11(CF)[0..255]	{}
+0001 ( 632)		RELOP19	R9(B)[0..1]	<-	R10(C)[3..12], CC:12	{S}
+0002 ( 632)		BRANCH		<-	R9(BF)[0..1]	{}
+		==> 170
+		==> 171
+L170: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 632)		BINOP9	R1(I)[0..3]	<-	R1(IF)[0..255], CI:3	{}
+0001 ( 632)		BINOP16	R1(I)[0..12]	<-	R1(IF)[0..3], CI:2	{}
+0002 ( 632)		CONST	R10(C)[3..12]	<-	CI:12	{}
+0003 ( 632)		JUMP		<-		{}
+		==> 172
+L172: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 633)		STOREI1		<-	R8(PF)+0 {V(35 'marked' A)} [0..1999], R1(C)[0..12]	{}
+0001 ( 634)		BRANCH		<-	R1(CF)[0..12]	{}
+		==> 51
+		==> 28
+L51: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 634)		STOREI2		<-	R4(P)+0 {V(36 'dirty' A)} [0..], R7(IF)[0..1999]	{}
+0001 ( 634)		LEAI	R4(P)+0 {V(36 'dirty' A)} [2..]	<-	R4(PF)+0 {V(36 'dirty' A)} [0..], CI:2	{}
+0002 ( 621)		JUMP		<-		{}
+		==> 28
+L28: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 621)		LEAI	R6(P)+0 {V(36 'dirty' A)} [2..]	<-	R6(PF)+0 {V(36 'dirty' A)} [0..], CI:2	{}
+0001 ( 621)		RELOP20	R1(B)[0..1]	<-	R6(P)+0 {V(36 'dirty' A)} [2..], R2(P)+0 {V(36 'dirty' A)} 	{}
+0002 ( 621)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 29
+		==> 31
+L31: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 637)		STOREG2		<-	V(38 'front_count')+0 , CI:0	{}
+0001 ( 636)		CAST	R0(I)	<-	R4(PF)[0..]	{}
+0002 ( 636)		CONST	R1(P)[0..0]	<-	CG4000(36:0 'dirty' A)	{S}
+0003 ( 636)		CAST	R1(I)	<-	R1(PF)+0 {V(36 'dirty' A)} [0..0]	{S}
+0004 ( 636)		BINOP2	R0(I)	<-	R0(IF), R1(IF)	{}
+0005 ( 636)		BINOP18	R0(I)[-16384..16383]	<-	R0(IF), CI:1	{}
+0006 ( 636)		STOREG2		<-	V(37 'dirty_count')+0 , R0(IF)[-16384..16383]	{}
+0007 ( 602)		RET		<-		{}
+L171: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 632)		BINOP9	R1(I)[0..12]	<-	R1(IF)[0..255], CI:12	{}
+0001 ( 632)		JUMP		<-		{}
+		==> 172
+L36: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 627)		RELOP20	R0(B)[0..1]	<-	R7(I)[0..1999], R0(IF)[1..65535]	{}
+0001 ( 627)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 45
+		==> 37
+L45: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 628)		BINOP1	R0(I)	<-	R5(I), R7(I)[0..1999]	{}
+0001 ( 628)		STOREC2		<-	V(0 '')+0 , R0(IF)	{}
+0002 ( 628)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0003 ( 627)		JUMP		<-		{}
+		==> 37
+L13: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 612)		RELOP20	R0(B)[0..1]	<-	R7(I)[0..1999], R0(IF)[1..65535]	{}
+0001 ( 612)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 22
+		==> 14
+L22: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 613)		LOADZ2	R0(I)[0..65535]	<-	V(2 '')+0 	{S}
+0001 ( 613)		BINOP1	R0(I)	<-	R0(IF)[0..65535], R7(I)[0..1999]	{}
+0002 ( 613)		STOREC2		<-	V(0 '')+0 , R0(IF)	{}
+0003 ( 613)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0004 ( 612)		JUMP		<-		{}
+		==> 14
+--------------------------------------------------------------------
+keys: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:112
+$00 R0(I), $00 R1(I), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 115)		STOREA1		<-	V(-1 '')+56320 , CC:127	{V}
+0001 ( 116)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+56321 	{V}
+0002 ( 117)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0003 ( 117)		BINOP9	R1(I)[0..16]	<-	R0(I)[0..255], CI:16	{}
+0004 ( 117)		BRANCH		<-	R1(IF)[0..16]	{}
+		==> 3
+		==> 1
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 114)		CONST	R1(C)[0..0]	<-	CI:0	{}
+0001 ( 118)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 119)		STOREA1		<-	V(-1 '')+56320 , CC:223	{V}
+0001 ( 118)		BINOP9	R0(I)[0..64]	<-	R0(IF)[0..255], CI:64	{}
+0002 ( 118)		BRANCH		<-	R0(IF)[0..64]	{}
+		==> 16
+		==> 4
+L16: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 120)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+56321 	{V}
+0001 ( 123)		STOREA1		<-	V(-1 '')+56320 , CC:255	{V}
+0002 ( 120)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0003 ( 120)		BINOP9	R0(I)[0..2]	<-	R0(IF)[0..255], CI:2	{}
+0004 ( 120)		BRANCH		<-	R0(IF)[0..2]	{}
+		==> 17
+		==> 7
+L17: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 124)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+56320 	{V}
+0001 ( 124)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 124)		BINOP9	R0(I)[0..16]	<-	R0(IF)[0..255], CI:16	{}
+0003 ( 124)		BRANCH		<-	R0(IF)[0..16]	{}
+		==> 12
+		==> 10
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 125)		RETV		<-	R1(CF)[0..31]	{}
+L10: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 124)		BINOP8	R1(C)[0..31]	<-	R1(CF)[0..31], CC:1	{}
+0001 ( 125)		RETV		<-	R1(CF)[0..31]	{}
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 120)		BINOP8	R1(C)[0..31]	<-	R1(CF)[0..31], CC:2	{}
+0001 ( 124)		JUMP		<-		{}
+		==> 17
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 118)		BINOP8	R1(C)[0..31]	<-	R1(CF)[0..1], CC:16	{}
+0001 ( 120)		JUMP		<-		{}
+		==> 16
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 117)		CONST	R1(C)[1..1]	<-	CI:1	{}
+0001 ( 118)		JUMP		<-		{}
+		==> 15
+--------------------------------------------------------------------
+prepare_frame: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:477
+$10 R0(I), $12 R1(I), $14 R2(P), $16 R3(I), $18 R4(I), $1a R5(P), $1c R6(I), $1d R7(I), $1e R8(I), $00 R9(I), $00 R10(I), $20 R11(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 482)		STOREG1		<-	V(94 'stepped')+0 , CC:0	{}
+0001 ( 479)		LOADG1	R0(C)[0..255]	<-	V(93 'previous_keys')+0 	{}
+0002 ( 479)		LOADZ1	R1(C)[0..255]	<-	V(7 '')+0 	{S}
+0003 ( 481)		STOREG1		<-	V(93 'previous_keys')+0 , R1(C)[0..255]	{}
+0004 ( 479)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0005 ( 479)		UNOP15	R0(I)	<-	R0(IF)[0..255]	{}
+0006 ( 479)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{S}
+0007 ( 479)		BINOP9	R0(I)	<-	R1(IF)[0..255], R0(IF)	{}
+0008 ( 483)		LOADG1	R2(C)[0..255]	<-	V(26 'state')+0 	{}
+0009 ( 483)		RELOP19	R1(B)[0..1]	<-	R2(C)[0..255], CC:2	{}
+000a ( 483)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 484)		LOADG1	R1(C)[0..255]	<-	V(95 'death_delay')+0 	{}
+0001 ( 484)		BRANCH		<-	R1(C)[0..255]	{}
+		==> 4
+		==> 5
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 484)		BINOP1	R1(C)[-1..254]	<-	R1(CF)[0..255], CI:-1	{}
+0001 ( 484)		STOREG1		<-	V(95 'death_delay')+0 , R1(CF)[-1..254]	{}
+0002 ( 484)		JUMP		<-		{}
+		==> 6
+L6: <= D-1: (8)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 486)		RET		<-		{}
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 485)		CONV37	R0(I)[0..255]	<-	R0(CF)	{}
+0001 ( 485)		BINOP9	R0(I)[0..1]	<-	R0(IF)[0..255], CI:1	{}
+0002 ( 485)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..1], CI:0	{}
+0003 ( 485)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 6
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 485)		STOREG1		<-	V(26 'state')+0 , CC:1	{}
+0001 ( 485)		CALLN		<-	V(7 'reset_game')+0 	{}
+0002 ( 485)		STOREG2		<-	V(28 'velocity')+0 , CI:-34	{}
+0003 ( 485)		JUMP		<-		{}
+		==> 416
+L416: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 500)		CALLN		<-	V(24 'sound_flap')+0 	{}
+0001 ( 499)		JUMP		<-		{}
+		==> 6
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 488)		RELOP19	R1(B)[0..1]	<-	R2(C)[0..255], CC:4	{}
+0001 ( 488)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 11
+		==> 13
+L11: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 489)		LOADG2	R0(I)[-32768..32767]	<-	V(28 'velocity')+0 	{}
+0001 ( 489)		BINOP1	R1(I)[-32766..32769]	<-	R0(I)[-32768..32767], CI:2	{}
+0002 ( 489)		STOREG2		<-	V(28 'velocity')+0 , R1(IF)[-32766..32769]	{}
+0003 ( 490)		RELOP23	R0(B)[0..1]	<-	R0(IF)[-32768..32767], CI:46	{}
+0004 ( 490)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 16
+L14: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 490)		STOREG2		<-	V(28 'velocity')+0 , CI:48	{}
+0001 ( 490)		JUMP		<-		{}
+		==> 16
+L16: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 491)		LOADG2	R0(I)[-32768..32767]	<-	V(28 'velocity')+0 	{}
+0001 ( 491)		LOADG2	R1(I)[-32768..32767]	<-	V(29 'bird_y')+0 	{}
+0002 ( 491)		BINOP1	R0(I)	<-	R1(IF)[-32768..32767], R0(IF)[-32768..32767]	{}
+0003 ( 491)		STOREG2		<-	V(29 'bird_y')+0 , R0(I)	{}
+0004 ( 492)		RELOP21	R0(B)[0..1]	<-	R0(IF), CI:2496	{}
+0005 ( 492)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 17
+		==> 417
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 493)		STOREG2		<-	V(29 'bird_y')+0 , CI:2496	{}
+0001 ( 493)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0002 ( 493)		CALLN		<-	V(27 'game_over')+0 	{}
+0003 ( 492)		JUMP		<-		{}
+		==> 6
+L417: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 505)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0001 ( 505)		JUMP		<-		{}
+		==> 6
+L13: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 504)		CONV37	R0(I)[0..255]	<-	R0(CF)	{}
+0001 ( 497)		BRANCH		<-	R2(C)[0..255]	{}
+		==> 23
+		==> 21
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 504)		BINOP9	R1(I)[0..2]	<-	R0(I)[0..255], CI:2	{}
+0001 ( 504)		RELOP20	R1(B)[0..1]	<-	R1(IF)[0..2], CI:0	{}
+0002 ( 504)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 28
+		==> 30
+L28: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 505)		RELOP19	R0(B)[0..1]	<-	R2(CF)[0..255], CC:3	{}
+0001 ( 505)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 31
+		==> 32
+L31: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 505)		STOREG1		<-	V(26 'state')+0 , CC:1	{}
+0001 ( 505)		CALLN		<-	V(9 'field')+0 	{}
+0002 ( 505)		JUMP		<-		{}
+		==> 417
+L32: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 506)		STOREG1		<-	V(26 'state')+0 , CC:3	{}
+0001 ( 506)		CALLN		<-	V(28 'unsync_pipes')+0 	{}
+0002 ( 506)		CALLN		<-	V(14 'banner')+0 	{}
+0003 ( 505)		JUMP		<-		{}
+		==> 6
+L30: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 509)		RELOP19	R1(B)[0..1]	<-	R2(CF)[0..255], CC:3	{}
+0001 ( 509)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 6
+		==> 37
+L37: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 510)		BINOP9	R0(I)[0..1]	<-	R0(IF)[0..255], CI:1	{}
+0001 ( 510)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..1], CI:0	{}
+0002 ( 510)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 39
+		==> 41
+L39: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 510)		STOREG2		<-	V(28 'velocity')+0 , CI:-34	{}
+0001 ( 510)		CALLN		<-	V(24 'sound_flap')+0 	{}
+0002 ( 510)		JUMP		<-		{}
+		==> 41
+L41: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 511)		LOADG2	R0(I)[-32768..32767]	<-	V(28 'velocity')+0 	{}
+0001 ( 511)		BINOP1	R1(I)[-32766..32769]	<-	R0(I)[-32768..32767], CI:2	{}
+0002 ( 511)		STOREG2		<-	V(28 'velocity')+0 , R1(IF)[-32766..32769]	{}
+0003 ( 512)		RELOP23	R0(B)[0..1]	<-	R0(IF)[-32768..32767], CI:46	{}
+0004 ( 512)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 42
+		==> 44
+L42: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 512)		STOREG2		<-	V(28 'velocity')+0 , CI:48	{}
+0001 ( 512)		JUMP		<-		{}
+		==> 44
+L44: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 513)		LOADG2	R0(I)[-32768..32767]	<-	V(28 'velocity')+0 	{}
+0001 ( 513)		LOADG2	R1(I)[-32768..32767]	<-	V(29 'bird_y')+0 	{}
+0002 ( 513)		BINOP1	R0(I)	<-	R1(IF)[-32768..32767], R0(IF)[-32768..32767]	{}
+0003 ( 513)		STOREG2		<-	V(29 'bird_y')+0 , R0(I)	{}
+0004 ( 514)		RELOP24	R1(B)[0..1]	<-	R0(I), CI:0	{}
+0005 ( 514)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 45
+		==> 47
+L45: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 514)		STOREG2		<-	V(28 'velocity')+0 , CI:0	{}
+0001 ( 514)		STOREG2		<-	V(29 'bird_y')+0 , CI:0	{}
+0002 ( 515)		JUMP		<-		{}
+		==> 52
+L52: <= D-1: (3) Head P744 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 522)		LOADG1	R0(C)[0..255]	<-	V(100 'prerendered')+0 	{}
+0001 ( 522)		RELOP28	R1(B)[0..1]	<-	R0(C)[0..255], CC:4	{}
+0002 ( 522)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 55
+		==> 54
+L55: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 522)		STOREC1		<-	V(3 '')+0 , R0(C)[0..3]	{}
+0001 ( 522)		BINOP1	R0(C)[1..4]	<-	R0(CF)[0..3], CI:1	{}
+0002 ( 522)		STOREG1		<-	V(100 'prerendered')+0 , R0(CF)[1..4]	{}
+0003 ( 522)		CALLN	R0(C)	<-	V(31 'prerender')+0 	{}
+0004 ( 522)		BRANCH		<-	R0(CF)	{}
+		==> 54
+		==> 52
+L54: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 523)		LOADG1	R1(C)[0..255]	<-	V(30 'phase')+0 	{}
+0001 ( 523)		RELOP19	R0(B)[0..1]	<-	R1(C)[0..255], CC:3	{}
+0002 ( 523)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 141
+		==> 58
+L141: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 523)		CONST	R1(C)[0..255]	<-	CI:3	{}
+0001 ( 524)		LOADG1	R0(C)[0..255]	<-	V(100 'prerendered')+0 	{}
+0002 ( 524)		JUMP		<-		{}
+		==> 398
+L398: <= D-1: (2) Head P743 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 524)		RELOP28	R0(B)[0..1]	<-	R0(CF), CC:4	{}
+0001 ( 524)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 60
+		==> 58
+L60: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 524)		LOADG1	R0(C)[0..255]	<-	V(100 'prerendered')+0 	{}
+0001 ( 524)		STOREC1		<-	V(3 '')+0 , R0(C)[0..255]	{}
+0002 ( 524)		BINOP1	R0(C)	<-	R0(CF)[0..255], CI:1	{}
+0003 ( 524)		STOREG1		<-	V(100 'prerendered')+0 , R0(C)	{}
+0004 ( 524)		CALLN		<-	V(31 'prerender')+0 	{}
+0005 ( 524)		JUMP		<-		{}
+		==> 398
+L58: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 526)		BINOP1	R0(C)	<-	R1(CF)[0..255], CI:1	{}
+0001 ( 526)		STOREG1		<-	V(30 'phase')+0 , R0(C)	{}
+0002 ( 526)		RELOP19	R0(B)[0..1]	<-	R0(CF), CC:4	{}
+0003 ( 526)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 62
+		==> 64
+L62: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 529)		STOREG1		<-	V(100 'prerendered')+0 , CC:0	{}
+0001 ( 529)		STOREG1		<-	V(94 'stepped')+0 , CC:1	{}
+0002 ( 529)		STOREG1		<-	V(30 'phase')+0 , CC:0	{}
+0003 ( 534)		CONST	R6(I)[0..0]	<-	CI:0	{}
+0004 ( 534)		JUMP		<-		{}
+		==> 66
+L66: <= D-1: (2) Head P742 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 534)		BINOP16	R0(I)[0..12]	<-	R6(I)[0..3], CI:2	{}
+0001 ( 534)		LEAG	R2(P)[0..12]	<-	V(31 'pipes' A)+0 , R0(IF)[0..12]	{}
+0002 ( 534)		LOADI2	R0(I)[-32768..32767]	<-	R2(P)+0 {V(31 'pipes' A)} [0..12]	{}
+0003 ( 534)		BINOP1	R1(I)	<-	R0(I)[-32768..32767], CI:-1	{}
+0004 ( 534)		STOREI2		<-	R2(P)+0 {V(31 'pipes' A)} [0..12], R1(I)	{}
+0005 ( 536)		RELOP24	R3(B)[0..1]	<-	R0(I)[-32768..32767], CI:-7	{}
+0006 ( 536)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 69
+		==> 71
+L69: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 539)		BINOP1	R1(I)[-32653..107]	<-	R1(IF), CI:116	{}
+0001 ( 539)		STOREI2		<-	R2(P)+0 {V(31 'pipes' A)} [0..12], R1(IF)[-32653..107]	{}
+0002 ( 540)		CALLN	R0(C)	<-	V(8 'gap_next')+0 	{}
+0003 ( 540)		STOREI1		<-	R2(P)+2 {V(31 'pipes' A)} [0..12], R0(CF)	{}
+0004 ( 540)		STOREI1		<-	R2(PF)+3 {V(31 'pipes' A)} [0..12], CC:0	{}
+0005 ( 531)		JUMP		<-		{}
+		==> 65
+L65: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 534)		BINOP1	R6(I)[1..4]	<-	R6(IF)[0..3], CI:1	{}
+0001 ( 531)		RELOP20	R0(B)[0..1]	<-	R6(I)[1..4], CI:4	{}
+0002 ( 531)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 66
+		==> 64
+L64: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 581)		CONST	R4(C)[0..0]	<-	CI:0	{}
+0001 ( 582)		JUMP		<-		{}
+		==> 119
+L119: <= D-1: (2) Head P739 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 582)		CONV37	R0(I)[0..3]	<-	R4(C)[0..3]	{}
+0001 ( 582)		BINOP16	R0(I)[0..12]	<-	R0(IF)[0..3], CI:2	{}
+0002 ( 582)		LEAG	R2(P)[0..12]	<-	V(31 'pipes' A)+0 , R0(IF)[0..12]	{}
+0003 ( 582)		LOADI2	R0(I)[-32768..32767]	<-	R2(P)+0 {V(31 'pipes' A)} [0..12]	{}
+0004 ( 582)		BINOP16	R0(I)	<-	R0(IF)[-32768..32767], CI:3	{}
+0005 ( 582)		LOADG1	R1(C)[0..255]	<-	V(30 'phase')+0 	{}
+0006 ( 582)		CONV37	R1(I)[0..255]	<-	R1(CF)[0..255]	{}
+0007 ( 582)		BINOP16	R1(I)[0..510]	<-	R1(IF)[0..255], CI:1	{}
+0008 ( 582)		BINOP2	R1(I)	<-	R0(IF), R1(IF)[0..510]	{}
+0009 ( 583)		LOADI1	R0(C)[0..255]	<-	R2(P)+3 {V(31 'pipes' A)} [0..12]	{}
+000a ( 583)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 124
+		==> 125
+L124: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 588)		RELOP24	R0(B)[0..1]	<-	R1(I), CI:280	{}
+0001 ( 588)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 134
+		==> 120
+L134: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 588)		RELOP23	R0(B)[0..1]	<-	R1(IF)[-32768..279], CI:176	{}
+0001 ( 588)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 133
+		==> 120
+L133: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 589)		LOADI1	R0(C)[0..255]	<-	R2(PF)+2 {V(31 'pipes' A)} [0..12]	{}
+0001 ( 589)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 589)		BINOP3	R0(I)[0..32640]	<-	R0(IF)[0..255], CI:128	{}
+0003 ( 589)		LOADG2	R1(I)[-32768..32767]	<-	V(29 'bird_y')+0 	{}
+0004 ( 589)		RELOP24	R2(B)[0..1]	<-	R1(I)[-32768..32767], R0(I)[0..32640]	{}
+0005 ( 589)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 130
+		==> 135
+L130: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 591)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0001 ( 591)		CALLN		<-	V(30 'crash')+0 	{}
+0002 ( 591)		RET		<-		{}
+L135: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 590)		BINOP1	R0(I)[896..33536]	<-	R0(IF)[0..32640], CI:896	{}
+0001 ( 590)		BINOP1	R1(I)[192..32959]	<-	R1(IF)[0..32767], CI:192	{}
+0002 ( 590)		RELOP23	R0(B)[0..1]	<-	R1(IF)[192..32959], R0(IF)[896..33536]	{}
+0003 ( 590)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 130
+		==> 120
+L120: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 581)		BINOP1	R4(C)[1..4]	<-	R4(CF)[0..3], CI:1	{}
+0001 ( 581)		RELOP28	R0(B)[0..1]	<-	R4(C)[1..4], CC:4	{}
+0002 ( 581)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 119
+		==> 121
+L121: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 595)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0001 ( 596)		RET		<-		{}
+L125: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 583)		RELOP22	R0(B)[0..1]	<-	R1(I), CI:176	{}
+0001 ( 583)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 122
+		==> 124
+L122: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 584)		STOREI1		<-	R2(P)+3 {V(31 'pipes' A)} [0..12], CC:1	{}
+0001 ( 586)		STOREC1		<-	V(4 '')+0 , CC:4	{}
+0002 ( 585)		LOADG2	R0(I)[0..65535]	<-	V(27 'score')+0 	{}
+0003 ( 585)		RELOP28	R3(B)[0..1]	<-	R0(I)[0..65535], CI:9999	{}
+0004 ( 585)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 126
+		==> 128
+L126: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 585)		BINOP1	R0(I)[1..9999]	<-	R0(IF)[0..9998], CI:1	{}
+0001 ( 585)		STOREG2		<-	V(27 'score')+0 , R0(IF)[1..9999]	{}
+0002 ( 585)		JUMP		<-		{}
+		==> 128
+L128: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 586)		LOADG2	R0(I)[0..65535]	<-	V(27 'score')+0 	{}
+0001 ( 586)		STOREC2		<-	V(5 '')+0 , R0(IF)[0..65535]	{}
+0002 ( 586)		CALLN		<-	V(12 'number')+0 	{}
+0003 (  97)		STOREC1		<-	V(0 '')+0 , CC:1	{}
+0004 (  97)		STOREC2		<-	V(1 '')+0 , CI:14336	{}
+0005 (  97)		STOREC2		<-	V(3 '')+0 , CI:0	{}
+0006 (  97)		STOREC1		<-	V(5 '')+0 , CC:7	{}
+0007 (  97)		STOREC1		<-	V(6 '')+0 , CC:16	{}
+0008 (  97)		CALLN		<-	V(25 'start')+0 	{}
+0009 (  99)		STOREG2		<-	V(135 'jump_freq' A)+2 , CI:19200	{}
+000a (  98)		STOREG1		<-	V(99 'jump_at' A)+1 , CC:4	{}
+000b ( 588)		JUMP		<-		{}
+		==> 134
+L71: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 543)		BINOP2	R1(I)[-9..32765]	<-	R0(I)[-7..32767], CI:2	{}
+0001 ( 544)		RELOP21	R3(B)[0..1]	<-	R1(I)[-9..32765], CI:80	{}
+0002 ( 544)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 65
+		==> 76
+L76: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 535)		LOADI1	R11(C)[0..255]	<-	R2(PF)+2 {V(31 'pipes' A)} [0..12]	{}
+0001 ( 543)		BINOP1	R2(I)[1..32767]	<-	R0(I)[-7..32759], CI:8	{}
+0002 ( 550)		CONST	R3(I)[0..0]	<-	CI:0	{}
+0003 ( 545)		RELOP21	R4(B)[0..1]	<-	R1(I)[-9..79], CI:0	{}
+0004 ( 545)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 81
+		==> 260
+L81: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 545)		RELOP26	R2(B)[0..1]	<-	R2(IF)[1..32767], CI:80	{}
+0001 ( 545)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 78
+		==> 80
+L78: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 550)		CONV37	R1(I)[0..255]	<-	R11(C)[0..255]	{I}
+0001 ( 551)		BINOP1	R1(I)[7..262]	<-	R1(IF)[0..255], CI:7	{I}
+0002 ( 551)		BINOP2	R2(I)[-1..254]	<-	R1(I)[7..262], CI:8	{I}
+0003 ( 548)		LEAG	R0(P)[-9..32757]	<-	V(33 'screen' A)+-2 , R0(IF)[-7..32759]	{}
+0004 ( 549)		CONST	R7(C)[0..0]	<-	CI:0	{}
+0005 ( 550)		JUMP		<-		{}
+		==> 83
+L83: <= D-1: (2) Head P740 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 550)		RELOP25	R4(B)[0..1]	<-	R7(C)[0..20], R11(C)[0..255]	{}
+0001 ( 550)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 89
+		==> 88
+L89: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 550)		RELOP28	R4(B)[0..1]	<-	R3(I)[0..20], R1(I)[7..262]	{}
+0001 ( 550)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 84
+		==> 88
+L84: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 550)		BINOP1	R3(I)[1..21]	<-	R3(IF)[0..20], CI:1	{}
+0001 ( 549)		LEAI	R0(P)+0 {V(33 'screen' A)} [71..]	<-	R0(PF)+0 {V(33 'screen' A)} [-9..], CI:80	{}
+0002 ( 549)		BINOP1	R7(C)[1..21]	<-	R7(CF)[0..20], CI:1	{}
+0003 ( 549)		RELOP28	R4(B)[0..1]	<-	R7(C)[1..21], CC:21	{}
+0004 ( 549)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 83
+		==> 65
+L88: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 551)		RELOP19	R4(B)[0..1]	<-	R3(I)[0..20], R2(I)[-1..254]	{}
+0001 ( 551)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 91
+		==> 94
+L91: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 553)		STOREI1		<-	R0(P)+0 {V(33 'screen' A)} [-9..], CC:13	{}
+0001 ( 553)		STOREI1		<-	R0(P)+1 {V(33 'screen' A)} [-9..], CC:14	{}
+0002 ( 553)		STOREI1		<-	R0(P)+2 {V(33 'screen' A)} [-9..], CC:15	{}
+0003 ( 553)		STOREI1		<-	R0(P)+8 {V(33 'screen' A)} [-9..], CC:16	{}
+0004 ( 553)		STOREI1		<-	R0(P)+9 {V(33 'screen' A)} [-9..], CC:32	{}
+0005 ( 552)		CAST	R4(I)	<-	R0(P)+0 {V(33 'screen' A)} [-9..]	{}
+0006 ( 552)		CONST	R5(P)[0..0]	<-	CG2000(33:0 'screen' A)	{S}
+0007 ( 552)		CAST	R5(I)	<-	R5(PF)+0 {V(33 'screen' A)} [0..0]	{S}
+0008 ( 552)		BINOP2	R4(I)[0..1990]	<-	R4(IF), R5(IF)	{}
+0009 ( 552)		LEAG	R4(P)	<-	V(34 'attr' A)+0 , R4(IF)[0..1990]	{}
+000a ( 554)		STOREI1		<-	R4(P)+0 {V(34 'attr' A)} , CC:5	{}
+000b ( 554)		STOREI1		<-	R4(PF)+9 {V(34 'attr' A)} , CC:4	{}
+000c ( 551)		JUMP		<-		{}
+		==> 84
+L94: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 551)		RELOP19	R4(B)[0..1]	<-	R3(I)[0..20], R1(I)[7..262]	{}
+0001 ( 551)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 91
+		==> 92
+L92: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 556)		STOREI1		<-	R0(P)+1 {V(33 'screen' A)} [-9..], CC:10	{}
+0001 ( 556)		STOREI1		<-	R0(P)+2 {V(33 'screen' A)} [-9..], CC:11	{}
+0002 ( 556)		STOREI1		<-	R0(P)+7 {V(33 'screen' A)} [-9..], CC:12	{}
+0003 ( 556)		STOREI1		<-	R0(P)+8 {V(33 'screen' A)} [-9..], CC:32	{}
+0004 ( 551)		JUMP		<-		{}
+		==> 84
+L80: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 550)		MOVE	R4(I)	<-	R3(IF)	{}
+0001 ( 543)		MOVE	R3(I)[0..79]	<-	R1(IF)[0..79]	{}
+0002 ( 563)		JUMP		<-		{}
+		==> 99
+L99: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 563)		CONST	R2(I)[80..80]	<-	CI:80	{}
+0001 ( 563)		JUMP		<-		{}
+		==> 101
+L101: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 564)		BINOP2	R1(I)[-78..80]	<-	R2(IF)[1..80], R3(I)[0..79]	{}
+0001 ( 568)		CONV37	R0(I)[0..255]	<-	R11(C)[0..255]	{I}
+0002 ( 569)		BINOP1	R2(I)[7..262]	<-	R0(IF)[0..255], CI:7	{I}
+0003 ( 569)		BINOP2	R5(I)[-1..254]	<-	R2(I)[7..262], CI:8	{I}
+0004 ( 567)		CONST	R7(I)[0..0]	<-	CI:0	{}
+0005 ( 567)		JUMP		<-		{}
+		==> 103
+L103: <= D-1: (2) Head P741 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 567)		BINOP16	R0(I)[0..40]	<-	R7(I)[0..20], CI:1	{}
+0001 ( 567)		LEAG	R0(P)[0..40]	<-	V(25 'row_addr' A)+0 , R0(IF)[0..40]	{}
+0002 ( 567)		LOADI2	R0(I)[0..65535]	<-	R0(PF)+0 {V(25 'row_addr' A)} [0..40]	{}
+0003 ( 567)		BINOP1	R8(I)	<-	R0(IF)[0..65535], R3(I)[-9..79]	{}
+0004 ( 568)		RELOP25	R0(B)[0..1]	<-	R7(C)[0..20], R11(C)[0..255]	{}
+0005 ( 568)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 109
+		==> 108
+L109: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 568)		RELOP28	R0(B)[0..1]	<-	R7(I)[0..20], R2(I)[7..262]	{}
+0001 ( 568)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 102
+		==> 108
+L102: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 567)		BINOP1	R7(I)[1..21]	<-	R7(IF)[0..20], CI:1	{}
+0001 ( 566)		RELOP28	R0(B)[0..1]	<-	R7(I)[1..21], CI:21	{}
+0002 ( 566)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 103
+		==> 65
+L108: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 569)		RELOP19	R0(B)[0..1]	<-	R7(I)[0..20], R5(I)[-1..254]	{}
+0001 ( 569)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 111
+		==> 114
+L111: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 570)		LEAG	R0(P)	<-	V(33 'screen' A)+0 , R8(I)	{}
+0001 ( 570)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(33 'screen' A)} 	{}
+0002 ( 570)		CONV37	R9(I)[0..255]	<-	R4(C)[-79..9]	{}
+0003 ( 570)		LEAG	R0(P)[0..255]	<-	V(134 'cap')+0 , R9(I)[0..255]	{}
+0004 ( 570)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(134 'cap')} [0..255]	{}
+0005 ( 570)		CONV37	R10(I)[0..255]	<-	R1(C)[-78..32776]	{}
+0006 ( 570)		STOREC2		<-	V(4 '')+0 , R10(I)[0..255]	{}
+0007 ( 570)		CALLN		<-	V(32 'memcpy')+0 	{}
+0008 ( 571)		STOREC2		<-	V(2 '')+0 , CI:5	{}
+0009 ( 571)		STOREC2		<-	V(4 '')+0 , R10(I)[0..255]	{}
+000a ( 571)		LEAG	R0(P)	<-	V(34 'attr' A)+0 , R8(I)	{}
+000b ( 571)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(34 'attr' A)} 	{}
+000c ( 571)		CALLN		<-	V(17 'memset')+0 	{}
+000d ( 572)		BINOP1	R0(I)[0..510]	<-	R9(IF)[0..255], R10(I)[0..255]	{}
+000e ( 572)		RELOP19	R0(B)[0..1]	<-	R0(IF)[0..510], CI:10	{}
+000f ( 572)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 115
+		==> 102
+L115: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 572)		LEAG	R0(P)[0..1999]	<-	V(34 'attr' A)+-1 , R8(IF)[1..2000]	{}
+0001 ( 572)		LEAI	R0(P)+0 {V(34 'attr' A)} [0..2254]	<-	R0(PF)+0 {V(34 'attr' A)} [0..1999], R10(IF)[0..255]	{}
+0002 ( 572)		STOREI1		<-	R0(PF)+0 {V(34 'attr' A)} [0..2254], CC:4	{}
+0003 ( 566)		JUMP		<-		{}
+		==> 102
+L114: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 569)		RELOP19	R0(B)[0..1]	<-	R7(I)[0..20], R2(I)[7..262]	{}
+0001 ( 569)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 111
+		==> 112
+L112: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 574)		LEAG	R0(P)	<-	V(33 'screen' A)+0 , R8(IF)	{}
+0001 ( 574)		STOREC2		<-	V(0 '')+0 , R0(PF)+0 {V(33 'screen' A)} 	{}
+0002 ( 574)		CONV37	R0(I)[0..255]	<-	R4(C)[-79..9]	{}
+0003 ( 574)		LEAG	R0(P)[0..255]	<-	V(133 'body')+0 , R0(IF)[0..255]	{}
+0004 ( 574)		STOREC2		<-	V(2 '')+0 , R0(PF)+0 {V(133 'body')} [0..255]	{}
+0005 ( 574)		CONV37	R0(I)[0..255]	<-	R1(C)[-78..32776]	{}
+0006 ( 574)		STOREC2		<-	V(4 '')+0 , R0(IF)[0..255]	{}
+0007 ( 574)		CALLN		<-	V(32 'memcpy')+0 	{}
+0008 ( 566)		JUMP		<-		{}
+		==> 102
+L260: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0001 ( 561)		UNOP11	R4(I)[1..9]	<-	R1(IF)[-9..-1]	{}
+0002 ( 563)		RELOP27	R0(B)[0..1]	<-	R2(I)[1..32767], CI:80	{}
+0003 ( 563)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 99
+		==> 101
+L47: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 515)		RELOP27	R0(B)[0..1]	<-	R0(IF)[0..32767], CI:2496	{}
+0001 ( 515)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 48
+		==> 52
+L48: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 516)		STOREG2		<-	V(29 'bird_y')+0 , CI:2496	{}
+0001 ( 516)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0002 ( 516)		CALLN		<-	V(30 'crash')+0 	{}
+0003 ( 516)		CALLN		<-	V(27 'game_over')+0 	{}
+0004 ( 516)		RET		<-		{}
+L21: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 498)		LOADG2	R1(I)[0..65535]	<-	V(32 'random_state')+0 	{}
+0001 ( 498)		BINOP1	R1(I)	<-	R1(IF)[0..65535], CI:1	{}
+0002 ( 498)		STOREG2		<-	V(32 'random_state')+0 , R1(IF)	{}
+0003 ( 499)		BINOP9	R0(I)[0..1]	<-	R0(IF)[0..255], CI:1	{}
+0004 ( 499)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..1], CI:0	{}
+0005 ( 499)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 24
+		==> 6
+L24: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 500)		STOREG1		<-	V(26 'state')+0 , CC:1	{}
+0001 ( 500)		CALLN		<-	V(9 'field')+0 	{}
+0002 ( 500)		STOREG2		<-	V(28 'velocity')+0 , CI:-34	{}
+0003 ( 500)		CALLN		<-	V(13 'bird_draw')+0 	{}
+0004 ( 499)		JUMP		<-		{}
+		==> 416
+--------------------------------------------------------------------
+sound_flap: /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.h:16
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  91)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0001 (  91)		STOREC2		<-	V(1 '')+0 , CI:28672	{}
+0002 (  91)		STOREC2		<-	V(3 '')+0 , CI:-1536	{}
+0003 (  91)		STOREC1		<-	V(5 '')+0 , CC:4	{}
+0004 (  91)		STOREC1		<-	V(6 '')+0 , CC:128	{}
+0005 (  91)		CALLN		<-	V(25 'start')+0 	{}
+0006 (  92)		RET		<-		{}
+--------------------------------------------------------------------
+start: /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c:61
+$00 R0(I), $00 R1(I), $00 R2(P), $00 R3(I), $00 R4(P), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  61)		LOADZ1	R0(C)[0..2]	<-	V(0 '')+0 	{S}
+0001 (  65)		STOREC1		<-	V(0 '')+0 , R0(C)[0..2]	{}
+0002 (  61)		CONV37	R0(I)[0..2]	<-	R0(CF)[0..2]	{S}
+0003 (  63)		BINOP3	R1(I)[0..14]	<-	R0(I)[0..2], CI:7	{S}
+0004 (  63)		LEAA	R4(P)[54276..54290]	<-	V(-1 '')+54276 , R1(IF)[0..14]	{S}
+0005 (  63)		STOREI1		<-	R4(P)+0 {V(-1 'ABS')} [54276..54290], CC:0	{V}
+0006 (  64)		BINOP16	R1(I)[0..4]	<-	R0(I)[0..2], CI:1	{S}
+0007 (  64)		LEAG	R2(P)[0..4]	<-	V(96 'freq' A)+0 , R1(I)[0..4]	{S}
+0008 (  61)		LOADZ2	R3(I)[3072..28672]	<-	V(1 '')+0 	{S}
+0009 (  64)		STOREI2		<-	R2(PF)+0 {V(96 'freq' A)} [0..4], R3(IF)[3072..28672]	{}
+000a (  64)		LEAG	R1(P)[0..4]	<-	V(97 'step' A)+0 , R1(IF)[0..4]	{S}
+000b (  61)		LOADZ2	R2(I)[-1536..0]	<-	V(3 '')+0 	{S}
+000c (  64)		STOREI2		<-	R1(PF)+0 {V(97 'step' A)} [0..4], R2(IF)[-1536..0]	{}
+000d (  64)		LEAG	R1(P)[0..2]	<-	V(7 'timer' A)+0 , R0(I)[0..2]	{S}
+000e (  61)		LOADZ1	R2(C)[4..26]	<-	V(5 '')+0 	{S}
+000f (  64)		STOREI1		<-	R1(PF)+0 {V(7 'timer' A)} [0..2], R2(CF)[4..26]	{}
+0010 (  64)		LEAG	R1(P)[0..2]	<-	V(98 'wave' A)+0 , R0(I)[0..2]	{S}
+0011 (  61)		LOADZ1	R2(C)[16..128]	<-	V(6 '')+0 	{S}
+0012 (  64)		STOREI1		<-	R1(PF)+0 {V(98 'wave' A)} [0..2], R2(C)[16..128]	{}
+0013 (  64)		LEAG	R0(P)[0..2]	<-	V(99 'jump_at' A)+0 , R0(IF)[0..2]	{S}
+0014 (  64)		STOREI1		<-	R0(PF)+0 {V(99 'jump_at' A)} [0..2], CC:0	{}
+0015 (  65)		CALLN		<-	V(26 'apply')+0 	{}
+0016 (  66)		CONV37	R0(I)[16..128]	<-	R2(CF)[16..128]	{S}
+0017 (  66)		BINOP8	R0(I)[0..255]	<-	R0(IF)[16..128], CI:1	{S}
+0018 (  66)		STOREI1		<-	R4(PF)+0 {V(-1 'ABS')} [54276..54290], R0(CF)[0..255]	{V}
+0019 (  61)		RET		<-		{}
+--------------------------------------------------------------------
+apply: /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c:53
+$00 R0(I), $00 R1(I), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  55)		LOADZ1	R0(C)[0..2]	<-	V(0 '')+0 	{S}
+0001 (  55)		CONV37	R0(I)[0..2]	<-	R0(CF)[0..2]	{S}
+0002 (  55)		BINOP3	R1(I)[0..14]	<-	R0(I)[0..2], CI:7	{S}
+0003 (  55)		BINOP16	R0(I)[0..4]	<-	R0(IF)[0..2], CI:1	{S}
+0004 (  55)		LEAG	R0(P)[0..4]	<-	V(96 'freq' A)+0 , R0(IF)[0..4]	{S}
+0005 (  56)		LOADI2	R0(I)[0..65535]	<-	R0(PF)+0 {V(96 'freq' A)} [0..4]	{}
+0006 (  55)		LEAA	R1(P)[54272..54286]	<-	V(-1 '')+54272 , R1(IF)[0..14]	{S}
+0007 (  55)		STOREI1		<-	R1(P)+0 {V(-1 'ABS')} [54272..54286], R0(C)[0..65535]	{V}
+0008 (  56)		BINOP17	R0(I)[0..255]	<-	R0(IF)[0..65535], CI:8	{}
+0009 (  56)		STOREI1		<-	R1(PF)+1 {V(-1 'ABS')} [54272..54286], R0(CF)[0..255]	{V}
+000a (  57)		RET		<-		{}
+--------------------------------------------------------------------
+game_over: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:470
+$00 R0(I), $02 R1(I), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 472)		STOREG1		<-	V(95 'death_delay')+0 , CC:30	{}
+0001 ( 472)		STOREG1		<-	V(26 'state')+0 , CC:2	{}
+0002 ( 474)		STOREC1		<-	V(4 '')+0 , CC:74	{}
+0003 ( 473)		LOADG2	R0(I)[0..65535]	<-	V(27 'score')+0 	{}
+0004 ( 473)		LOADG2	R1(I)[0..65535]	<-	V(44 'best')+0 	{}
+0005 ( 473)		RELOP27	R1(B)[0..1]	<-	R0(I)[0..65535], R1(IF)[0..65535]	{}
+0006 ( 473)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 473)		STOREG2		<-	V(44 'best')+0 , R0(IF)[1..65535]	{}
+0001 ( 473)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 474)		LOADG2	R0(I)[0..65535]	<-	V(44 'best')+0 	{}
+0001 ( 474)		STOREC2		<-	V(5 '')+0 , R0(IF)[0..65535]	{}
+0002 ( 474)		CALLN		<-	V(12 'number')+0 	{}
+0003 ( 474)		CALLN		<-	V(14 'banner')+0 	{}
+0004 ( 475)		RET		<-		{}
+--------------------------------------------------------------------
+unsync_pipes: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:371
+$00 R0(I), $00 R1(P), $02 R2(I), $03 R3(I), $05 R4(I), $07 R5(I), $09 R6(I), $00 R7(B), $0a R8(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 376)		CONST	R2(I)[0..0]	<-	CI:0	{}
+0001 ( 376)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P220 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 376)		BINOP16	R0(I)[0..12]	<-	R2(I)[0..3], CI:2	{}
+0001 ( 376)		LEAG	R1(P)[2..14]	<-	V(31 'pipes' A)+2 , R0(I)[0..12]	{}
+0002 ( 376)		LOADI1	R8(C)[0..255]	<-	R1(PF)+0 {V(31 'pipes' A)} [2..14]	{}
+0003 ( 376)		LEAG	R0(P)[0..12]	<-	V(31 'pipes' A)+0 , R0(IF)[0..12]	{}
+0004 ( 377)		LOADI2	R0(I)[-32768..32767]	<-	R0(PF)+0 {V(31 'pipes' A)} [0..12]	{}
+0005 ( 377)		BINOP2	R1(I)	<-	R0(IF)[-32768..32767], CI:2	{}
+0006 ( 377)		BINOP1	R3(I)[-32759..32776]	<-	R1(I), CI:11	{}
+0007 ( 377)		JUMP		<-		{}
+		==> 143
+L143: <= D-1: (2) Head P219 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 377)		RELOP22	R0(B)[0..1]	<-	R1(I), R3(I)[-32759..32776]	{}
+0001 ( 377)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 6
+		==> 3
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 378)		RELOP24	R0(B)[0..1]	<-	R1(I)[..32776], CI:0	{}
+0001 ( 378)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 12
+L7: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 377)		BINOP1	R1(I)[-32767..32768]	<-	R1(IF)[-32768..32767], CI:1	{}
+0001 ( 377)		JUMP		<-		{}
+		==> 143
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 378)		RELOP25	R0(B)[0..1]	<-	R1(I)[0..32767], CI:80	{}
+0001 ( 378)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 11
+L11: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 380)		CONV37	R0(I)[0..255]	<-	R8(C)[0..255]	{I}
+0001 ( 382)		BINOP2	R4(I)[-1..254]	<-	R0(IF)[0..255], CI:1	{I}
+0002 ( 382)		BINOP1	R5(I)[7..262]	<-	R4(I)[-1..254], CI:8	{I}
+0003 ( 380)		CONST	R6(I)[0..0]	<-	CI:0	{}
+0004 ( 380)		JUMP		<-		{}
+		==> 15
+L15: <= D-1: (2) Head P218 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 380)		RELOP25	R0(B)[0..1]	<-	R6(C)[0..20], R8(C)[0..255]	{}
+0001 ( 380)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 21
+		==> 20
+L21: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 380)		RELOP28	R0(B)[0..1]	<-	R6(I)[0..20], R5(I)[7..262]	{}
+0001 ( 380)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 14
+		==> 20
+L14: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 380)		BINOP1	R6(I)[1..21]	<-	R6(IF)[0..20], CI:1	{}
+0001 ( 379)		RELOP28	R0(B)[0..1]	<-	R6(I)[1..21], CI:21	{}
+0002 ( 379)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 15
+		==> 7
+L20: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 381)		BINOP16	R0(I)[0..40]	<-	R6(I)[0..20], CI:1	{}
+0001 ( 381)		LEAG	R0(P)[0..40]	<-	V(25 'row_addr' A)+0 , R0(IF)[0..40]	{}
+0002 ( 381)		LOADI2	R0(I)[0..65535]	<-	R0(PF)+0 {V(25 'row_addr' A)} [0..40]	{}
+0003 ( 381)		BINOP1	R0(I)	<-	R0(IF)[0..65535], R1(I)[0..79]	{}
+0004 ( 382)		RELOP19	R7(B)[0..1]	<-	R6(I)[0..20], R4(I)[-1..254]	{}
+0005 ( 382)		BRANCH		<-	R7(BF)[0..1]	{}
+		==> 23
+		==> 26
+L23: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 381)		STOREC1		<-	V(2 '')+0 , CC:15	{}
+0001 ( 379)		JUMP		<-		{}
+		==> 148
+L148: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 381)		STOREC2		<-	V(0 '')+0 , R0(IF)	{}
+0001 ( 381)		CALLN		<-	V(29 'hidden_stale')+0 	{}
+0002 ( 379)		JUMP		<-		{}
+		==> 14
+L26: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 382)		RELOP19	R7(B)[0..1]	<-	R6(I)[0..20], R5(I)[7..262]	{}
+0001 ( 382)		BRANCH		<-	R7(BF)[0..1]	{}
+		==> 23
+		==> 24
+L24: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 381)		STOREC1		<-	V(2 '')+0 , CC:5	{}
+0001 ( 379)		JUMP		<-		{}
+		==> 148
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 376)		BINOP1	R2(I)[1..4]	<-	R2(IF)[0..3], CI:1	{}
+0001 ( 375)		RELOP20	R0(B)[0..1]	<-	R2(I)[1..4], CI:4	{}
+0002 ( 375)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 386)		STOREG1		<-	V(100 'prerendered')+0 , CC:0	{}
+0001 ( 387)		RET		<-		{}
+--------------------------------------------------------------------
+hidden_stale: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:293
+$00 R0(I), $00 R1(P), $00 R2(I), $00 R3(I), $00 R4(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 295)		LOADZ2	R0(I)[0..1999]	<-	V(0 '')+0 	{S}
+0001 ( 295)		LEAG	R1(P)[0..1999]	<-	V(35 'marked' A)+0 , R0(I)[0..1999]	{S}
+0002 ( 295)		LOADI1	R4(C)[0..255]	<-	R1(P)+0 {V(35 'marked' A)} [0..1999]	{}
+0003 ( 296)		CONV37	R2(I)[0..255]	<-	R4(C)[0..255]	{}
+0004 ( 296)		LOADZ1	R3(C)[0..255]	<-	V(2 '')+0 	{S}
+0005 ( 296)		CONV37	R3(I)[0..255]	<-	R3(CF)[0..255]	{S}
+0006 ( 296)		BINOP8	R2(I)[0..255]	<-	R3(IF)[0..255], R2(IF)[0..255]	{}
+0007 ( 296)		STOREI1		<-	R1(PF)+0 {V(35 'marked' A)} [0..1999], R2(CF)[0..255]	{}
+0008 ( 295)		BRANCH		<-	R4(CF)[0..255]	{}
+		==> 3
+		==> 1
+L3: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 297)		RET		<-		{}
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 295)		LOADG2	R1(I)[0..1999]	<-	V(37 'dirty_count')+0 	{}
+0001 ( 295)		BINOP1	R2(I)[1..2000]	<-	R1(I)[0..1999], CI:1	{}
+0002 ( 295)		STOREG2		<-	V(37 'dirty_count')+0 , R2(IF)[1..2000]	{}
+0003 ( 295)		BINOP16	R1(I)[0..3998]	<-	R1(IF)[0..1999], CI:1	{}
+0004 ( 295)		LEAG	R1(P)[0..3998]	<-	V(36 'dirty' A)+0 , R1(IF)[0..3998]	{}
+0005 ( 295)		STOREI2		<-	R1(PF)+0 {V(36 'dirty' A)} [0..3998], R0(IF)[0..1999]	{}
+0006 ( 295)		JUMP		<-		{}
+		==> 3
+--------------------------------------------------------------------
+crash: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:465
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 467)		STOREG1		<-	V(26 'state')+0 , CC:4	{}
+0001 ( 467)		STOREG2		<-	V(28 'velocity')+0 , CI:0	{}
+0002 ( 467)		STOREG1		<-	V(66 'flash')+0 , CC:3	{}
+0003 ( 467)		CALLN		<-	V(28 'unsync_pipes')+0 	{}
+0004 ( 106)		STOREC1		<-	V(0 '')+0 , CC:0	{}
+0005 ( 106)		STOREC2		<-	V(1 '')+0 , CI:3072	{}
+0006 ( 106)		STOREC2		<-	V(3 '')+0 , CI:-256	{}
+0007 ( 106)		STOREC1		<-	V(5 '')+0 , CC:5	{}
+0008 ( 106)		STOREC1		<-	V(6 '')+0 , CC:128	{}
+0009 ( 106)		CALLN		<-	V(25 'start')+0 	{}
+000a ( 107)		STOREC1		<-	V(0 '')+0 , CC:2	{}
+000b ( 107)		STOREC2		<-	V(1 '')+0 , CI:16384	{}
+000c ( 107)		STOREC2		<-	V(3 '')+0 , CI:-768	{}
+000d ( 107)		STOREC1		<-	V(5 '')+0 , CC:26	{}
+000e ( 107)		STOREC1		<-	V(6 '')+0 , CC:64	{}
+000f ( 107)		CALLN		<-	V(25 'start')+0 	{}
+0010 ( 468)		RET		<-		{}
+--------------------------------------------------------------------
+prerender: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:330
+$00 R0(I), $02 R1(I), $04 R2(I), $00 R3(I), $00 R4(I), $06 R5(I), $08 R6(I), $0a R7(I), $0b R8(I), $0c R9(I), $0d R10(I), $10 R11(I), $0f R12(I), $12 R13(I), $14 R14(I), $16 R15(I), $00 R16(C), $17 R17(C), $18 R18(B), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 332)		LOADZ1	R0(C)[0..3]	<-	V(3 '')+0 	{S}
+0001 ( 332)		CONV37	R0(I)[0..3]	<-	R0(CF)[0..3]	{S}
+0002 ( 332)		BINOP16	R0(I)[0..12]	<-	R0(IF)[0..3], CI:2	{S}
+0003 ( 332)		LEAG	R0(P)[0..12]	<-	V(31 'pipes' A)+0 , R0(IF)[0..12]	{S}
+0004 ( 332)		LOADI2	R1(I)[-32768..32767]	<-	R0(P)+0 {V(31 'pipes' A)} [0..12]	{}
+0005 ( 332)		BINOP2	R2(I)	<-	R1(I)[-32768..32767], CI:2	{}
+0006 ( 335)		RELOP21	R3(B)[0..1]	<-	R2(I), CI:80	{}
+0007 ( 335)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 1
+		==> 4
+L1: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 335)		RETV		<-	CC:0	{}
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 335)		RELOP22	R1(B)[0..1]	<-	R1(IF)[-32768..32767], CI:-9	{}
+0001 ( 335)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 3
+L3: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 334)		CONST	R5(I)[0..0]	<-	CI:0	{}
+0001 ( 334)		LOADG1	R1(C)[0..255]	<-	V(85 'page')+0 	{}
+0002 ( 334)		BRANCH		<-	R1(CF)[0..255]	{}
+		==> 285
+		==> 286
+L285: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 334)		CONST	R6(I)[4096..4096]	<-	CI:4096	{}
+0001 ( 334)		JUMP		<-		{}
+		==> 290
+L290: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 333)		LOADI1	R17(C)[0..255]	<-	R0(PF)+2 {V(31 'pipes' A)} [0..12]	{}
+0001 ( 336)		RELOP24	R0(B)[0..1]	<-	R2(I)[-32768..79], CI:0	{}
+0002 ( 336)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 6
+		==> 8
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 336)		CONST	R7(I)[0..0]	<-	CI:0	{}
+0001 ( 336)		UNOP11	R8(I)[1..32768]	<-	R2(IF)[-32768..-1]	{}
+0002 ( 336)		CONV37	R0(I)[0..255]	<-	R8(C)[1..32768]	{}
+0003 ( 336)		BINOP2	R9(I)[-244..11]	<-	CI:11, R0(IF)[0..255]	{}
+0004 ( 337)		RELOP27	R0(B)[0..1]	<-	R9(C)[-244..11], CC:80	{}
+0005 ( 337)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 119
+L9: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 337)		BINOP2	R9(I)[1..80]	<-	CI:80, R7(I)[0..79]	{}
+0001 ( 338)		JUMP		<-		{}
+		==> 119
+L119: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 343)		BINOP1	R10(I)[2048..6144]	<-	R6(I)[0..4096], CI:2048	{I}
+0001 ( 343)		BINOP1	R11(I)[2048..6144]	<-	R5(I)[0..4096], CI:2048	{I}
+0002 ( 346)		BINOP2	R12(I)[0..79]	<-	CI:79, R7(I)[0..79]	{I}
+0003 ( 339)		CONV37	R0(I)[0..255]	<-	R17(C)[0..255]	{I}
+0004 ( 339)		BINOP1	R13(I)[7..262]	<-	R0(IF)[0..255], CI:7	{I}
+0005 ( 339)		BINOP2	R14(I)[-1..254]	<-	R13(I)[7..262], CI:8	{I}
+0006 ( 339)		CONST	R15(I)[0..0]	<-	CI:0	{}
+0007 ( 339)		JUMP		<-		{}
+		==> 13
+L13: <= D-1: (2) Head P753 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 339)		RELOP19	R0(B)[0..1]	<-	R15(I)[0..20], R14(I)[-1..254]	{}
+0001 ( 339)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 16
+		==> 19
+L16: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 339)		CONST	R18(B)[1..1]	<-	CI:1	{}
+0001 ( 339)		JUMP		<-		{}
+		==> 18
+L18: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 340)		RELOP25	R0(B)[0..1]	<-	R15(C)[0..20], R17(C)[0..255]	{}
+0001 ( 340)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 23
+		==> 22
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 340)		RELOP28	R0(B)[0..1]	<-	R15(I)[0..20], R13(I)[7..262]	{}
+0001 ( 340)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 12
+		==> 22
+L12: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 339)		BINOP1	R15(I)[1..21]	<-	R15(IF)[0..20], CI:1	{}
+0001 ( 338)		RELOP28	R0(B)[0..1]	<-	R15(I)[1..21], CI:21	{}
+0002 ( 338)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 13
+		==> 15
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 359)		RELOP28	R0(B)[0..1]	<-	R7(I)[0..79], CI:30	{}
+0001 ( 359)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 95
+		==> 94
+L95: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 359)		CONV37	R0(I)[0..80]	<-	R9(CF)[0..80]	{}
+0001 ( 359)		BINOP1	R0(I)[0..109]	<-	R0(IF)[0..80], R7(IF)[0..29]	{}
+0002 ( 359)		RELOP25	R0(B)[0..1]	<-	R0(IF)[0..109], CI:30	{}
+0003 ( 359)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 92
+		==> 94
+L92: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 360)		LOADG2	R0(I)[-32768..32767]	<-	V(29 'bird_y')+0 	{}
+0001 ( 360)		BINOP18	R0(I)[-2048..2047]	<-	R0(IF)[-32768..32767], CI:4	{}
+0002 ( 360)		BINOP18	R0(I)[-256..255]	<-	R0(IF)[-2048..2047], CI:3	{}
+0003 ( 361)		CONV37	R1(I)[0..255]	<-	R0(C)[-256..255]	{}
+0004 ( 361)		BRANCH		<-	R0(CF)[-256..255]	{}
+		==> 291
+		==> 292
+L291: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 361)		BINOP2	R2(I)[-1..254]	<-	R1(I)[0..255], CI:1	{}
+0001 ( 361)		JUMP		<-		{}
+		==> 293
+L293: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 361)		BINOP1	R1(I)[3..258]	<-	R1(IF)[0..255], CI:3	{I}
+0001 ( 361)		JUMP		<-		{}
+		==> 480
+L480: <= D-1: (2) Head P740 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 361)		CONV37	R0(I)[0..255]	<-	R2(C)[-1..]	{}
+0001 ( 361)		RELOP26	R3(B)[0..1]	<-	R0(I)[0..255], R1(I)[3..258]	{}
+0002 ( 361)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 97
+		==> 94
+L97: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 362)		RELOP28	R3(B)[0..1]	<-	R2(C)[-1..], CC:21	{}
+0001 ( 362)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 103
+		==> 96
+L103: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 362)		RELOP28	R3(B)[0..1]	<-	R2(C)[0..20], R17(C)[0..255]	{}
+0001 ( 362)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 100
+		==> 104
+L100: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 363)		STOREC1		<-	V(2 '')+0 , CC:12	{}
+0001 ( 363)		BINOP16	R0(I)[0..40]	<-	R0(IF)[0..20], CI:1	{}
+0002 ( 363)		LEAG	R0(P)[0..40]	<-	V(25 'row_addr' A)+0 , R0(IF)[0..40]	{}
+0003 ( 363)		LOADI2	R0(I)[0..65535]	<-	R0(PF)+0 {V(25 'row_addr' A)} [0..40]	{}
+0004 ( 363)		BINOP2	R0(I)	<-	R0(IF)[0..65535], CI:-29	{}
+0005 ( 363)		STOREC2		<-	V(0 '')+0 , R0(IF)	{}
+0006 ( 363)		CALLN		<-	V(29 'hidden_stale')+0 	{}
+0007 ( 361)		JUMP		<-		{}
+		==> 96
+L96: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 361)		BINOP1	R2(C)[0..]	<-	R2(CF)[-1..], CI:1	{}
+0001 ( 361)		JUMP		<-		{}
+		==> 480
+L104: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 362)		RELOP25	R3(B)[0..1]	<-	R0(I)[0..20], R13(I)[7..262]	{}
+0001 ( 362)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 100
+		==> 96
+L94: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 365)		RETV		<-	CC:1	{}
+L292: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 361)		CONST	R2(I)[0..0]	<-	CI:0	{}
+0001 ( 361)		JUMP		<-		{}
+		==> 293
+L22: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:18	{V}
+0001 ( 341)		BINOP16	R0(I)[0..40]	<-	R15(I)[0..20], CI:1	{}
+0002 ( 341)		LEAG	R0(P)[0..40]	<-	V(25 'row_addr' A)+0 , R0(IF)[0..40]	{}
+0003 ( 341)		LOADI2	R0(I)[0..65535]	<-	R0(PF)+0 {V(25 'row_addr' A)} [0..40]	{}
+0004 ( 341)		BINOP1	R1(I)	<-	R0(I)[0..65535], R7(I)[0..79]	{}
+0005 ( 342)		BINOP1	R2(I)	<-	R1(I), R6(I)[0..4096]	{}
+0006 ( 342)		BINOP1	R2(I)	<-	R2(IF), CI:1	{}
+0007 ( 342)		BINOP1	R3(I)	<-	R1(I), R5(I)[0..4096]	{}
+0008 ( 307)		BINOP17	R4(I)[0..255]	<-	R3(I), CI:8	{}
+0009 (  11)		JUMP		<-		{}
+		==> 29
+L29: <= D-1: (2) Head P752 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R16(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R16(B)[0..1]	<-	R16(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R16(BF)[0..1]	{}
+		==> 29
+		==> 30
+L30: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R4(CF)[0..255]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:19	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 34
+L34: <= D-1: (2) Head P751 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R4(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R4(B)[0..1]	<-	R4(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 34
+		==> 35
+L35: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R3(CF)	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:32	{V}
+0002 ( 309)		BINOP17	R3(I)[0..255]	<-	R2(I), CI:8	{}
+0003 (  11)		JUMP		<-		{}
+		==> 39
+L39: <= D-1: (2) Head P750 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R4(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R4(B)[0..1]	<-	R4(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 39
+		==> 40
+L40: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R3(CF)[0..255]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:33	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 44
+L44: <= D-1: (2) Head P749 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R3(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R3(B)[0..1]	<-	R3(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 44
+		==> 45
+L45: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R2(CF)	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:30	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 49
+L49: <= D-1: (2) Head P748 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 49
+		==> 50
+L50: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R9(C)[0..80]	{V}
+0001 ( 343)		RELOP20	R16(B)[0..1]	<-	R18(C)[0..1], CC:0	{}
+0002 ( 343)		BRANCH		<-	R16(B)[0..1]	{}
+		==> 51
+		==> 483
+L51: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:18	{V}
+0001 ( 343)		BINOP1	R2(I)	<-	R10(I)[2048..6144], R1(I)	{}
+0002 ( 343)		BINOP1	R2(I)	<-	R2(IF), CI:1	{}
+0003 ( 343)		BINOP1	R1(I)	<-	R11(I)[2048..6144], R1(IF)	{}
+0004 ( 307)		BINOP17	R3(I)[0..255]	<-	R1(I), CI:8	{}
+0005 (  11)		JUMP		<-		{}
+		==> 58
+L58: <= D-1: (2) Head P747 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R4(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R4(B)[0..1]	<-	R4(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R4(BF)[0..1]	{}
+		==> 58
+		==> 59
+L59: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R3(CF)[0..255]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:19	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 63
+L63: <= D-1: (2) Head P746 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R3(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R3(B)[0..1]	<-	R3(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 63
+		==> 64
+L64: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:32	{V}
+0002 ( 309)		BINOP17	R1(I)[0..255]	<-	R2(I), CI:8	{}
+0003 (  11)		JUMP		<-		{}
+		==> 68
+L68: <= D-1: (2) Head P745 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R3(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R3(B)[0..1]	<-	R3(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 68
+		==> 69
+L69: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R1(CF)[0..255]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:33	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 73
+L73: <= D-1: (2) Head P744 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 73
+		==> 74
+L74: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R2(CF)	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:30	{V}
+0002 (  11)		JUMP		<-		{}
+		==> 78
+L78: <= D-1: (2) Head P743 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 78
+		==> 79
+L79: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R9(C)[0..80]	{V}
+0001 ( 344)		JUMP		<-		{}
+		==> 483
+L483: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 344)		CONV37	R1(I)[0..80]	<-	R9(C)[0..80]	{}
+0001 ( 344)		BINOP1	R1(I)[0..159]	<-	R1(IF)[0..80], R7(I)[0..79]	{}
+0002 ( 344)		RELOP19	R1(B)[0..1]	<-	R1(IF)[0..159], CI:80	{}
+0003 ( 344)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 80
+		==> 12
+L80: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 347)		BINOP1	R0(I)	<-	R5(I)[0..4096], R0(IF)[0..65535]	{}
+0001 ( 347)		BINOP2	R1(I)	<-	R0(IF), CI:-79	{}
+0002 ( 348)		STOREC2		<-	V(0 '')+0 , R1(I)	{}
+0003 ( 348)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0004 ( 346)		CONV37	R0(I)[0..11]	<-	R8(C)[0..11]	{}
+0005 ( 346)		BINOP1	R2(I)[0..11]	<-	R0(IF)[0..11], R12(I)[0..11]	{}
+0006 ( 349)		CONV37	R0(I)[0..1]	<-	R18(CF)[0..1]	{}
+0007 ( 349)		BINOP3	R0(I)[0..11]	<-	R0(IF)[0..1], CI:11	{}
+0008 ( 349)		BINOP1	R0(I)[0..21]	<-	R0(IF)[0..11], R2(I)[0..11]	{}
+0009 ( 349)		LEAG	R0(P)[0..22]	<-	V(101 'pipe_tiles')+0 , R0(IF)[0..21]	{}
+000a ( 349)		LOADI1	R0(C)[10..32]	<-	R0(PF)+0 {V(101 'pipe_tiles')} [0..22]	{}
+000b (  11)		JUMP		<-		{}
+		==> 84
+L84: <= D-1: (2) Head P742 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R3(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R3(B)[0..1]	<-	R3(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 84
+		==> 85
+L85: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[10..32]	{V}
+0001 ( 350)		BRANCH		<-	R16(BF)[0..1]	{}
+		==> 86
+		==> 12
+L86: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 351)		BINOP1	R0(I)	<-	R1(IF), CI:2048	{}
+0001 ( 351)		STOREC2		<-	V(0 '')+0 , R0(IF)	{}
+0002 ( 351)		CALLN		<-	V(3 'vdc_mem_addr')+0 	{}
+0003 ( 352)		LEAG	R0(P)[0..10]	<-	V(102 'cap_attr')+0 , R2(IF)[0..10]	{}
+0004 ( 352)		LOADI1	R0(C)[4..5]	<-	R0(PF)+0 {V(102 'cap_attr')} [0..10]	{}
+0005 (  11)		JUMP		<-		{}
+		==> 90
+L90: <= D-1: (2) Head P741 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 90
+		==> 91
+L91: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[4..5]	{V}
+0001 ( 338)		JUMP		<-		{}
+		==> 12
+L19: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 339)		RELOP19	R0(B)[0..1]	<-	R15(I)[0..20], R13(I)[7..262]	{}
+0001 ( 339)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 16
+		==> 17
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 339)		CONST	R18(B)[0..0]	<-	CI:0	{}
+0001 ( 339)		JUMP		<-		{}
+		==> 18
+L8: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 332)		MOVE	R7(I)[0..79]	<-	R2(I)[0..79]	{}
+0001 ( 333)		CONST	R8(C)[0..0]	<-	CI:0	{}
+0002 ( 335)		BINOP1	R0(I)[1..32767]	<-	R2(IF), CI:11	{}
+0003 ( 337)		RELOP27	R0(B)[0..1]	<-	R0(IF)[1..32767], CI:80	{}
+0004 ( 337)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 354
+L354: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 333)		CONST	R9(C)[11..11]	<-	CI:11	{}
+0001 ( 337)		JUMP		<-		{}
+		==> 119
+L286: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 334)		MOVE	R6(I)	<-	R5(IF)	{}
+0001 ( 334)		CONST	R5(I)[4096..4096]	<-	CI:4096	{}
+0002 ( 334)		JUMP		<-		{}
+		==> 290
+--------------------------------------------------------------------
+memcpy: /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/string.h:30
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/string.c
+0000 ( 307)		JSR		<-	V(0 '')+0 , V(2 '')+0 , V(4 '')+0 , V(-1 '')+0 	{}
+0001 ( 334)		RET		<-		{}
+--------------------------------------------------------------------
+sound_tick: /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.h:12
+$00 R0(L), $00 R1(L), $00 R2(P), $00 R3(I), $00 R4(P), $03 R5(I), $04 R6(C), $05 R7(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  72)		CONST	R6(C)[0..0]	<-	CI:0	{}
+0001 (  73)		JUMP		<-		{}
+		==> 2
+L2: <= D-1: (2) Head P100 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  73)		CONV37	R3(I)[0..2]	<-	R6(C)[0..2]	{}
+0001 (  73)		LEAG	R4(P)[0..2]	<-	V(7 'timer' A)+0 , R3(I)[0..2]	{}
+0002 (  73)		LOADI1	R7(C)[0..255]	<-	R4(P)+0 {V(7 'timer' A)} [0..2]	{}
+0003 (  73)		BRANCH		<-	R7(C)[0..255]	{}
+		==> 7
+		==> 1
+L7: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  74)		BINOP16	R5(I)[0..4]	<-	R3(I)[0..2], CI:1	{}
+0001 (  74)		LEAG	R0(P)[0..4]	<-	V(97 'step' A)+0 , R5(I)[0..4]	{}
+0002 (  74)		LOADI2	R1(I)[-32768..32767]	<-	R0(PF)+0 {V(97 'step' A)} [0..4]	{}
+0003 (  74)		RELOP20	R0(B)[0..1]	<-	R1(I)[-32768..32767], CI:0	{}
+0004 (  74)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 9
+		==> 11
+L9: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  76)		LEAG	R2(P)[0..4]	<-	V(96 'freq' A)+0 , R5(I)[0..4]	{}
+0001 (  76)		LOADI2	R0(I)[0..65535]	<-	R2(P)+0 {V(96 'freq' A)} [0..4]	{}
+0002 (  76)		CONV39	R0(L)[0..65535]	<-	R0(IF)[0..65535]	{}
+0003 (  76)		CONV42	R1(L)[-32768..32767]	<-	R1(IF)[-32768..32767]	{}
+0004 (  76)		BINOP1	R0(L)[-32768..98302]	<-	R1(LF)[-32768..32767], R0(LF)[0..65535]	{}
+0005 (  77)		RELOP24	R1(B)[0..1]	<-	R0(L)[-32768..98302], CL:0	{}
+0006 (  77)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 12
+		==> 13
+L12: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  77)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 (  77)		JUMP		<-		{}
+		==> 14
+L14: <= D-1: (3)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  77)		STOREI2		<-	R2(PF)+0 {V(96 'freq' A)} [0..4], R0(IF)[0..65535]	{}
+0001 (  78)		STOREC1		<-	V(0 '')+0 , R6(C)[0..2]	{}
+0002 (  78)		CALLN		<-	V(26 'apply')+0 	{}
+0003 (  74)		JUMP		<-		{}
+		==> 11
+L11: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  80)		BINOP1	R7(C)[-1..254]	<-	R7(CF)[0..255], CI:-1	{}
+0001 (  80)		STOREI1		<-	R4(PF)+0 {V(7 'timer' A)} [0..2], R7(C)[-1..254]	{}
+0002 (  80)		LEAG	R0(P)[0..2]	<-	V(99 'jump_at' A)+0 , R3(I)[0..2]	{}
+0003 (  80)		LOADI1	R0(C)[0..255]	<-	R0(PF)+0 {V(99 'jump_at' A)} [0..2]	{}
+0004 (  80)		RELOP19	R1(B)[0..1]	<-	R7(C)[-1..254], R0(C)[0..255]	{}
+0005 (  80)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 18
+		==> 17
+L18: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  80)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 15
+		==> 17
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  82)		STOREC1		<-	V(0 '')+0 , R6(C)[0..2]	{}
+0001 (  81)		LEAG	R0(P)[0..4]	<-	V(135 'jump_freq' A)+0 , R5(I)[0..4]	{}
+0002 (  81)		LOADI2	R0(I)[0..65535]	<-	R0(PF)+0 {V(135 'jump_freq' A)} [0..4]	{}
+0003 (  81)		LEAG	R1(P)[0..4]	<-	V(96 'freq' A)+0 , R5(IF)[0..4]	{}
+0004 (  81)		STOREI2		<-	R1(PF)+0 {V(96 'freq' A)} [0..4], R0(IF)[0..65535]	{}
+0005 (  82)		CALLN		<-	V(26 'apply')+0 	{}
+0006 (  84)		BRANCH		<-	R7(CF)[-1..254]	{}
+		==> 1
+		==> 19
+L1: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  72)		BINOP1	R6(C)[1..3]	<-	R6(CF)[0..2], CI:1	{}
+0001 (  72)		RELOP28	R0(B)[0..1]	<-	R6(C)[1..3], CC:3	{}
+0002 (  72)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 2
+		==> 4
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  86)		RET		<-		{}
+L19: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  84)		LEAG	R0(P)[0..2]	<-	V(98 'wave' A)+0 , R3(I)[0..2]	{}
+0001 (  84)		LOADI1	R1(C)[0..255]	<-	R0(PF)+0 {V(98 'wave' A)} [0..2]	{}
+0002 (  84)		BINOP3	R0(I)[0..14]	<-	R3(IF)[0..2], CI:7	{}
+0003 (  84)		LEAA	R0(P)[54276..54290]	<-	V(-1 '')+54276 , R0(IF)[0..14]	{}
+0004 (  84)		STOREI1		<-	R0(PF)+0 {V(-1 'ABS')} [54276..54290], R1(CF)[0..255]	{V}
+0005 (  72)		JUMP		<-		{}
+		==> 1
+L17: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  84)		BRANCH		<-	R7(CF)[-1..254]	{}
+		==> 1
+		==> 19
+L13: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  77)		RELOP27	R1(B)[0..1]	<-	R0(L)[0..98302], CL:65535	{}
+0001 (  77)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 33
+		==> 14
+L33: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  77)		CONST	R0(I)[65535..65535]	<-	CI:65535	{}
+0001 (  77)		JUMP		<-		{}
+		==> 14
+--------------------------------------------------------------------
+stage_frame: /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c:649
+$00 R0(I), $0f R1(I), $10 R2(I), $11 R3(I), $12 R4(I), $13 R5(C), $14 R6(C), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 654)		LOADG1	R2(C)[0..255]	<-	V(51 'bird_set')+0 	{}
+0001 ( 654)		LOADG1	R3(C)[0..255]	<-	V(50 'shown_set')+0 	{}
+0002 ( 652)		LOADG2	R0(I)[0..65535]	<-	V(37 'dirty_count')+0 	{}
+0003 ( 652)		LOADG2	R1(I)[0..65535]	<-	V(141 'max_dirty')+0 	{V}
+0004 ( 652)		RELOP27	R1(B)[0..1]	<-	R0(I)[0..65535], R1(IF)[0..65535]	{}
+0005 ( 652)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 1
+		==> 3
+L1: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 652)		STOREG2		<-	V(141 'max_dirty')+0 , R0(IF)[1..65535]	{V}
+0001 ( 654)		JUMP		<-		{}
+		==> 3
+L3: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 654)		RELOP20	R0(B)[0..1]	<-	R2(CF)[0..255], R3(CF)[0..255]	{}
+0001 ( 654)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 4
+		==> 248
+L4: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 654)		CALLN		<-	V(20 'load_pose')+0 	{}
+0001 ( 655)		JUMP		<-		{}
+		==> 248
+L248: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 655)		LOADG1	R0(C)[0..255]	<-	V(94 'stepped')+0 	{}
+0001 ( 655)		BRANCH		<-	R0(CF)[0..255]	{}
+		==> 7
+		==> 10
+L7: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 655)		STOREG1		<-	V(84 'flip')+0 , CC:1	{}
+0001 ( 657)		LOADG1	R0(C)[0..255]	<-	V(26 'state')+0 	{}
+0002 ( 657)		RELOP19	R0(B)[0..1]	<-	R0(CF)[0..255], CC:1	{}
+0003 ( 657)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 15
+		==> 17
+L15: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 662)		LOADG2	R0(I)[-32768..32767]	<-	V(29 'bird_y')+0 	{}
+0001 ( 662)		BINOP18	R0(I)[-2048..2047]	<-	R0(IF)[-32768..32767], CI:4	{}
+0002 ( 662)		BINOP18	R3(I)[-256..255]	<-	R0(IF)[-2048..2047], CI:3	{}
+0003 ( 664)		CONST	R4(I)[0..0]	<-	CI:0	{}
+0004 ( 664)		JUMP		<-		{}
+		==> 19
+L19: <= D-1: (2) Head P467 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 664)		BINOP16	R0(I)[0..12]	<-	R4(I)[0..3], CI:2	{}
+0001 ( 664)		LEAG	R0(P)[0..12]	<-	V(31 'pipes' A)+0 , R0(IF)[0..12]	{}
+0002 ( 664)		LOADI2	R1(I)[-32768..32767]	<-	R0(P)+0 {V(31 'pipes' A)} [0..12]	{}
+0003 ( 665)		BINOP2	R2(I)	<-	R1(I)[-32768..32767], CI:1	{}
+0004 ( 665)		RELOP21	R2(B)[0..1]	<-	R2(IF), CI:35	{}
+0005 ( 665)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 20
+		==> 25
+L20: <= D-1: (4)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 664)		BINOP1	R4(I)[1..4]	<-	R4(IF)[0..3], CI:1	{}
+0001 ( 663)		RELOP20	R0(B)[0..1]	<-	R4(I)[1..4], CI:4	{}
+0002 ( 663)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 19
+		==> 17
+L17: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 672)		STOREC1		<-	V(4 '')+0 , CC:12	{}
+0001 ( 672)		LOADG1	R1(C)[0..255]	<-	V(85 'page')+0 	{}
+0002 ( 672)		BRANCH		<-	R1(C)[0..255]	{}
+		==> 145
+		==> 146
+L145: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 672)		STOREC2		<-	V(2 '')+0 , CI:0	{}
+0001 ( 672)		JUMP		<-		{}
+		==> 147
+L147: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 672)		CALLN		<-	V(21 'write_cells')+0 	{}
+0001 ( 673)		JUMP		<-		{}
+		==> 40
+L40: <= D-1: (2) Head P464 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 673)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 ( 673)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 673)		BINOP9	R0(I)[0..32]	<-	R0(IF)[0..255], CI:32	{}
+0003 ( 673)		RELOP20	R0(B)[0..1]	<-	R0(IF)[0..32], CI:0	{}
+0004 ( 673)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 40
+		==> 42
+L42: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:12	{V}
+0001 ( 674)		CONV37	R0(I)[0..255]	<-	R1(CF)[0..255]	{}
+0002 ( 674)		BINOP10	R0(I)[0..255]	<-	R0(IF)[0..255], CI:1	{}
+0003 ( 674)		STOREG1		<-	V(85 'page')+0 , R0(C)[0..255]	{}
+0004 ( 675)		RELOP20	R1(B)[0..1]	<-	R0(CF)[0..255], CC:0	{}
+0005 ( 675)		BRANCH		<-	R1(B)[0..1]	{}
+		==> 148
+		==> 149
+L148: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 675)		CONST	R0(I)[16..16]	<-	CI:16	{}
+0001 ( 675)		JUMP		<-		{}
+		==> 46
+L46: <= D-1: (3) Head P463 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R2(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R2(B)[0..1]	<-	R2(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 46
+		==> 47
+L47: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[0..16]	{V}
+0001 (   6)		STOREA1		<-	V(-1 '')+54784 , CC:20	{V}
+0002 ( 676)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 151
+		==> 152
+L151: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 676)		CONST	R0(I)[24..24]	<-	CI:24	{}
+0001 ( 676)		JUMP		<-		{}
+		==> 51
+L51: <= D-1: (3) Head P462 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  11)		LOADA1	R1(C)[0..255]	<-	V(-1 '')+54784 	{V}
+0001 (  11)		RELOP28	R1(B)[0..1]	<-	R1(CF)[0..255], CC:128	{}
+0002 (  11)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 51
+		==> 52
+L52: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/c128/vdc.c
+0000 (  12)		STOREA1		<-	V(-1 '')+54785 , R0(CF)[8..24]	{V}
+0001 ( 677)		RET		<-		{}
+L152: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 676)		CONST	R0(I)[8..8]	<-	CI:8	{}
+0001 ( 676)		JUMP		<-		{}
+		==> 51
+L149: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 675)		CONST	R0(I)[0..0]	<-	CI:0	{}
+0001 ( 675)		JUMP		<-		{}
+		==> 46
+L146: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 672)		STOREC2		<-	V(2 '')+0 , CI:4096	{}
+0001 ( 672)		JUMP		<-		{}
+		==> 147
+L25: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 665)		RELOP22	R1(B)[0..1]	<-	R1(IF)[-32768..32767], CI:20	{}
+0001 ( 665)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 20
+		==> 24
+L24: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 666)		LOADI1	R5(C)[0..255]	<-	R0(PF)+2 {V(31 'pipes' A)} [0..12]	{}
+0001 ( 667)		MOVE	R6(C)[-128..255]	<-	R3(C)[-256..255]	{}
+0002 ( 667)		JUMP		<-		{}
+		==> 27
+L27: <= D-1: (2) Head P466 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 667)		CONV37	R0(I)[0..255]	<-	R3(C)[-256..255]	{}
+0001 ( 667)		BINOP1	R0(I)[3..258]	<-	R0(IF)[0..255], CI:3	{}
+0002 ( 667)		CONV37	R1(I)[0..255]	<-	R6(C)[-128..255]	{}
+0003 ( 667)		RELOP28	R0(B)[0..1]	<-	R1(I)[0..255], R0(IF)[3..258]	{}
+0004 ( 667)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 31
+		==> 20
+L31: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 667)		RELOP28	R0(B)[0..1]	<-	R6(C)[-128..255], CC:21	{}
+0001 ( 667)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 28
+		==> 20
+L28: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 668)		RELOP28	R0(B)[0..1]	<-	R6(C)[0..20], R5(C)[0..255]	{}
+0001 ( 668)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 32
+		==> 35
+L32: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 669)		BINOP16	R1(I)[0..40]	<-	R1(IF)[0..20], CI:1	{I}
+0001 ( 669)		LEAG	R1(P)[0..40]	<-	V(25 'row_addr' A)+0 , R1(IF)[0..40]	{I}
+0002 ( 669)		CONST	R2(I)[30..30]	<-	CI:30	{}
+0003 ( 669)		JUMP		<-		{}
+		==> 37
+L37: <= D-1: (2) Head P465 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 669)		STOREC1		<-	V(2 '')+0 , CC:12	{}
+0001 ( 669)		LOADI2	R0(I)[0..65535]	<-	R1(P)+0 {V(25 'row_addr' A)} [0..40]	{}
+0002 ( 669)		BINOP1	R0(I)	<-	R0(IF)[0..65535], R2(I)[30..34]	{}
+0003 ( 669)		STOREC2		<-	V(0 '')+0 , R0(IF)	{}
+0004 ( 669)		CALLN		<-	V(29 'hidden_stale')+0 	{}
+0005 ( 669)		BINOP1	R2(I)[31..35]	<-	R2(IF)[30..34], CI:1	{}
+0006 ( 669)		RELOP20	R0(B)[0..1]	<-	R2(I)[31..35], CI:35	{}
+0007 ( 669)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 37
+		==> 29
+L29: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 667)		BINOP1	R6(C)[1..21]	<-	R6(CF)[0..20], CI:1	{}
+0001 ( 667)		JUMP		<-		{}
+		==> 27
+L35: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 668)		CONV37	R0(I)[0..255]	<-	R5(C)[0..255]	{}
+0001 ( 668)		BINOP1	R0(I)[7..262]	<-	R0(IF)[0..255], CI:7	{}
+0002 ( 668)		RELOP25	R0(B)[0..1]	<-	R1(I)[0..20], R0(IF)[7..262]	{}
+0003 ( 668)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 32
+		==> 29
+L10: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 655)		LOADG1	R0(C)[0..255]	<-	V(26 'state')+0 	{}
+0001 ( 655)		RELOP20	R0(B)[0..1]	<-	R0(CF)[0..255], CC:1	{}
+0002 ( 655)		BRANCH		<-	R0(BF)[0..1]	{}
+		==> 7
+		==> 8
+L8: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/flappy.c
+0000 ( 655)		STOREG1		<-	V(84 'flip')+0 , CC:0	{}
+0001 ( 656)		RET		<-		{}
+--------------------------------------------------------------------
+sound_off: /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.h:13
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/Flappy80/src/sound.c
+0000 (  49)		STOREA1		<-	V(-1 '')+54276 , CC:0	{V}
+0001 (  49)		STOREA1		<-	V(-1 '')+54283 , CC:0	{V}
+0002 (  49)		STOREA1		<-	V(-1 '')+54290 , CC:0	{V}
+0003 (  50)		STOREA1		<-	V(-1 '')+54296 , CC:0	{V}
+0004 (  51)		RET		<-		{}
+--------------------------------------------------------------------
+gotoxy: /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.h:93
+
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 375)		JSR		<-	V(0 '')+0 , V(1 '')+0 , V(-1 '')+0 	{}
+0001 ( 381)		RET		<-		{}
+--------------------------------------------------------------------
+putch: /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.h:89
+$00 R0(I), $00 R1(I), $00 R2(C), $00 R3(B), 
+L0: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 340)		LOADZ1	R0(C)[0..255]	<-	V(0 '')+0 	{}
+0001 ( 204)		LOADG1	R2(C)[0..3]	<-	V(6 'giocharmap')+0 	{}
+0002 ( 204)		BRANCH		<-	R2(C)[0..3]	{}
+		==> 2
+		==> 4
+L2: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 206)		RELOP19	R1(B)[0..1]	<-	R0(C)[0..255], CC:10	{S}
+0001 ( 206)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 5
+		==> 6
+L5: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 207)		CONST	R0(I)[13..13]	<-	CI:13	{S}
+0001 ( 239)		JUMP		<-		{}
+		==> 4
+L4: <= D-1: (8)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 193)		JSR		<-	R0(CF)[0..255], V(-1 '')+0 	{}
+0001 ( 239)		JUMP		<-		{}
+		==> 1
+L1: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 341)		RET		<-		{}
+L6: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 208)		RELOP19	R1(B)[0..1]	<-	R0(C)[0..255], CC:9	{S}
+0001 ( 208)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 8
+		==> 9
+L8: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 409)		LOADA1	R0(C)[0..255]	<-	V(-1 '')+236 	{V}
+0001 ( 210)		CONV37	R0(I)[0..255]	<-	R0(CF)[0..255]	{}
+0002 ( 210)		BINOP9	R0(I)[0..3]	<-	R0(IF)[0..255], CI:3	{}
+0003 ( 212)		CONST	R1(C)[32..32]	<-	CI:32	{IS}
+0004 ( 193)		JUMP		<-		{}
+		==> 13
+L13: <= D-1: (2) Head P119 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 193)		JSR		<-	R1(C)[32..32], V(-1 '')+0 	{}
+0001 ( 213)		BINOP1	R0(C)[1..4]	<-	R0(CF)[0..3], CI:1	{}
+0002 ( 213)		RELOP28	R2(B)[0..1]	<-	R0(C)[1..4], CC:4	{}
+0003 ( 213)		BRANCH		<-	R2(BF)[0..1]	{}
+		==> 13
+		==> 1
+L9: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 216)		RELOP25	R1(B)[0..1]	<-	R2(C)[0..3], CC:2	{}
+0001 ( 216)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 17
+		==> 4
+L17: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 218)		RELOP25	R1(B)[0..1]	<-	R0(C)[0..255], CC:65	{S}
+0001 ( 218)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 23
+		==> 4
+L23: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 218)		RELOP28	R1(B)[0..1]	<-	R0(C)[65..255], CC:123	{S}
+0001 ( 218)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 20
+		==> 4
+L20: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 206)		CONV37	R1(I)[65..122]	<-	R0(C)[65..122]	{S}
+0001 ( 220)		RELOP25	R3(B)[0..1]	<-	R0(C)[65..122], CC:97	{S}
+0002 ( 220)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 24
+		==> 27
+L24: <= D-1: (2)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 227)		BINOP10	R0(I)[0..127]	<-	R1(IF)[65..122], CI:32	{}
+0001 ( 230)		RELOP19	R1(B)[0..1]	<-	R2(CF)[2..3], CC:2	{}
+0002 ( 230)		BRANCH		<-	R1(BF)[0..1]	{}
+		==> 28
+		==> 4
+L28: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 231)		BINOP9	R0(C)[0..95]	<-	R0(CF)[0..127], CC:95	{S}
+0001 ( 239)		JUMP		<-		{}
+		==> 4
+L27: <= D-1: (1)  P-1 /Users/lukaszdziwosz/Desktop/80Terminal/.tools/oscar64/include/conio.c
+0000 ( 220)		RELOP28	R3(B)[0..1]	<-	R0(C)[65..96], CC:91	{S}
+0001 ( 220)		BRANCH		<-	R3(BF)[0..1]	{}
+		==> 24
+		==> 4

@@ -1,0 +1,6 @@
+DriveROM: Error - 2000 ROM image not found. Hardware-level 2000 emulation is not available.
+DriveROM: Error - 4000 ROM image not found. Hardware-level 4000 emulation is not available.
+DriveROM: Error - CMDHD ROM image not found. Hardware-level CMDHD emulation is not available.
+Filesystem Image Probe: Error - Import GCR: Unknown GCR image version 49.
+Tape: Error - Cannot open file `build/flappy.prg'
+Error - no CRT header found.
