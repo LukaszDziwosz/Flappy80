@@ -1,9 +1,9 @@
 sections
-1c80 - 3a5d : DATA, code
-3a5d - 3cb4 : DATA, data
-3cb4 - 7ad7 : BSS, bss
-7ad8 - b000 : HEAP, heap
-b000 - bfc9 : STACK, stack
+1c80 - 3ca1 : DATA, code
+3ca1 - 3eec : DATA, data
+3eec - 7d17 : BSS, bss
+7d18 - b000 : HEAP, heap
+b000 - bfd8 : STACK, stack
 00f7 - 00f7 : ZEROPAGE, zeropage
 1c01 - 1c5e : DATA, startup
 c000 - c000 : SSTACK, sstack
@@ -24,269 +24,286 @@ c000 - c000 : SSTACK, panel_text@stack
 c000 - c000 : SSTACK, score_line@stack
 c000 - c000 : SSTACK, banner@stack
 c000 - c000 : SSTACK, memset@stack
+c000 - c000 : SSTACK, stopwatch@stack
 c000 - c000 : SSTACK, wait_frame@stack
 c000 - c000 : SSTACK, load_pose@stack
 c000 - c000 : SSTACK, write_cells@stack
-c000 - c000 : SSTACK, show_frame@stack
+c000 - c000 : SSTACK, copy_rows@stack
+c000 - c000 : SSTACK, hidden_stale@stack
+bff2 - c000 : SSTACK, prerender@stack
+bff0 - bff2 : SSTACK, show_frame@stack
 c000 - c000 : SSTACK, keys@stack
 c000 - c000 : SSTACK, apply@stack
 c000 - c000 : SSTACK, start@stack
 c000 - c000 : SSTACK, sound_flap@stack
 c000 - c000 : SSTACK, game_over@stack
-c000 - c000 : SSTACK, hidden_stale@stack
-c000 - c000 : SSTACK, unsync_pipes@stack
 c000 - c000 : SSTACK, crash@stack
-bfed - c000 : SSTACK, prerender@stack
-c000 - c000 : SSTACK, memcpy@stack
-bfd6 - bfed : SSTACK, prepare_frame@stack
+bfe6 - bff2 : SSTACK, prepare_frame@stack
 c000 - c000 : SSTACK, sound_tick@stack
 bff7 - c000 : SSTACK, stage_frame@stack
+c000 - c000 : SSTACK, restore_vdc@stack
 c000 - c000 : SSTACK, sound_off@stack
 c000 - c000 : SSTACK, gotoxy@stack
 c000 - c000 : SSTACK, putch@stack
-bfc9 - bfd6 : SSTACK, main@stack
+bfd8 - bfe6 : SSTACK, main@stack
 
 regions
 00f7 - 00ff : 0000, 0000, zeropage
 1c01 - 1c80 : 1c5e, 005d, startup
-1c80 - b000 : 3cb4, 5e57, main
+1c80 - b000 : 3eec, 6097, main
 
 objects
 00f7 - 00f7 : ZeroStart, START:zeropage
 00f7 - 00f7 : ZeroEnd, END:zeropage
 1c01 - 1c5e : startup, NATIVE_CODE:startup
-1c80 - 208e : main, NATIVE_CODE:code
-208e - 2096 : dispmode80col, NATIVE_CODE:code
-2096 - 20de : sound_init, NATIVE_CODE:code
-20de - 20fe : vdc_mem_addr, NATIVE_CODE:code
-20fe - 2267 : make_shapes, NATIVE_CODE:code
-2267 - 22e1 : make_poses, NATIVE_CODE:code
-22e1 - 23ca : pipe_shapes, NATIVE_CODE:code
-23ca - 2434 : reset_game, NATIVE_CODE:code
-2434 - 2520 : bird_draw, NATIVE_CODE:code
-2520 - 254d : gap_next, NATIVE_CODE:code
-254d - 2591 : field, NATIVE_CODE:code
-2591 - 259e : number@proxy, NATIVE_CODE:code
-259e - 2684 : background, NATIVE_CODE:code
-2684 - 2727 : cell, NATIVE_CODE:code
-2727 - 2731 : number@proxy, NATIVE_CODE:code
-2731 - 2775 : number, NATIVE_CODE:code
-2775 - 27a2 : game_over, NATIVE_CODE:code
-27a2 - 289c : banner, NATIVE_CODE:code
-289c - 28a0 : panel_text@proxy, NATIVE_CODE:code
-28a0 - 2924 : panel_text, NATIVE_CODE:code
-2924 - 292e : *, DATA:code
-292e - 293c : *, DATA:code
-293c - 2946 : *, DATA:code
-2946 - 299c : score_line, NATIVE_CODE:code
-299c - 29a3 : *, DATA:code
-29a3 - 29aa : *, DATA:code
-29aa - 29b1 : *, DATA:code
-29b1 - 29bf : *, DATA:code
-29bf - 29c3 : memset@proxy, NATIVE_CODE:code
-29c3 - 29df : memset, NATIVE_CODE:code
-29df - 29ee : wait_frame, NATIVE_CODE:code
-29ee - 2a77 : show_frame, NATIVE_CODE:code
-2a77 - 2c8e : write_cells, NATIVE_CODE:code
-2c8e - 2d0c : load_pose, NATIVE_CODE:code
-2d0c - 2d48 : keys, NATIVE_CODE:code
-2d48 - 3269 : prepare_frame, NATIVE_CODE:code
-3269 - 3275 : sound_flap, NATIVE_CODE:code
-3275 - 3288 : start@proxy, NATIVE_CODE:code
-3288 - 32be : crash, NATIVE_CODE:code
-32be - 32fc : start, NATIVE_CODE:code
-32fc - 330f : apply, NATIVE_CODE:code
-330f - 33d8 : unsync_pipes, NATIVE_CODE:code
-33d8 - 3420 : hidden_stale, NATIVE_CODE:code
-3420 - 36d9 : prerender, NATIVE_CODE:code
-36d9 - 36e1 : memcpy@proxy, NATIVE_CODE:code
-36e1 - 3708 : memcpy, NATIVE_CODE:code
-3708 - 37b9 : sound_tick, NATIVE_CODE:code
-37b9 - 3918 : stage_frame, NATIVE_CODE:code
-3918 - 3927 : sound_off, NATIVE_CODE:code
-3927 - 3973 : putch, NATIVE_CODE:code
-3973 - 397d : *, DATA:code
-397d - 39b5 : mul16by8, NATIVE_CODE:code
-39b5 - 3a40 : divmod, NATIVE_CODE:code
-3a40 - 3a43 : __multab60L, DATA:code
-3a43 - 3a4f : __multab5L, DATA:code
-3a4f - 3a52 : __multab7L, DATA:code
-3a52 - 3a5d : panel_text@proxy, NATIVE_CODE:code
-3a5d - 3a5e : spentry, DATA:data
-3a5e - 3a5f : giocharmap, DATA:data
-3a5f - 3a67 : round, DATA:data
-3a67 - 3a6f : stripe, DATA:data
-3a6f - 3a71 : random_state, DATA:data
-3a71 - 3a75 : flap, DATA:data
-3a75 - 3a76 : bird_row, DATA:data
-3a76 - 3a77 : shown_row, DATA:data
-3a77 - 3a7c : bird_colours, DATA:data
-3a7c - 3a7e : set_pose, DATA:data
-3a7e - 3a94 : pipe_tiles, DATA:data
-3a94 - 3a9f : cap_attr, DATA:data
-3a9f - 3aa9 : body, DATA:data
-3aa9 - 3ab3 : cap, DATA:data
-3ab3 - 3aeb : bitshift, DATA:data
-3aeb - 3aee : timer, DATA:bss
-3aee - 3aef : state, DATA:bss
-3aef - 3af1 : score, DATA:bss
-3af1 - 3af3 : velocity, DATA:bss
-3af3 - 3af5 : bird_y, DATA:bss
-3af5 - 3af6 : phase, DATA:bss
-3af6 - 3af8 : dirty_count, DATA:bss
-3af8 - 3afa : front_count, DATA:bss
-3afa - 3afc : best, DATA:bss
-3afc - 3afe : frame_count, DATA:bss
-3afe - 3aff : bird_pose, DATA:bss
-3aff - 3b00 : shown_set, DATA:bss
-3b00 - 3bfc : letters, DATA:data
-3bfc - 3bfd : bird_set, DATA:bss
-3bfd - 3bfe : panel_y, DATA:bss
-3bfe - 3bff : flash, DATA:bss
-3bff - 3c00 : flip, DATA:bss
-3c00 - 3cb4 : bird_art, DATA:data
-3cb4 - 3cd9 : saved_regs, DATA:bss
-3cb4 - 3cb4 : BSSStart, START:bss
-3cd9 - 4bd9 : saved_font, DATA:bss
-4bd9 - 5359 : shapes, DATA:bss
-5359 - 538b : row_addr, DATA:bss
-538b - 539b : pipes, DATA:bss
-539b - 5b6b : screen, DATA:bss
-5b6b - 633b : attr, DATA:bss
-633b - 6b0b : marked, DATA:bss
-6b0b - 6b0c : page, DATA:bss
-6b0c - 7aac : dirty, DATA:bss
-7aac - 7ab7 : line, DATA:bss
-7ab7 - 7ab9 : blank_overruns, DATA:bss
-7ab9 - 7aba : previous_keys, DATA:bss
-7aba - 7abb : stepped, DATA:bss
-7abb - 7abc : death_delay, DATA:bss
-7abc - 7ac2 : freq, DATA:bss
-7ac2 - 7ac8 : step, DATA:bss
-7ac8 - 7acb : wave, DATA:bss
-7acb - 7ace : jump_at, DATA:bss
-7ace - 7acf : prerendered, DATA:bss
-7acf - 7ad5 : jump_freq, DATA:bss
-7ad5 - 7ad7 : max_dirty, DATA:bss
-7ad7 - 7ad7 : BSSEnd, END:bss
-bfc9 - bfd6 : main@stack, BSS:main@stack
-bfc9 - bfc9 : StackEnd, END:stack
-bfd6 - bfed : prepare_frame@stack, BSS:prepare_frame@stack
-bfed - c000 : prerender@stack, BSS:prerender@stack
+1c80 - 209a : main, NATIVE_CODE:code
+209a - 20a2 : dispmode80col, NATIVE_CODE:code
+20a2 - 20ec : sound_init, NATIVE_CODE:code
+20ec - 210c : vdc_mem_addr, NATIVE_CODE:code
+210c - 2275 : make_shapes, NATIVE_CODE:code
+2275 - 22ef : make_poses, NATIVE_CODE:code
+22ef - 23d8 : pipe_shapes, NATIVE_CODE:code
+23d8 - 244a : reset_game, NATIVE_CODE:code
+244a - 2549 : bird_draw, NATIVE_CODE:code
+2549 - 2576 : gap_next, NATIVE_CODE:code
+2576 - 25cc : field, NATIVE_CODE:code
+25cc - 25d6 : number@proxy, NATIVE_CODE:code
+25d6 - 261a : number, NATIVE_CODE:code
+261a - 2700 : background, NATIVE_CODE:code
+2700 - 27a3 : cell, NATIVE_CODE:code
+27a3 - 27d0 : game_over, NATIVE_CODE:code
+27d0 - 28ca : banner, NATIVE_CODE:code
+28ca - 28ce : panel_text@proxy, NATIVE_CODE:code
+28ce - 2952 : panel_text, NATIVE_CODE:code
+2952 - 295c : *, DATA:code
+295c - 296a : *, DATA:code
+296a - 2974 : *, DATA:code
+2974 - 29ca : score_line, NATIVE_CODE:code
+29ca - 29d1 : *, DATA:code
+29d1 - 29d8 : *, DATA:code
+29d8 - 29df : *, DATA:code
+29df - 29ed : *, DATA:code
+29ed - 2a09 : memset, NATIVE_CODE:code
+2a09 - 2a40 : wait_frame, NATIVE_CODE:code
+2a40 - 2a50 : stopwatch, NATIVE_CODE:code
+2a50 - 2cb6 : show_frame, NATIVE_CODE:code
+2cb6 - 2d60 : load_pose, NATIVE_CODE:code
+2d60 - 2f77 : write_cells, NATIVE_CODE:code
+2f77 - 31b5 : prerender, NATIVE_CODE:code
+31b5 - 3289 : copy_rows, NATIVE_CODE:code
+3289 - 32d2 : hidden_stale, NATIVE_CODE:code
+32d2 - 330e : keys, NATIVE_CODE:code
+330e - 3865 : prepare_frame, NATIVE_CODE:code
+3865 - 3886 : sound_flap, NATIVE_CODE:code
+3886 - 3891 : start@proxy, NATIVE_CODE:code
+3891 - 38db : crash, NATIVE_CODE:code
+38db - 3919 : start, NATIVE_CODE:code
+3919 - 392c : apply, NATIVE_CODE:code
+392c - 39dd : sound_tick, NATIVE_CODE:code
+39dd - 3b1f : stage_frame, NATIVE_CODE:code
+3b1f - 3b3e : restore_vdc, NATIVE_CODE:code
+3b3e - 3b4d : sound_off, NATIVE_CODE:code
+3b4d - 3b99 : putch, NATIVE_CODE:code
+3b99 - 3ba3 : *, DATA:code
+3ba3 - 3bdb : mul16by8, NATIVE_CODE:code
+3bdb - 3c66 : divmod, NATIVE_CODE:code
+3c66 - 3c69 : __multab60L, DATA:code
+3c69 - 3c75 : __multab5L, DATA:code
+3c75 - 3c7a : __multab8192L, DATA:code
+3c7a - 3c7f : __multab8192H, DATA:code
+3c7f - 3c82 : __multab7L, DATA:code
+3c82 - 3c8c : __shltab1023L, DATA:code
+3c8c - 3c96 : __shltab1023H, DATA:code
+3c96 - 3ca1 : panel_text@proxy, NATIVE_CODE:code
+3ca1 - 3ca2 : spentry, DATA:data
+3ca2 - 3ca3 : giocharmap, DATA:data
+3ca3 - 3cab : round, DATA:data
+3cab - 3cb3 : stripe, DATA:data
+3cb3 - 3cb5 : random_state, DATA:data
+3cb5 - 3cb9 : flap, DATA:data
+3cb9 - 3cba : bird_row, DATA:data
+3cba - 3cbb : shown_row, DATA:data
+3cbb - 3cc0 : bird_colours, DATA:data
+3cc0 - 3cd6 : pipe_tiles, DATA:data
+3cd6 - 3ce1 : cap_attr, DATA:data
+3ce1 - 3ce4 : timer, DATA:bss
+3ce4 - 3cec : set_pose, DATA:bss
+3cec - 3ced : state, DATA:bss
+3ced - 3cef : score, DATA:bss
+3cef - 3cf1 : velocity, DATA:bss
+3cf1 - 3cf3 : bird_y, DATA:bss
+3cf3 - 3cf4 : phase, DATA:bss
+3cf4 - 3cf5 : speed, DATA:bss
+3cf5 - 3cf6 : scroll, DATA:bss
+3cf6 - 3cf7 : redrawn, DATA:bss
+3cf7 - 3cf8 : bird_stale, DATA:bss
+3cf8 - 3cfa : dirty_count, DATA:bss
+3cfa - 3cfc : front_count, DATA:bss
+3cfc - 3cfe : best, DATA:bss
+3cfe - 3d00 : frame_count, DATA:bss
+3d00 - 3dfc : letters, DATA:data
+3dfc - 3dfd : bird_pose, DATA:bss
+3dfd - 3dfe : shown_set, DATA:bss
+3dfe - 3dff : bird_set, DATA:bss
+3dff - 3e00 : panel_y, DATA:bss
+3e00 - 3eb4 : bird_art, DATA:data
+3eb4 - 3eec : bitshift, DATA:data
+3eec - 3eec : BSSStart, START:bss
+3eec - 3efc : pipes, DATA:bss
+3efc - 3efe : show_time, DATA:bss
+3efe - 3eff : flash, DATA:bss
+3eff - 3f00 : flip, DATA:bss
+3f00 - 3f25 : saved_regs, DATA:bss
+3f25 - 4e25 : saved_font, DATA:bss
+4e25 - 55a5 : shapes, DATA:bss
+55a5 - 55d7 : row_addr, DATA:bss
+55d7 - 5da7 : screen, DATA:bss
+5da7 - 6577 : attr, DATA:bss
+6577 - 6d47 : marked, DATA:bss
+6d47 - 6d48 : page, DATA:bss
+6d48 - 7ce8 : dirty, DATA:bss
+7ce8 - 7cf3 : line, DATA:bss
+7cf3 - 7cf5 : copy_src, DATA:bss
+7cf5 - 7cf7 : copy_dst, DATA:bss
+7cf7 - 7cf9 : blank_overruns, DATA:bss
+7cf9 - 7cfa : prerendered, DATA:bss
+7cfa - 7cfb : previous_keys, DATA:bss
+7cfb - 7cfc : stepped, DATA:bss
+7cfc - 7cfd : death_delay, DATA:bss
+7cfd - 7d00 : wave, DATA:bss
+7d00 - 7d06 : freq, DATA:bss
+7d06 - 7d0c : step, DATA:bss
+7d0c - 7d0f : jump_at, DATA:bss
+7d0f - 7d15 : jump_freq, DATA:bss
+7d15 - 7d17 : max_dirty, DATA:bss
+7d17 - 7d17 : BSSEnd, END:bss
+bfd8 - bfd8 : StackEnd, END:stack
+bfd8 - bfe6 : main@stack, BSS:main@stack
+bfe6 - bff2 : prepare_frame@stack, BSS:prepare_frame@stack
+bff0 - bff2 : show_frame@stack, BSS:show_frame@stack
+bff2 - c000 : prerender@stack, BSS:prerender@stack
 bff7 - c000 : stage_frame@stack, BSS:stage_frame@stack
 
 objects by size
-6b0c (0fa0) : dirty, DATA:bss
-3cd9 (0f00) : saved_font, DATA:bss
-539b (07d0) : screen, DATA:bss
-5b6b (07d0) : attr, DATA:bss
-633b (07d0) : marked, DATA:bss
-4bd9 (0780) : shapes, DATA:bss
-2d48 (0521) : prepare_frame, NATIVE_CODE:code
-1c80 (040e) : main, NATIVE_CODE:code
-3420 (02b9) : prerender, NATIVE_CODE:code
-2a77 (0217) : write_cells, NATIVE_CODE:code
-20fe (0169) : make_shapes, NATIVE_CODE:code
-37b9 (015f) : stage_frame, NATIVE_CODE:code
-3b00 (00fc) : letters, DATA:data
-27a2 (00fa) : banner, NATIVE_CODE:code
-2434 (00ec) : bird_draw, NATIVE_CODE:code
-22e1 (00e9) : pipe_shapes, NATIVE_CODE:code
-259e (00e6) : background, NATIVE_CODE:code
-330f (00c9) : unsync_pipes, NATIVE_CODE:code
-3c00 (00b4) : bird_art, DATA:data
-3708 (00b1) : sound_tick, NATIVE_CODE:code
-2684 (00a3) : cell, NATIVE_CODE:code
-39b5 (008b) : divmod, NATIVE_CODE:code
-29ee (0089) : show_frame, NATIVE_CODE:code
-28a0 (0084) : panel_text, NATIVE_CODE:code
-2c8e (007e) : load_pose, NATIVE_CODE:code
-2267 (007a) : make_poses, NATIVE_CODE:code
-23ca (006a) : reset_game, NATIVE_CODE:code
+6d48 (0fa0) : dirty, DATA:bss
+3f25 (0f00) : saved_font, DATA:bss
+55d7 (07d0) : screen, DATA:bss
+5da7 (07d0) : attr, DATA:bss
+6577 (07d0) : marked, DATA:bss
+4e25 (0780) : shapes, DATA:bss
+330e (0557) : prepare_frame, NATIVE_CODE:code
+1c80 (041a) : main, NATIVE_CODE:code
+2a50 (0266) : show_frame, NATIVE_CODE:code
+2f77 (023e) : prerender, NATIVE_CODE:code
+2d60 (0217) : write_cells, NATIVE_CODE:code
+210c (0169) : make_shapes, NATIVE_CODE:code
+39dd (0142) : stage_frame, NATIVE_CODE:code
+244a (00ff) : bird_draw, NATIVE_CODE:code
+3d00 (00fc) : letters, DATA:data
+27d0 (00fa) : banner, NATIVE_CODE:code
+22ef (00e9) : pipe_shapes, NATIVE_CODE:code
+261a (00e6) : background, NATIVE_CODE:code
+31b5 (00d4) : copy_rows, NATIVE_CODE:code
+3e00 (00b4) : bird_art, DATA:data
+392c (00b1) : sound_tick, NATIVE_CODE:code
+2cb6 (00aa) : load_pose, NATIVE_CODE:code
+2700 (00a3) : cell, NATIVE_CODE:code
+3bdb (008b) : divmod, NATIVE_CODE:code
+28ce (0084) : panel_text, NATIVE_CODE:code
+2275 (007a) : make_poses, NATIVE_CODE:code
+23d8 (0072) : reset_game, NATIVE_CODE:code
 1c01 (005d) : startup, NATIVE_CODE:startup
-2946 (0056) : score_line, NATIVE_CODE:code
-3927 (004c) : putch, NATIVE_CODE:code
-2096 (0048) : sound_init, NATIVE_CODE:code
-33d8 (0048) : hidden_stale, NATIVE_CODE:code
-254d (0044) : field, NATIVE_CODE:code
-2731 (0044) : number, NATIVE_CODE:code
-32be (003e) : start, NATIVE_CODE:code
-2d0c (003c) : keys, NATIVE_CODE:code
-397d (0038) : mul16by8, NATIVE_CODE:code
-3ab3 (0038) : bitshift, DATA:data
-3288 (0036) : crash, NATIVE_CODE:code
-5359 (0032) : row_addr, DATA:bss
-2520 (002d) : gap_next, NATIVE_CODE:code
-2775 (002d) : game_over, NATIVE_CODE:code
-36e1 (0027) : memcpy, NATIVE_CODE:code
-3cb4 (0025) : saved_regs, DATA:bss
-20de (0020) : vdc_mem_addr, NATIVE_CODE:code
-29c3 (001c) : memset, NATIVE_CODE:code
-bfd6 (0017) : prepare_frame@stack, BSS:prepare_frame@stack
-3a7e (0016) : pipe_tiles, DATA:data
-3275 (0013) : start@proxy, NATIVE_CODE:code
-32fc (0013) : apply, NATIVE_CODE:code
-bfed (0013) : prerender@stack, BSS:prerender@stack
-538b (0010) : pipes, DATA:bss
-29df (000f) : wait_frame, NATIVE_CODE:code
-3918 (000f) : sound_off, NATIVE_CODE:code
-2591 (000d) : number@proxy, NATIVE_CODE:code
-bfc9 (000d) : main@stack, BSS:main@stack
-3269 (000c) : sound_flap, NATIVE_CODE:code
-3a43 (000c) : __multab5L, DATA:code
-3a52 (000b) : panel_text@proxy, NATIVE_CODE:code
-3a94 (000b) : cap_attr, DATA:data
-7aac (000b) : line, DATA:bss
-2727 (000a) : number@proxy, NATIVE_CODE:code
-3a9f (000a) : body, DATA:data
-3aa9 (000a) : cap, DATA:data
+2576 (0056) : field, NATIVE_CODE:code
+2974 (0056) : score_line, NATIVE_CODE:code
+3b4d (004c) : putch, NATIVE_CODE:code
+20a2 (004a) : sound_init, NATIVE_CODE:code
+3891 (004a) : crash, NATIVE_CODE:code
+3289 (0049) : hidden_stale, NATIVE_CODE:code
+25d6 (0044) : number, NATIVE_CODE:code
+38db (003e) : start, NATIVE_CODE:code
+32d2 (003c) : keys, NATIVE_CODE:code
+3ba3 (0038) : mul16by8, NATIVE_CODE:code
+3eb4 (0038) : bitshift, DATA:data
+2a09 (0037) : wait_frame, NATIVE_CODE:code
+55a5 (0032) : row_addr, DATA:bss
+2549 (002d) : gap_next, NATIVE_CODE:code
+27a3 (002d) : game_over, NATIVE_CODE:code
+3f00 (0025) : saved_regs, DATA:bss
+3865 (0021) : sound_flap, NATIVE_CODE:code
+20ec (0020) : vdc_mem_addr, NATIVE_CODE:code
+3b1f (001f) : restore_vdc, NATIVE_CODE:code
+29ed (001c) : memset, NATIVE_CODE:code
+3cc0 (0016) : pipe_tiles, DATA:data
+3919 (0013) : apply, NATIVE_CODE:code
+2a40 (0010) : stopwatch, NATIVE_CODE:code
+3eec (0010) : pipes, DATA:bss
+3b3e (000f) : sound_off, NATIVE_CODE:code
+bfd8 (000e) : main@stack, BSS:main@stack
+bff2 (000e) : prerender@stack, BSS:prerender@stack
+3c69 (000c) : __multab5L, DATA:code
+bfe6 (000c) : prepare_frame@stack, BSS:prepare_frame@stack
+3886 (000b) : start@proxy, NATIVE_CODE:code
+3c96 (000b) : panel_text@proxy, NATIVE_CODE:code
+3cd6 (000b) : cap_attr, DATA:data
+7ce8 (000b) : line, DATA:bss
+25cc (000a) : number@proxy, NATIVE_CODE:code
+3c82 (000a) : __shltab1023L, DATA:code
+3c8c (000a) : __shltab1023H, DATA:code
 bff7 (0009) : stage_frame@stack, BSS:stage_frame@stack
-208e (0008) : dispmode80col, NATIVE_CODE:code
-36d9 (0008) : memcpy@proxy, NATIVE_CODE:code
-3a5f (0008) : round, DATA:data
-3a67 (0008) : stripe, DATA:data
-7abc (0006) : freq, DATA:bss
-7ac2 (0006) : step, DATA:bss
-7acf (0006) : jump_freq, DATA:bss
-3a77 (0005) : bird_colours, DATA:data
-289c (0004) : panel_text@proxy, NATIVE_CODE:code
-29bf (0004) : memset@proxy, NATIVE_CODE:code
-3a71 (0004) : flap, DATA:data
-3a40 (0003) : __multab60L, DATA:code
-3a4f (0003) : __multab7L, DATA:code
-3aeb (0003) : timer, DATA:bss
-7ac8 (0003) : wave, DATA:bss
-7acb (0003) : jump_at, DATA:bss
-3a6f (0002) : random_state, DATA:data
-3a7c (0002) : set_pose, DATA:data
-3aef (0002) : score, DATA:bss
-3af1 (0002) : velocity, DATA:bss
-3af3 (0002) : bird_y, DATA:bss
-3af6 (0002) : dirty_count, DATA:bss
-3af8 (0002) : front_count, DATA:bss
-3afa (0002) : best, DATA:bss
-3afc (0002) : frame_count, DATA:bss
-7ab7 (0002) : blank_overruns, DATA:bss
-7ad5 (0002) : max_dirty, DATA:bss
-3a5d (0001) : spentry, DATA:data
-3a5e (0001) : giocharmap, DATA:data
-3a75 (0001) : bird_row, DATA:data
-3a76 (0001) : shown_row, DATA:data
-3aee (0001) : state, DATA:bss
-3af5 (0001) : phase, DATA:bss
-3afe (0001) : bird_pose, DATA:bss
-3aff (0001) : shown_set, DATA:bss
-3bfc (0001) : bird_set, DATA:bss
-3bfd (0001) : panel_y, DATA:bss
-3bfe (0001) : flash, DATA:bss
-3bff (0001) : flip, DATA:bss
-6b0b (0001) : page, DATA:bss
-7ab9 (0001) : previous_keys, DATA:bss
-7aba (0001) : stepped, DATA:bss
-7abb (0001) : death_delay, DATA:bss
-7ace (0001) : prerendered, DATA:bss
+209a (0008) : dispmode80col, NATIVE_CODE:code
+3ca3 (0008) : round, DATA:data
+3cab (0008) : stripe, DATA:data
+3ce4 (0008) : set_pose, DATA:bss
+7d00 (0006) : freq, DATA:bss
+7d06 (0006) : step, DATA:bss
+7d0f (0006) : jump_freq, DATA:bss
+3c75 (0005) : __multab8192L, DATA:code
+3c7a (0005) : __multab8192H, DATA:code
+3cbb (0005) : bird_colours, DATA:data
+28ca (0004) : panel_text@proxy, NATIVE_CODE:code
+3cb5 (0004) : flap, DATA:data
+3c66 (0003) : __multab60L, DATA:code
+3c7f (0003) : __multab7L, DATA:code
+3ce1 (0003) : timer, DATA:bss
+7cfd (0003) : wave, DATA:bss
+7d0c (0003) : jump_at, DATA:bss
+3cb3 (0002) : random_state, DATA:data
+3ced (0002) : score, DATA:bss
+3cef (0002) : velocity, DATA:bss
+3cf1 (0002) : bird_y, DATA:bss
+3cf8 (0002) : dirty_count, DATA:bss
+3cfa (0002) : front_count, DATA:bss
+3cfc (0002) : best, DATA:bss
+3cfe (0002) : frame_count, DATA:bss
+3efc (0002) : show_time, DATA:bss
+7cf3 (0002) : copy_src, DATA:bss
+7cf5 (0002) : copy_dst, DATA:bss
+7cf7 (0002) : blank_overruns, DATA:bss
+7d15 (0002) : max_dirty, DATA:bss
+bff0 (0002) : show_frame@stack, BSS:show_frame@stack
+3ca1 (0001) : spentry, DATA:data
+3ca2 (0001) : giocharmap, DATA:data
+3cb9 (0001) : bird_row, DATA:data
+3cba (0001) : shown_row, DATA:data
+3cec (0001) : state, DATA:bss
+3cf3 (0001) : phase, DATA:bss
+3cf4 (0001) : speed, DATA:bss
+3cf5 (0001) : scroll, DATA:bss
+3cf6 (0001) : redrawn, DATA:bss
+3cf7 (0001) : bird_stale, DATA:bss
+3dfc (0001) : bird_pose, DATA:bss
+3dfd (0001) : shown_set, DATA:bss
+3dfe (0001) : bird_set, DATA:bss
+3dff (0001) : panel_y, DATA:bss
+3efe (0001) : flash, DATA:bss
+3eff (0001) : flip, DATA:bss
+6d47 (0001) : page, DATA:bss
+7cf9 (0001) : prerendered, DATA:bss
+7cfa (0001) : previous_keys, DATA:bss
+7cfb (0001) : stepped, DATA:bss
+7cfc (0001) : death_delay, DATA:bss
 00f7 (0000) : ZeroStart, START:zeropage
 00f7 (0000) : ZeroEnd, END:zeropage
-3cb4 (0000) : BSSStart, START:bss
-7ad7 (0000) : BSSEnd, END:bss
-bfc9 (0000) : StackEnd, END:stack
+3eec (0000) : BSSStart, START:bss
+7d17 (0000) : BSSEnd, END:bss
+bfd8 (0000) : StackEnd, END:stack

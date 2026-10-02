@@ -322,14 +322,24 @@ def check_game(m, syms):
         if value('state', 1) == 2: break
         step()
     assert value('state', 1) == 2
+    # Only pipe steps flip pages: the game-over screen stays on the displayed
+    # page (verify() checks it every frame) and the hidden one is left stale.
     for _ in range(4): step()
-    for page_base in (0, 0x1000):
-        assert m.memory(page_base, 2000, 10) == m.memory(syms['screen'], 2000), hex(page_base)
-        assert m.memory(page_base+0x800, 2000, 10) == m.memory(syms['attr'], 2000), hex(page_base)
     for _ in range(27): step()
     step(1)
     assert value('state', 1) == 1
-    print('PASS: pipe landing on a step frame leaves both pages clean')
+    # The restart copies the whole displayed page to the hidden one. The new
+    # pipes start off screen, so nothing is drawn ahead yet: both pages must
+    # match the shadow.
+    hidden = 0x1000 - base()
+    assert m.memory(hidden, 2000, 10) == m.memory(syms['screen'], 2000), 'hidden page after restart'
+    assert m.memory(hidden+0x800, 2000, 10) == m.memory(syms['attr'], 2000), 'hidden attributes after restart'
+    # Then several steps, each flip showing the hidden page, pixel-checked.
+    for _ in range(12):
+        step()
+        pixels()
+    assert value('state', 1) == 1
+    print('PASS: pipe landing on a step frame, game over and restart keep the display clean')
     # The ceiling clamps position and cancels upward velocity without death.
     put('velocity', -2000)
     step()

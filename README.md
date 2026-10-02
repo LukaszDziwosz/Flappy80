@@ -30,7 +30,9 @@ VICE.
 Release and press again for each flap. Fly through the gaps without touching
 the pipes or ground. Touching the top of the screen stops upward movement
 without ending the run. Each passed pipe earns one point; score and best are
-shown in the dirt at the bottom. Hitting a pipe flashes the sky and the bird
+shown in the dirt at the bottom. The pipes start at two pixels a frame and
+speed up a little every 10 points, up to one and a half times that speed at
+40 (`SPEED_START`, `SPEED_MAX` and `SPEEDUP` in `src/flappy.c`). Hitting a pipe flashes the sky and the bird
 falls to the ground before the game-over panel appears. The best score is
 retained across retries until you quit. A short delay after a crash prevents
 an accidental restart.
@@ -58,44 +60,75 @@ per 8 × 8 cell over a shared background:
 
 The 80NG Pong project provided the Oscar64 build, VDC timing/setup/restore
 pattern, SID driver and VICE monitor harness. The flight physics, pipe
-course, art and game state logic are new.
+course, art, game state logic and frame pacing are new.
 
 - 2 MHz CPU with direct CIA keyboard/joystick scanning. `keys()` is kept out
   of line because the test harness patches it.
 - Fixed-point gravity and flap impulses. Four recycled pipes, 29 columns
   apart, with seven-row gaps at pseudorandom heights. Horizontal collision
-  bounds include the current two-pixel phase.
+  bounds include the current two-pixel phase. The scroll speed is kept in
+  eighths of a phase per frame, so a faster run advances one or two phases a
+  frame, never more than a cell.
 - Four font banks provide two-pixel pipe phases, and the same banks scroll
   the grass stripes. Character cells change only when a pipe crosses a
   character boundary.
 - Two screen pages: `$0000`/`$0800` and `$1000`/`$1800` (screen/attributes).
   During play, each pipe's next column position is drawn on the hidden page
-  one pipe per frame, using VDC block copies of the displayed strip rows
-  moved one cell left. At a character boundary, the screen and attribute page
+  ahead of the step, using VDC block copies of the displayed strip rows moved
+  one cell left. At a character boundary, the screen and attribute page
   registers are written during the last active frame and the font bank in the
   following vertical blank, so all three take effect on the same frame whether
   the VDC takes the page addresses at the start of blank (as a real C128
   appears to) or of the next frame (as VICE does). Between boundaries only the
   font bank changes, and the bird and score are written to the displayed page.
-  Title, pause, falling and game-over screens flip every frame.
+  Only pipe steps flip pages: title, pause, falling and game-over screens
+  write their changed cells to the displayed page in the blank. The hidden
+  page is then stale until play resumes; every way back into play redraws the
+  field, and the next blank copies the whole displayed page (both planes) to
+  the hidden one with block copies.
 - Bird poses (3 wing positions × 8 pixel offsets) live in VDC RAM at `$9000`,
-  each laid out as 15 font slots. The bird uses one of two 15-glyph sets:
-  while it stays in one cell row its set is reloaded by block copy in vertical
-  blank; when it changes row the other set is loaded first and the cells
-  switch to it. A pose change alone writes no screen cells.
+  each laid out as 15 font slots. The bird uses one of two 15-glyph sets,
+  loaded by one block copy into the font bank about to be shown (each bank
+  remembers the pose it holds); when the bird changes row the other set is
+  loaded first and the cells switch to it. A pose change alone writes no
+  screen cells, and in the same row `bird_draw()` skips its cell updates.
 - SID: each effect owns a voice so they never cut each other off — voice 1
   flap (and the crash thud), voice 2 the two-note point chime, voice 3 the
-  falling crash sweep.
-- VDC writes are expensive (about 24 µs each from the CPU in VICE, 40 µs
-  measured on a C128), so the renderer minimises them: block copies for pipe
-  strips and bird poses, and only changed cells from the CPU shadow. Changed
-  cells are written screen bytes first, then attributes, so neighbouring
-  cells stream through the VDC's auto-increment. Frames with nothing stale on
-  the displayed page skip the scan, and each frame between pipe steps
-  prerenders one visible pipe. After a pipe step, bird cells are rewritten
-  only in rows the prerender copied (outside the pipe's gap, caps included).
+  falling crash sweep. The flap is a low noise swell with a 24 ms attack
+  (`FLAP_AD`/`FLAP_SR` in `src/sound.c`); a zero attack made it sound like a
+  hit. The crash thud sets its own sharp envelope on the shared voice.
+- VDC accesses are much cheaper in the vertical blank. Measured in VICE in
+  the game's display mode: a register or data write takes about 13 µs in the
+  blank and about 52 µs during the display (a 64-write run: 654 versus 3,369
+  µs). So the frame is split: `prepare_frame()` is CPU work on the shadow
+  only, and `show_frame()`, in the blank, writes the font bank,
+  loads the bird pose, writes changed cells to the displayed page, and then
+  prerenders every visible pipe not yet drawn ahead. Doing them all right
+  after a step leaves the blanks before the next step free, so a step frame
+  has the whole frame for its own work; a prerender that runs past the blank
+  only writes the hidden page. The step frame's `stage_frame()` writes the
+  few hidden-page cells that changed since the last flip, then flips.
+- The pipe prerender copies body rows in two runs and the caps with their
+  attributes. A copy leaves the VDC's update and source addresses just past
+  what it copied, so the next row only rewrites the high bytes that change
+  (usually 3 register writes instead of 5). A pipe entering on the right
+  copies one cell less and writes its own edge tile straight after, with no
+  address change. In VICE a pipe takes about 1.5 ms (it was 4.6 ms).
+- Changed cells are written screen bytes first, then attributes, so
+  neighbouring cells stream through the VDC's auto-increment. Frames with
+  nothing stale on the displayed page skip the scan. After a pipe step, bird
+  cells are rewritten only in rows the prerender copied (outside the pipe's
+  gap, caps included).
+- Frame pacing: CIA #2 timer A free-runs as a stopwatch. If a frame's work
+  runs into the next blank and more than 10 ms have passed since the last
+  show, `wait_frame()` returns at once and the frame is shown in what is
+  left of that blank, instead of waiting a whole frame more. A flip frame
+  never does this: it waits out the blank before selecting the page.
 - Quit restores the original font at `$2000`, VDC timing/display registers, CIA
-  port configuration, VIC display and CPU speed, and silences all SID voices.
+  port and timer configuration, VIC display and CPU speed, and silences all
+  SID voices. The VDC registers are restored counting down: Oscar64 1.32
+  `-O2` has been seen to compile that counting-up loop to enter with its
+  index register unset.
 
 Oscar64 is taken from PATH (the Makefile also falls back to a local
 development path). Override it with `make OSCAR64=/path/to/oscar64`. Two Oscar64 `-O2`
@@ -131,8 +164,8 @@ relying on monitor backing-memory reads:
 
 | Physical VDC RAM setting | Incorrect font bytes out of 192 sampled | Result |
 | --- | ---: | --- |
-| 64 KB | 0 | All four sampled font banks retained (rechecked 2026-09-25) |
-| 16 KB | 127 | Font data corrupted by insufficient RAM/address aliasing (earlier build) |
+| 64 KB | 0 | All four sampled font banks retained (rechecked 2026-10-02) |
+| 16 KB | 100 | Font data corrupted by insufficient RAM/address aliasing (rechecked 2026-10-02) |
 
 The diagnostic samples a phase-dependent pipe edge plus HUD digits, lettering
 and panel glyphs in each bank. This is a sample verification, not an
@@ -162,20 +195,29 @@ pipe/bird pixel model over 500 updates (bird glyphs are read back from the
 displayed font bank and compared with `tools/bird_art.py`), start/flap/pause,
 scoring, pipe recycling, crash/fall/death/retry, 300 frames skimming just
 above the lower caps (bird cells sharing the prerendered cap rows), a pipe
-landing during a character-boundary step leaving both pages clean,
-non-lethal ceiling clamping, and font/register/speed restoration.
+landing during a character-boundary step, then game over and a restart
+leaving both pages clean (the hidden one after the restart's page copy) and
+the next steps pixel-exact, non-lethal ceiling clamping, the free-fall and
+game-over cadence, and font/register/speed restoration.
 
-Results on 2026-09-25 (VICE, 64 KB VDC):
+Results on 2026-10-02 (VICE, 64 KB VDC):
 
-| Configuration | Active updates/sec | Checks |
-| --- | ---: | --- |
-| PAL | 58.87 | All pass except the free-fall cadence check |
-| NTSC | 59.09 | All pass except the free-fall cadence check |
+| Configuration | Active updates/sec | Free fall and game over | Checks |
+| --- | ---: | ---: | --- |
+| PAL | 59.62 | 57.75 fps | All pass |
+| NTSC | 59.61 | 57.90 fps | All pass |
 
-`make test` stops at its final free-fall cadence check (about 52 fps against
-the 55–65 range; it measures a bird falling to a crash, including the fall and
-game-over panel). Active cadence is calculated from emulated CIA timer clocks
-and measures simulation updates, not the VDC's display refresh rate.
+The VDC refreshes at about 59.63 Hz with this timing, so active play no
+longer loses frames (it was 58.87 PAL and 59.09 NTSC on 2026-09-25, and the
+free-fall check failed at about 52 fps). Flown for 900 frames with an
+autopilot, steady flapping or frequent flapping, at the starting speed and
+forced to the top speed, the game lost no refreshes in VICE; the previous
+build lost 5 to 10 per 600 frames at the starting speed. Active cadence is
+calculated from emulated CIA timer clocks and measures simulation updates,
+not the VDC's display refresh rate. The test's per-frame intervals are
+sampled at `keys()`, after the blank work, so a step frame (whose blank does
+the prerendering) reads long and the frame after it short; their sum is two
+refreshes.
 
 VICE times VDC block copies during active display about three times faster
 than a real C128 (`bench/vdcbench.c`: 255 bytes take 1501 µs on hardware

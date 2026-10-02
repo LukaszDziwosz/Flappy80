@@ -63,16 +63,24 @@
 #define DEAD 2
 #define PAUSE 3
 #define DYING 4   /* hit a pipe: falling to the ground */
+/* Scrolling speed in eighths of a pipe phase (2 pixels) per frame: 8 moves
+   2 pixels a frame. It rises by one every SPEEDUP points, up to 1.5 times. */
+#define SPEED_START 8
+#define SPEED_MAX 12
+#define SPEEDUP 10
 
 struct Pipe { int x; char gap; char passed; };
 struct Pipe pipes[NPIPES];
 int bird_y, velocity;
 unsigned score, best;
-char state, phase, previous_keys, death_delay, flash;
+char state, phase, previous_keys, death_delay, flash, speed, scroll;
 /* Displayed VDC page: 0 = screen $0000/attr $0800, 1 = $1000/$1800.
    During play the pages flip only when pipes cross a character boundary;
    the next pipe positions are drawn on the hidden page beforehand. */
 char page, flip, stepped, prerendered;
+/* field() rewrote the shadow: the next blank copies the whole displayed
+   page to the hidden one instead of writing cell by cell. */
+char redrawn;
 static unsigned random_state = 0xace1;
 static char screen[CELLS], attr[CELLS], marked[CELLS];
 static unsigned row_addr[ROWS];
@@ -106,7 +114,12 @@ static const char letters[36][7] = {
  {17,17,10,4,4,4,4},{31,1,2,4,8,16,31}
 };
 char bird_set, bird_row = 255, bird_pose, shown_set, shown_row = 255;
-static char set_pose[2] = {255, 255};
+/* The bird's cells in the shadow may have been overwritten (field(), or a
+   pipe step over its columns): bird_draw rewrites them even in the same row. */
+char bird_stale;
+/* Pose held by each bird glyph set in each font bank (255: none). Only the
+   bank about to be shown is loaded, one block copy a frame. */
+static char set_pose[2][4];
 
 /* Not inlined: the VICE test harness patches this routine to inject input. */
 __noinline char keys(void)
@@ -125,8 +138,30 @@ __noinline char keys(void)
     return k;
 }
 
+/* CIA #2 timer A free-runs at 1 MHz as a stopwatch for frame pacing. */
+#define CIA2_TA_LO HW(0xdd04)
+#define CIA2_TA_HI HW(0xdd05)
+#define CIA2_CRA HW(0xdd0e)
+static unsigned show_time;
+
+static unsigned stopwatch(void)
+{
+    char hi, lo;
+    do {
+        hi = CIA2_TA_HI;
+        lo = CIA2_TA_LO;
+    } while (hi != CIA2_TA_HI);
+    return (hi << 8) | lo;
+}
+
+/* Wait for a new VDC vertical blank. A frame whose work ran into that blank
+   shows at once instead of waiting a whole frame more: over 10 ms since the
+   last show means this blank is new. A flip frame never gets here in a
+   blank, because stage_frame waits it out before selecting the page. */
 void wait_frame(void)
 {
+    if ((vdc.addr & 0x20) && (unsigned)(show_time - stopwatch()) > 10000)
+        return;
     while (vdc.addr & 0x20) {}
     while (!(vdc.addr & 0x20)) {}
 }
@@ -282,6 +317,10 @@ static void bird_draw(void)
                 for (tx = BX; tx < BX + 5; ++tx) background(tx, ty);
     bird_pose = (state == PLAY ? flap[(frame_count >> 2) & 3] : 1) * 8 + (pixel_y & 7);
     bird_set = bird_row == shown_row ? shown_set : shown_set ^ 1;
+    /* In the same row with the same set, the cells already hold the codes:
+       the pose is a glyph reload, so skip fifteen cell updates. */
+    if (bird_row == old && !bird_stale) return;
+    bird_stale = 0;
     g = BIRD + bird_set * BIRD_CELLS;
     for (ty = 0; ty < 3; ++ty) {
         if (bird_row + ty >= GROUND) break;
@@ -301,24 +340,57 @@ static const char pipe_tiles[2][11] = {
 };
 static const char cap_attr[11] = {5,5,5,5,5,5,5,5,5,4,4};
 
-/* VDC block copy (R24 bit 7 is set at startup): n bytes, src to dst. */
-static void vdc_copy(unsigned dst, unsigned src, char n)
+/* The VDC's update and block source addresses after the last copy: a copy
+   ends with both advanced by its length, so the next one only writes the
+   high bytes that differ. Anything else that sets the update address must
+   call copy_reset() before the next copy. */
+static unsigned copy_dst, copy_src;
+
+static void copy_reset(void)
 {
-    vdc_reg_write(VDCR_ADDRH, dst >> 8);
-    vdc_reg_write(VDCR_ADDRL, dst);
-    vdc_reg_write(VDCR_BLOCK_ADDRH, src >> 8);
-    vdc_reg_write(VDCR_BLOCK_ADDRL, src);
-    vdc_reg_write(VDCR_DSIZE, n);
+    copy_dst = copy_src = 0xffff;
 }
 
+/* VDC block copy (R24 bit 7 is set at startup): n bytes, src to dst. */
+static inline void vdc_copy(unsigned dst, unsigned src, char n)
+{
+    if ((dst ^ copy_dst) & 0xff00) vdc_reg_write(VDCR_ADDRH, dst >> 8);
+    vdc_reg_write(VDCR_ADDRL, dst);
+    if ((src ^ copy_src) & 0xff00) vdc_reg_write(VDCR_BLOCK_ADDRH, src >> 8);
+    vdc_reg_write(VDCR_BLOCK_ADDRL, src);
+    vdc_reg_write(VDCR_DSIZE, n);
+    copy_dst = dst + n; copy_src = src + n;
+}
+
+/* The same n bytes of rows consecutive screen rows. With edge set, tile is
+   then written to the next byte: a copy leaves the update address there, so
+   this costs no address change. */
+static void copy_rows(unsigned dst, unsigned src, char rows, char n,
+                      char edge, char tile)
+{
+    for (; rows; --rows, dst += COLS, src += COLS) {
+        if (n) {
+            vdc_copy(dst, src, n);
+        } else {
+            /* Only the edge cell is on screen. */
+            vdc_mem_addr(dst);
+            copy_dst = dst; copy_src = 0xffff;
+        }
+        if (edge) {
+            vdc_reg_write(VDCR_DATA, tile);
+            ++copy_dst;
+        }
+    }
+}
+
+/* The bird's glyph set in the font bank about to be shown. */
 static void load_pose(void)
 {
-    char b;
-    if (set_pose[bird_set] == bird_pose) return;
-    set_pose[bird_set] = bird_pose;
-    for (b = 0; b < 4; ++b)
-        vdc_copy(FONT + (unsigned)b * 0x2000 + (BIRD + bird_set * BIRD_CELLS) * 16,
-                 POSES + bird_pose * POSE_BYTES, POSE_BYTES);
+    if (set_pose[bird_set][phase] == bird_pose) return;
+    set_pose[bird_set][phase] = bird_pose;
+    copy_reset();
+    vdc_copy(FONT + (unsigned)phase * 0x2000 + (BIRD + bird_set * BIRD_CELLS) * 16,
+             POSES + bird_pose * POSE_BYTES, POSE_BYTES);
 }
 
 /* Draw pipe i one column further left on the hidden page, ahead of the step
@@ -330,29 +402,30 @@ static void load_pose(void)
 static char prerender(char i)
 {
     int left = pipes[i].x - 2;
-    char first = 0, count = 11, gap = pipes[i].gap, y, row;
+    char first = 0, count = 11, gap = pipes[i].gap, y, row, edge, k, n;
     unsigned a, base = page ? 0 : PAGE2, shown = page ? PAGE2 : 0;
     if (left >= PR || left + 11 <= PL) return 0;
     if (left < PL) { first = PL - left; count -= first; left = PL; }
     if (left + count > PR) count = PR - left;
-    for (y = 0; y < GROUND; ++y) {
-        char is_cap = y == gap - 1 || y == gap + GAP;
-        if (y >= gap && y < gap + GAP) continue;
+    /* A pipe entering on the right: a full-width copy would bring the next
+       row's first cell into the last field column, so copy one cell less
+       and write the pipe's own tile there. */
+    edge = left + count == PR;
+    k = edge ? PR - 1 - left + first : 0;
+    n = count - edge;
+    /* Body rows above the upper cap, the caps with their attributes, then
+       body rows below the lower cap (none when the gap reaches the grass).
+       The per-row work is kept out of the copy loop: this runs in the blank,
+       and its CPU time used to cost more than the copies. */
+    copy_reset();
+    copy_rows(base + left, shown + left + 1, gap - 1, n, edge, pipe_tiles[0][k]);
+    for (y = gap - 1; y <= gap + GAP; y += GAP + 1) {
         a = row_addr[y] + left;
-        vdc_copy(base + a, shown + a + 1, count);
-        if (is_cap) vdc_copy(base + ATTR + a, shown + ATTR + a + 1, count);
-        if (left + count == PR) {
-            /* The copy brought the panel cell into the last field column. */
-            char k = PR - 1 - left + first;
-            a = base + row_addr[y] + PR - 1;
-            vdc_mem_addr(a);
-            vdc_write(pipe_tiles[is_cap][k]);
-            if (is_cap) {
-                vdc_mem_addr(ATTR + a);
-                vdc_write(cap_attr[k]);
-            }
-        }
+        copy_rows(base + a, shown + a + 1, 1, n, edge, pipe_tiles[1][k]);
+        copy_rows(base + ATTR + a, shown + ATTR + a + 1, 1, n, edge, cap_attr[k]);
     }
+    a = row_addr[gap + GAP + 1] + left;
+    copy_rows(base + a, shown + a + 1, GROUND - 1 - gap - GAP, n, edge, pipe_tiles[0][k]);
     /* The copy also moved the displayed bird one cell left. The bird is at
        most one row from where it was shown; column BX-1 never changes in the
        shadow, so mark it for the flip. Bird columns are forced there anyway. */
@@ -363,27 +436,6 @@ static char prerender(char i)
                 hidden_stale(row_addr[y] + BX - 1, 12);
     }
     return 1;
-}
-
-/* Leaving play: the hidden page may hold pipes one column either side of
-   their current position. If play ends on a step frame, that frame's flip
-   leaves the previous position on the other page too, so mark both. */
-static void unsync_pipes(void)
-{
-    char i, y, gap;
-    int x;
-    for (i = 0; i < NPIPES; ++i) {
-        gap = pipes[i].gap;
-        for (x = pipes[i].x - 2; x <= pipes[i].x + 9; ++x) {
-            if (x < PL || x >= PR) continue;
-            for (y = 0; y < GROUND; ++y) {
-                if (y >= gap && y < gap + GAP) continue;
-                hidden_stale(row_addr[y] + x,
-                             y == gap - 1 || y == gap + GAP ? 15 : 5);
-            }
-        }
-    }
-    prerendered = 0;
 }
 
 /* Top row of the panel: the title panel sits above the waiting bird. */
@@ -439,6 +491,7 @@ static void banner(void)
 static void field(void)
 {
     char x, y;
+    redrawn = 1; bird_stale = 1;
     for (y = 0; y < ROWS; ++y)
         for (x = 0; x < COLS; ++x) background(x, y);
     cell(HUD_SCORE_X - 2, HUD_ROW, HUD_S, DIRT_COLOUR);
@@ -450,6 +503,7 @@ static void reset_game(void)
 {
     char i;
     score = 0; velocity = 0; bird_y = 88 * 16; phase = 0;
+    speed = SPEED_START; scroll = 0;
     for (i = 0; i < NPIPES; ++i) {
 #ifdef BIRDLAB
         pipes[i].x = 0x3000;
@@ -464,7 +518,7 @@ static void reset_game(void)
 /* Leaving play: flash the sky, freeze the pipes and let the bird fall. */
 static void crash(void)
 {
-    state = DYING; velocity = 0; flash = 3; unsync_pipes(); sound_crash();
+    state = DYING; velocity = 0; flash = 3; sound_crash();
 }
 
 static void game_over(void)
@@ -477,7 +531,7 @@ static void game_over(void)
 void prepare_frame(char held)
 {
     char pressed = held & ~previous_keys;
-    char i, y;
+    char i, y, advance;
     previous_keys = held;
     stepped = 0;
     if (state == DEAD) {
@@ -503,7 +557,7 @@ void prepare_frame(char held)
     }
     if (pressed & 2) {
         if (state == PAUSE) { state = PLAY; field(); bird_draw(); }
-        else { state = PAUSE; unsync_pipes(); banner(); }
+        else { state = PAUSE; banner(); }
         return;
     }
     if (state == PAUSE) return;
@@ -515,22 +569,22 @@ void prepare_frame(char held)
     if (bird_y > (FLOOR - BH) * 16) {
         bird_y = (FLOOR - BH) * 16; bird_draw(); crash(); game_over(); return;
     }
+    scroll += speed;
+    advance = scroll >> 3; scroll &= 7;
 #ifndef BIRDLAB
-    /* One visible pipe per frame, skipping any off screen, so the (at most
-       three) visible pipes are drawn in the three frames between steps. Any
-       still missing are drawn before the step. */
-    while (prerendered < NPIPES && !prerender(prerendered++)) {}
-    if (phase == 3)
+    /* show_frame prerenders the visible pipes in the blanks between steps.
+       Any still missing (just after a resume) are drawn before the step. */
+    if (phase + advance >= 4)
         while (prerendered < NPIPES) prerender(prerendered++);
 #endif
-    if (++phase == 4) {
-        static const char body[10] = {32,10,11,11,11,11,11,12,32,32};
-        static const char cap[10] = {13,14,15,15,15,15,15,15,16,32};
-        phase = 0; stepped = 1; prerendered = 0;
+    phase += advance;
+    if (phase >= 4) {
+        phase -= 4; stepped = 1; prerendered = 0;
 #ifndef BIRDLAB
         for (i = 0; i < NPIPES; ++i) {
-            int left, right;
-            char first, count, gap;
+            int left;
+            char gap, *sp, *ap;
+            unsigned vis;
             --pipes[i].x;
             gap = pipes[i].gap;
             if (pipes[i].x < PL - 8) {
@@ -540,16 +594,20 @@ void prepare_frame(char held)
                 pipes[i].gap = gap_next(); pipes[i].passed = 0;
                 continue;
             }
-            left = pipes[i].x - 1; right = left + 10;
-            if (left >= PR || right <= PL) continue;
-            if (left >= PL && right <= PR) {
-                /* Fully visible: set only the cells that differ from the
-                   strip one column to the right. */
-                char *sp = screen + left;
-                for (y = 0; y < GROUND; ++y, sp += COLS) {
+            /* The shadow follows the pipes (the hidden page already has
+               them): set only the cells that differ from the strip one
+               column to the right. As offsets from the pipe's left column
+               x-1, those are 1, 2, 7 and 8 in the body, and 0, 1, 2, 8 and
+               9 in a cap, with its attributes at 0 and 9. A pipe entering
+               or leaving sets only those on screen (bits of vis). */
+            left = pipes[i].x - 1;
+            if (left >= PR || left + 10 <= PL) continue;
+            if (left <= BX + 4 && left + 9 >= BX) bird_stale = 1;
+            sp = screen + left; ap = attr + left;
+            if (left >= PL && left + 10 <= PR) {
+                for (y = 0; y < GROUND; ++y, sp += COLS, ap += COLS) {
                     if (y >= gap && y < gap + GAP) continue;
                     if (y == gap - 1 || y == gap + GAP) {
-                        char *ap = attr + (sp - screen);
                         sp[0] = 13; sp[1] = 14; sp[2] = 15; sp[8] = 16; sp[9] = 32;
                         ap[0] = 5; ap[9] = 4;
                     } else {
@@ -558,20 +616,22 @@ void prepare_frame(char held)
                 }
                 continue;
             }
-            first = left < PL ? PL - left : 0;
-            if (left < PL) left = PL;
-            if (right > PR) right = PR;
-            count = right - left;
-            /* The shadow follows the pipes; the hidden page already has them. */
-            for (y = 0; y < GROUND; ++y) {
-                unsigned a = row_addr[y] + left;
+            vis = 0x3ff;
+            if (left < PL) vis = (vis << (PL - left)) & 0x3ff;
+            if (left + 10 > PR) vis >>= left + 10 - PR;
+            for (y = 0; y < GROUND; ++y, sp += COLS, ap += COLS) {
                 if (y >= gap && y < gap + GAP) continue;
                 if (y == gap - 1 || y == gap + GAP) {
-                    memcpy(screen + a, cap + first, count);
-                    memset(attr + a, 5, count);
-                    if (first + count == 10) attr[a + count - 1] = 4;
+                    if (vis & 1) { sp[0] = 13; ap[0] = 5; }
+                    if (vis & 2) sp[1] = 14;
+                    if (vis & 4) sp[2] = 15;
+                    if (vis & 0x100) sp[8] = 16;
+                    if (vis & 0x200) { sp[9] = 32; ap[9] = 4; }
                 } else {
-                    memcpy(screen + a, body + first, count);
+                    if (vis & 2) sp[1] = 10;
+                    if (vis & 4) sp[2] = 11;
+                    if (vis & 0x80) sp[7] = 12;
+                    if (vis & 0x100) sp[8] = 32;
                 }
             }
         }
@@ -583,6 +643,7 @@ void prepare_frame(char held)
         if (!pipes[i].passed && left + 64 <= BX * 8) {
             pipes[i].passed = 1;
             if (score < 9999) ++score;
+            if (score % SPEEDUP == 0 && speed < SPEED_MAX) ++speed;
             number(HUD_SCORE_X, score); sound_point();
         }
         if (left < BX * 8 + BW && left + 64 > BX * 8 &&
@@ -638,8 +699,11 @@ static void write_cells(unsigned base, char bits)
 }
 
 /* Before vertical blank: on a flip frame, complete the hidden page and
-   select it. During play that happens only at a pipe step; otherwise every
-   frame flips.
+   select it. That happens only at a pipe step. Every other frame, including
+   the title, pause, falling and game-over screens, writes its few changed
+   cells to the displayed page in the blank, where a write costs a fifth of
+   what it does during the display. The hidden page is then left stale until
+   play resumes through field(), whose whole-page copy brings it up to date.
 
    The page registers are written during active display, before the blank
    in which show_frame changes the font bank. The VDC may take the display
@@ -650,11 +714,9 @@ void stage_frame(void)
 {
     char tx, ty, row;
     if (dirty_count > max_dirty) max_dirty = dirty_count;
-    /* A bird moving to another cell row uses the set not on screen. */
-    if (bird_set != shown_set) load_pose();
-    flip = stepped || state != PLAY;
+    flip = stepped;
     if (!flip) return;
-    if (state == PLAY) {
+    {
         /* A prerendered pipe may have drawn over an unchanged bird cell:
            each covered columns x-1..x+9 of its new position, in every row
            outside its gap (caps included). */
@@ -676,26 +738,67 @@ void stage_frame(void)
     vdc_reg_write(VDCR_ATTR_ADDRH, (page ? PAGE2 + ATTR : ATTR) >> 8);
 }
 
-/* In vertical blank: the font phase and the bird pose. Frames without a
-   flip then update the bird and score directly on the displayed page. */
+/* In vertical blank, where a VDC access costs a fifth of what it does
+   during the display: the font phase and the bird pose. Frames without a
+   flip then update the bird and score directly on the displayed page.
+   Last, the visible pipes not yet drawn ahead are prerendered on the hidden
+   page; running past the blank only costs time. */
 void show_frame(void)
 {
+    show_time = stopwatch();
     vdc_reg_write(VDCR_CHAR_ADDRH, (saved_regs[28] & 0x0f) | 0x10 | ((phase + 1) << 5));
     /* The sky is the VDC background colour: a crash flashes it white. */
     if (flash) vdc_reg_write(VDCR_COLOR, --flash ? 0x0f : 0x06);
-    /* Same set as on screen: reload it before the raster reaches the bird. */
+    /* The bird's set in the bank just selected, before the raster reaches
+       it. A bird moving to another cell row switches to the other set. */
     load_pose();
     shown_set = bird_set; shown_row = bird_row;
     if (!(vdc.addr & 0x20)) ++blank_overruns;
     ++frame_count;
     if (!flip && front_count) write_cells(page ? PAGE2 : 0, 3);
+    if (!flip && redrawn) {
+        /* After a full redraw the displayed page is the shadow: copy it all
+           to the hidden page (both planes, 8 x 250 bytes each) and drop the
+           hidden marks, instead of ~1000 cell writes at the next flip. */
+        unsigned a, base = page ? 0 : PAGE2, shown = page ? PAGE2 : 0;
+        copy_reset();
+        for (a = 0; a < CELLS; a += 250) {
+            vdc_copy(base + a, shown + a, 250);
+            vdc_copy(base + ATTR + a, shown + ATTR + a, 250);
+        }
+        for (a = 0; a < dirty_count; ++a) marked[dirty[a]] = 0;
+        dirty_count = 0;
+        redrawn = 0;
+        /* The copy also replaced any pipes already drawn ahead. */
+        prerendered = 0;
+    }
+#ifndef BIRDLAB
+    /* All at once, right after the step: the frames after a step have time
+       to spare, and the blank before the next step is left free, so that
+       step frame has the whole frame for its own work. */
+    if (state == PLAY)
+        while (prerendered < NPIPES) prerender(prerendered++);
+#endif
+}
+
+/* The VDC registers as the game found them, skipping the read-only ones and
+   the block-copy commands. Counted down: Oscar64 1.32 -O2 compiled the
+   counting-up loop to enter with its index register unset. */
+static void restore_vdc(void)
+{
+    char i = 30;
+    do {
+        --i;
+        if (i != 16 && i != 17)
+            vdc_reg_write((VDCRegister)i, saved_regs[i]);
+    } while (i);
 }
 
 int main(void)
 {
     unsigned i;
     char x, y, g, held;
-    char old_vic, old_speed, old_pra, old_ddra, old_ddrb;
+    char old_vic, old_speed, old_pra, old_ddra, old_ddrb, old_cia2_cra;
     iocharmap(IOCHM_ASCII);
     dispmode80col();
     textcursor(0);
@@ -711,6 +814,11 @@ int main(void)
     HW(0xd030) = 1;
     HW(0xdc02) = 0xff;
     HW(0xdc03) = 0;
+    old_cia2_cra = CIA2_CRA;
+    CIA2_TA_LO = 0xff;
+    CIA2_TA_HI = 0xff;
+    CIA2_CRA = 0x11;   /* start, continuous, load the latch */
+    memset(set_pose, 255, sizeof(set_pose));
     for (i = 0; i < 37; ++i)
         saved_regs[i] = vdc_reg_read((VDCRegister)i);
     vdc_reg_write(VDCR_HSTART, 0x80);
@@ -764,6 +872,7 @@ int main(void)
     }
     memset(marked, 0, sizeof(marked));
     dirty_count = 0;
+    redrawn = 0;
     wait_frame();
     show_frame();
     vdc_reg_write(VDCR_HSTART, saved_regs[34]);
@@ -783,9 +892,7 @@ int main(void)
     vdc_mem_addr(FONT);
     for (i = 0; i < sizeof(saved_font); ++i)
         vdc_write(saved_font[i]);
-    for (i = 0; i < 30; ++i)
-        if (i != 16 && i != 17)
-            vdc_reg_write((VDCRegister)i, saved_regs[i]);
+    restore_vdc();
     vdc_reg_write(VDCR_HSTART, saved_regs[34]);
     sound_off();
     HW(0xdc00) = old_pra;
@@ -793,6 +900,7 @@ int main(void)
     HW(0xdc03) = old_ddrb;
     HW(0xd030) = old_speed;
     HW(0xd011) = old_vic;
+    CIA2_CRA = old_cia2_cra;
     __asm { cli }
     clrscr();
     gotoxy(35, 10);

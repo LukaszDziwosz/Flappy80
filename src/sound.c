@@ -21,6 +21,14 @@
 #define POINT 1
 #define CRASH 2
 
+/* Flap envelope: attack 3 (24 ms) swells the noise in instead of striking
+   it, decay 5 (168 ms) to sustain 0, release 2 (48 ms). A zero attack made
+   the flap sound like a hit. The crash thud keeps the sharp envelope. */
+#define FLAP_AD 0x35
+#define FLAP_SR 0x02
+#define THUD_AD 0x08
+#define THUD_SR 0x88
+
 /* Per-voice effect state. timer counts frames with the gate held (0 means
    idle); when it reaches jump_at the pitch jumps to jump_freq, which gives
    the two-note chime. */
@@ -38,7 +46,7 @@ void sound_init(void)
         SID(v, PW_HI) = 0x08;       /* 50% duty: a bright, hollow pulse */
         timer[v] = 0;
     }
-    SID(FLAP, AD) = 0x08;  SID(FLAP, SR) = 0x88;    /* crisp wing beat */
+    SID(FLAP, AD) = FLAP_AD; SID(FLAP, SR) = FLAP_SR;  /* soft wing whoosh */
     SID(POINT, AD) = 0x09; SID(POINT, SR) = 0x0a;   /* chime with a ringing tail */
     SID(CRASH, AD) = 0x08; SID(CRASH, SR) = 0x89;
 }
@@ -85,10 +93,13 @@ void sound_tick(void)
     }
 }
 
-/* Flap: a short noise burst with a fast downward sweep, like a wing beat. */
+/* Flap: a soft, low noise swell rising a little, "fwip", like air pushed
+   by a wing. The voice is shared with the crash thud, so set its envelope. */
 void sound_flap(void)
 {
-    start(FLAP, 0x7000, -0x0600, 4, WAVE_NOISE);
+    SID(FLAP, CTRL) = 0;
+    SID(FLAP, AD) = FLAP_AD; SID(FLAP, SR) = FLAP_SR;
+    start(FLAP, 0x1400, 0x0500, 4, WAVE_NOISE);
 }
 
 /* Point: two rising notes, "ding-ding". */
@@ -103,6 +114,8 @@ void sound_point(void)
    long falling sweep. */
 void sound_crash(void)
 {
+    SID(FLAP, CTRL) = 0;
+    SID(FLAP, AD) = THUD_AD; SID(FLAP, SR) = THUD_SR;
     start(FLAP, 0x0c00, -0x0100, 5, WAVE_NOISE);
     start(CRASH, 0x4000, -0x0300, 26, WAVE_PULSE);
 }
