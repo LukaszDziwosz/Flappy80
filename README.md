@@ -30,9 +30,11 @@ VICE.
 Release and press again for each flap. Fly through the gaps without touching
 the pipes or ground. Touching the top of the screen stops upward movement
 without ending the run. Each passed pipe earns one point; score and best are
-shown in the dirt at the bottom. The pipes start at two pixels a frame and
-speed up a little every 10 points, up to one and a half times that speed at
-40 (`SPEED_START`, `SPEED_MAX` and `SPEEDUP` in `src/flappy.c`). Hitting a pipe flashes the sky and the bird
+shown in the dirt at the bottom. The pipes start at an average of 3 pixels
+per displayed frame and speed up every 10 points, reaching 3.6 pixels per
+frame at 20 points (`SPEED_START`, `SPEED_MAX` and `SPEEDUP` in
+`src/flappy.c`). Scrolling uses two-pixel font phases, so these are average
+speeds rather than a three-pixel step on every frame. Hitting a pipe flashes the sky and the bird
 falls to the ground before the game-over panel appears. The best score is
 retained across retries until you quit. A short delay after a crash prevents
 an accidental restart.
@@ -64,11 +66,19 @@ course, art, game state logic and frame pacing are new.
 
 - 2 MHz CPU with direct CIA keyboard/joystick scanning. `keys()` is kept out
   of line because the test harness patches it.
+- Six simulation ticks per five displayed frames preserve the original
+  fixed-point gravity, flap impulse and jump height while increasing the
+  pace by 20%. Input is scanned once per displayed frame, so holding fire
+  cannot retrigger a flap on the occasional two-tick frame. Collision is
+  checked on each simulation tick; only the final state is displayed.
+  Wing animation, restart delay and SID gate/pitch-sweep timers use the
+  same faster clock. Rendering and VDC refresh timing are unchanged.
 - Fixed-point gravity and flap impulses. Four recycled pipes, 29 columns
   apart, with seven-row gaps at pseudorandom heights. Horizontal collision
   bounds include the current two-pixel phase. The scroll speed is kept in
-  eighths of a phase per frame, so a faster run advances one or two phases a
-  frame, never more than a cell.
+  eighths of a phase per simulation tick. At the top speed, a two-tick frame
+  advances at most three phases (six pixels), crossing at most one cell
+  boundary.
 - Four font banks provide two-pixel pipe phases, and the same banks scroll
   the grass stripes. Character cells change only when a pipe crosses a
   character boundary.
@@ -96,7 +106,8 @@ course, art, game state logic and frame pacing are new.
   flap (and the crash thud), voice 2 the two-note point chime, voice 3 the
   falling crash sweep. The flap is a low noise swell with a 24 ms attack
   (`FLAP_AD`/`FLAP_SR` in `src/sound.c`); a zero attack made it sound like a
-  hit. The crash thud sets its own sharp envelope on the shared voice.
+  hit. `PITCH()` scales effect frequencies and pitch steps by 6/5. The crash
+  thud sets its own sharp envelope on the shared voice.
 - VDC accesses are much cheaper in the vertical blank. Measured in VICE in
   the game's display mode: a register or data write takes about 13 µs in the
   blank and about 52 µs during the display (a 64-write run: 654 versus 3,369
@@ -193,28 +204,30 @@ Requires Python 3 and `x128` (VICE), with local monitor socket access.
 character mode, VDC screen/attribute uploads on the displayed page, a
 pipe/bird pixel model over 500 updates (bird glyphs are read back from the
 displayed font bank and compared with `tools/bird_art.py`), start/flap/pause,
-scoring, pipe recycling, crash/fall/death/retry, 300 frames skimming just
-above the lower caps (bird cells sharing the prerendered cap rows), a pipe
+the six-ticks-in-five-frames flight curve, starting scroll displacement over
+20 frames, SID flap gating and both point
+chime pitches, scoring, pipe recycling, crash/fall/death/retry, 300 frames
+at maximum speed skimming just above the lower caps (bird cells sharing the
+prerendered cap rows), a pipe
 landing during a character-boundary step, then game over and a restart
 leaving both pages clean (the hidden one after the restart's page copy) and
 the next steps pixel-exact, non-lethal ceiling clamping, the free-fall and
 game-over cadence, and font/register/speed restoration.
 
-Results on 2026-10-02 (VICE, 64 KB VDC):
+Results on 2026-10-02 (VICE, 64 KB VDC, 3-pixel starting-speed trial):
 
-| Configuration | Active updates/sec | Free fall and game over | Checks |
-| --- | ---: | ---: | --- |
-| PAL | 59.62 | 57.75 fps | All pass |
-| NTSC | 59.61 | 57.90 fps | All pass |
+| Configuration | Displayed updates/sec | Simulation ticks/sec | Free fall and game over | Checks |
+| --- | ---: | ---: | ---: | --- |
+| PAL | 59.71 | 71.65 | 57.91 fps | All pass |
+| NTSC | 59.69 | 71.63 | 57.86 fps | All pass |
 
-The VDC refreshes at about 59.63 Hz with this timing, so active play no
-longer loses frames (it was 58.87 PAL and 59.09 NTSC on 2026-09-25, and the
-free-fall check failed at about 52 fps). Flown for 900 frames with an
-autopilot, steady flapping or frequent flapping, at the starting speed and
-forced to the top speed, the game lost no refreshes in VICE; the previous
-build lost 5 to 10 per 600 frames at the starting speed. Active cadence is
-calculated from emulated CIA timer clocks and measures simulation updates,
-not the VDC's display refresh rate. The test's per-frame intervals are
+The VDC refreshes at about 59.63 Hz with this timing. The faster simulation
+keeps displayed updates close to that rate in the 500-frame autopilot check;
+the 300-frame maximum-speed cap-skimming check also passes. Before the pace
+change, this renderer measured 59.62 PAL and 59.61 NTSC displayed updates/sec.
+Active cadence is calculated from emulated CIA timer clocks and measures
+completed game/display loops, not the VDC's display refresh rate. Simulation
+cadence is 6/5 of that rate. The test's per-frame intervals are
 sampled at `keys()`, after the blank work, so a step frame (whose blank does
 the prerendering) reads long and the frame after it short; their sum is two
 refreshes.
@@ -223,8 +236,8 @@ VICE times VDC block copies during active display about three times faster
 than a real C128 (`bench/vdcbench.c`: 255 bytes take 1501 µs on hardware
 versus 462 µs in VICE; in vertical blank both take about 380 µs). The game has
 been played extensively on a real C128, including the bird, full-screen
-layout, panels and three-voice sound; only the latest VDC write speed-ups
-(streamed cell writes and narrower bird rewrites) have been checked in VICE
-alone. Control tests inject the key-scanner result.
-Screenshots and emulator logs are saved in `build/` (ignored by git, except
-`build/flappy.prg`).
+layout, panels and three-voice sound; the latest VDC write speed-ups
+(streamed cell writes and narrower bird rewrites) and the 120% pace/pitch
+tuning have been checked in VICE alone. Control tests inject the
+key-scanner result. Audio checks inspect SID registers; they do not assess
+the sound by ear. Screenshots and emulator logs are saved in `build/`.

@@ -127,6 +127,8 @@ def check_game(m, syms):
         return int.from_bytes(m.memory(syms[name], size), 'little')
     def put(name, n, size=2):
         m.write(syms[name], n.to_bytes(size, 'little', signed=n < 0))
+    def sid_frequency(voice):
+        return int.from_bytes(m.memory(0xd400+voice*7,2,3), 'little')
     key_addr = syms['keys']
     checkpoint = m.checkpoint(key_addr)
     m.next_frame()
@@ -196,7 +198,7 @@ def check_game(m, syms):
         bird_y = value('bird_y')//16
         bird_row = bird_y//8
         # The software sprite owns a 3x3 cell rectangle, including padding.
-        wing = bird_art.WINGS[(0, 1, 2, 1)[((value('frame_count')-1) >> 2) & 3]]
+        wing = bird_art.WINGS[(0, 1, 2, 1)[(value('simulation_count') >> 2) & 3]]
         art = bird_art.rows_as_bytes(wing)
         for y in range(bird_row*8,min(GROUND*8,(bird_row+3)*8)):
             py = y-bird_y
@@ -218,13 +220,27 @@ def check_game(m, syms):
     m.capture(f'build/flappy-{args.tag}-title.png')
     step(1)
     assert value('state', 1) == 1
+    starting_speed = value('speed',1)
     # Holding fire must not auto-flap; gravity progresses on every frame.
     step(1)
     v = value('velocity')
     step(1)
-    assert value('velocity') == (v+2) & 65535
+    assert value('velocity') == (v+2*value('frame_ticks',1)) & 65535
     step(0); step(1)
-    assert value('velocity') == (-32 & 65535)
+    assert value('velocity') == ((-34+2*value('frame_ticks',1)) & 65535)
+    assert sid_frequency(0) == 0x1800 + 0x600*value('frame_ticks',1)
+    assert m.memory(0xd404,1,3)[0] == 0x81, 'flap noise gate'
+    # A held flap over five display frames follows exactly six steps of the
+    # original flight curve, including on the frame with two physics ticks.
+    initial_y, initial_v = value('bird_y'), value('velocity') - 65536
+    initial_ticks = value('simulation_count')
+    initial_frames = value('frame_count')
+    for _ in range(5): step(1)
+    assert value('simulation_count') - initial_ticks == 6
+    assert value('frame_count') - initial_frames == 5
+    assert value('bird_y') == initial_y + 6*initial_v + 6*7
+    # The flap gate lasts four virtual ticks (about 56 ms at the new pace).
+    assert not m.memory(0xd404,1,3)[0] & 1, 'flap gate did not release'
     # Pause freezes simulation and resumes without losing the run.
     step(2)
     assert value('state', 1) == 3
@@ -243,8 +259,11 @@ def check_game(m, syms):
     def clock():
         return int.from_bytes(m.memory(0xdd04,4,3), 'little')
     previous_clock = clock()
+    previous_score = value('score')
+    point_notes = set()
     intervals = []
     phase_clocks = {0:[],1:[],2:[],3:[]}
+    first_pipe_left = struct.unpack('<h', m.memory(syms['pipes'],2))[0]*8-value('phase',1)*2
     # Autopilot aims inside each approaching pipe gap using the real physics.
     for frame in range(args.flight_frames):
         pipes = [struct.unpack('<hBB', m.memory(syms['pipes']+i*4, 4)) for i in range(NPIPES)]
@@ -260,13 +279,24 @@ def check_game(m, syms):
         phase_clocks[value('phase',1)].append(elapsed)
         previous_clock = now
         assert value('state', 1) == 1, (frame, pipes, y, target)
+        if value('score') != previous_score:
+            assert sid_frequency(1) == 0x4333, 'point chime first pitch'
+            assert m.memory(0xd40b,1,3)[0] == 0x11, 'point triangle gate'
+            previous_score = value('score')
+        if m.memory(0xd40b,1,3)[0] & 1:
+            point_notes.add(sid_frequency(1))
         pixels()
+        if frame == 19:
+            left = struct.unpack('<h', m.memory(syms['pipes'],2))[0]*8-value('phase',1)*2
+            assert first_pipe_left-left == starting_speed*6, 'starting scroll rate over 20 frames'
         if frame == 190: m.capture(f'build/flappy-{args.tag}-play.png')
     assert value('score') >= 3, value('score')
+    assert point_notes == {0x4333, 0x5a00}, point_notes
     print(f'PASS: {args.flight_frames}-frame flight, pipe recycling, scoring, pipe/bird pixel model checked; max dirty {value("max_dirty")}', flush=True)
     hz = 1022727 if args.ntsc else 985248
     fps = len(intervals)*hz/sum(intervals)
     print(f'Active cadence: {fps:.3f} fps; frame clocks {min(intervals)}..{max(intervals)}', flush=True)
+    print(f'Simulation cadence: {fps*6/5:.3f} ticks/sec (120% game pace)', flush=True)
     buckets = [sum(lo <= n < hi for n in intervals) for lo,hi in ((0,25000),(25000,42000),(42000,58000),(58000,1000000))]
     print(f'Frame intervals (about 1/2/3/4+ refreshes): {buckets}', flush=True)
     print('By phase:', {p:(round(sum(v)/len(v)),max(v)) for p,v in phase_clocks.items()}, flush=True)
@@ -290,18 +320,28 @@ def check_game(m, syms):
     # screen and colour cells (verify() runs on every step).
     def pipes_now():
         return [struct.unpack('<hBB', m.memory(syms['pipes']+i*4, 4)) for i in range(NPIPES)]
+    def next_ticks():
+        return 2 if value('tempo',1) == 4 else 1
+    def steer(target):
+        ticks = next_ticks()
+        # Sum of n gravity steps is n*(n+1). Stay within two pixels per tick.
+        put('velocity', max(-34, min(30, (target - value('bird_y') - ticks*(ticks+1))//ticks)))
+    # Include the fastest course: a two-tick frame can skip a font phase and
+    # cross a page boundary on its first tick. Both pages must remain clean.
+    put('speed', 12, 1)
     for frame in range(300):
         ph = value('phase', 1)
         nxt = min((p for p in pipes_now() if p[0]*8-ph*2+64 > BX*8), key=lambda p: p[0])
         target = ((nxt[1]+GAP)*8 - 13) * 16
-        put('velocity', max(-32, min(32, target - value('bird_y'))) - 2)
+        steer(target)
         step()
         assert value('state', 1) == 1, ('crashed while skimming', frame)
         pixels()
-    print('PASS: 300 frames skimming the lower caps, pages and pixel model clean')
+    print('PASS: 300 frames at maximum speed skimming the lower caps, pages and pixel model clean')
+    put('speed', starting_speed, 1)
     # Landing on a pipe during a character-boundary step flips pages in the
     # same frame as the death; game over must leave both pages clean.
-    # Steer through velocity (at most 2 px per frame, as real play moves) to
+    # Steer through velocity (at most 2 px per tick, as real play moves) to
     # hover just above the next lower cap, then drop onto it at the step.
     for _ in range(3000):
         ph = value('phase', 1)
@@ -310,14 +350,14 @@ def check_game(m, syms):
         over = nxt[0]*8-ph*2 < BX*8+40
         target = ((nxt[1]+GAP)*8 - 14) * 16
         y = value('bird_y')
-        if over and ph == 3 and y == target:
+        if over and ph == 3 and abs(y - target) <= 1:
             put('velocity', 48)
             step()
             break
-        put('velocity', max(-32, min(32, target - y)) - 2)
+        steer(target)
         step()
     # The hit starts the fall (state 4) in the step frame; the panel follows.
-    assert value('state', 1) == 4 and value('phase', 1) == 0 and value('stepped', 1)
+    assert value('state', 1) == 4 and value('stepped', 1)
     for _ in range(200):
         if value('state', 1) == 2: break
         step()
@@ -341,10 +381,12 @@ def check_game(m, syms):
     assert value('state', 1) == 1
     print('PASS: pipe landing on a step frame, game over and restart keep the display clean')
     # The ceiling clamps position and cancels upward velocity without death.
+    ceiling_ticks = next_ticks()
     put('velocity', -2000)
     step()
-    assert value('state',1) == 1 and value('bird_y') == 0
-    assert value('velocity') == 0
+    # A second tick in this display frame resumes gravity after the clamp.
+    assert value('state',1) == 1 and value('bird_y') == 2*(ceiling_ticks-1)
+    assert value('velocity') == 2*(ceiling_ticks-1)
     print('PASS: non-lethal ceiling clamping')
     m.cmd(0x13, struct.pack('<I', checkpoint))
     held(0)

@@ -6,10 +6,10 @@
 
 /* Minimal SID driver, no interrupts. Each effect owns a voice so they never
    cut each other off: voice 1 flap, voice 2 point, voice 3 crash.
-   sound_tick() is called once per game frame to slide pitches and release
-   gates when an effect's timer expires. */
+   sound_tick() advances one or two simulation ticks per displayed frame
+   to slide pitches and release gates when an effect's timer expires. */
 void sound_init(void);
-void sound_tick(void);
+void sound_tick(char ticks);
 void sound_off(void);
 
 /* Effects. */

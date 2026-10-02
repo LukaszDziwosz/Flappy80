@@ -63,9 +63,10 @@
 #define DEAD 2
 #define PAUSE 3
 #define DYING 4   /* hit a pipe: falling to the ground */
-/* Scrolling speed in eighths of a pipe phase (2 pixels) per frame: 8 moves
-   2 pixels a frame. It rises by one every SPEEDUP points, up to 1.5 times. */
-#define SPEED_START 8
+/* Scrolling speed in eighths of a pipe phase (2 pixels) per simulation tick:
+   10 averages 3 pixels per displayed frame at the 6/5 simulation pace.
+   It rises every SPEEDUP points, up to 3.6 pixels per displayed frame. */
+#define SPEED_START 10
 #define SPEED_MAX 12
 #define SPEEDUP 10
 
@@ -90,6 +91,12 @@ static unsigned dirty[CELLS], dirty_count;
 static unsigned front_count;
 static char shapes[GLYPHS][8], saved_font[GLYPHS * 16], saved_regs[37];
 volatile unsigned frame_count, blank_overruns, max_dirty;
+/* Six simulation ticks per five VDC frames gives the old game's 120% pace
+   on a stock C128. Input edges are consumed once even on a two-tick frame.
+   Display/page-flip work still runs only once per refresh. */
+unsigned simulation_count;
+char frame_ticks;
+static char tempo;
 
 /* Each tile has one foreground colour and the shared cyan background.
    Attribute high bits are VDC effects, NOT a second colour nibble. */
@@ -315,7 +322,7 @@ static void bird_draw(void)
         for (ty = old; ty <= old + 2 && ty < GROUND; ++ty)
             if (ty < bird_row || ty > bird_row + 2)
                 for (tx = BX; tx < BX + 5; ++tx) background(tx, ty);
-    bird_pose = (state == PLAY ? flap[(frame_count >> 2) & 3] : 1) * 8 + (pixel_y & 7);
+    bird_pose = (state == PLAY ? flap[(simulation_count >> 2) & 3] : 1) * 8 + (pixel_y & 7);
     bird_set = bird_row == shown_row ? shown_set : shown_set ^ 1;
     /* In the same row with the same set, the cells already hold the codes:
        the pose is a glyph reload, so skip fifteen cell updates. */
@@ -528,12 +535,11 @@ static void game_over(void)
     number(HUD_BEST_X, best); banner();
 }
 
-void prepare_frame(char held)
+static void update_game(char held)
 {
     char pressed = held & ~previous_keys;
     char i, y, advance;
     previous_keys = held;
-    stepped = 0;
     if (state == DEAD) {
         if (death_delay) --death_delay;
         else if (pressed & 1) { state = PLAY; reset_game(); velocity = -34; sound_flap(); }
@@ -654,6 +660,21 @@ void prepare_frame(char held)
     }
 #endif
     bird_draw();
+}
+
+void prepare_frame(char held)
+{
+    char ticks;
+    frame_ticks = 1;
+    if (++tempo == 5) { tempo = 0; frame_ticks = 2; }
+    stepped = 0;
+    /* At SPEED_MAX two ticks advance at most three two-pixel phases, so
+       even the fast frame crosses at most one character/page boundary.
+       Keep stepped set if the first tick crossed that boundary. */
+    for (ticks = frame_ticks; ticks; --ticks) {
+        ++simulation_count;
+        update_game(held);
+    }
 }
 
 /* Screen bytes first, then attributes, so neighbouring cells (bird rows,
@@ -882,7 +903,7 @@ int main(void)
         if (held & 16)
             break;
         prepare_frame(held);
-        sound_tick();
+        sound_tick(frame_ticks);
         stage_frame();
         wait_frame();
         show_frame();

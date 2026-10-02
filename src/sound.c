@@ -21,6 +21,10 @@
 #define POINT 1
 #define CRASH 2
 
+/* Match the brighter pitch of the old build played at 120% emulator speed.
+   All arguments are constants, so this adds no run-time multiplication. */
+#define PITCH(f) (((unsigned long)(f) * 6 + 2) / 5)
+
 /* Flap envelope: attack 3 (24 ms) swells the noise in instead of striking
    it, decay 5 (168 ms) to sustain 0, release 2 (48 ms). A zero attack made
    the flap sound like a hit. The crash thud keeps the sharp envelope. */
@@ -29,7 +33,7 @@
 #define THUD_AD 0x08
 #define THUD_SR 0x88
 
-/* Per-voice effect state. timer counts frames with the gate held (0 means
+/* Per-voice effect state. timer counts simulation ticks with the gate held (0 means
    idle); when it reaches jump_at the pitch jumps to jump_freq, which gives
    the two-note chime. */
 static char timer[3], wave[3], jump_at[3];
@@ -64,8 +68,8 @@ static void apply(char v)
     SID(v, FREQ_HI) = (char)(freq[v] >> 8);
 }
 
-/* Start an effect on voice v: pitch f sliding by s per frame, gate held for
-   n frames. Restarting the gate retriggers the envelope. */
+/* Start an effect on voice v: pitch f sliding by s per tick, gate held for
+   n ticks. Restarting the gate retriggers the envelope. */
 static void start(char v, unsigned f, int s, char n, char w)
 {
     SID(v, CTRL) = 0;
@@ -74,22 +78,24 @@ static void start(char v, unsigned f, int s, char n, char w)
     SID(v, CTRL) = w | GATE;
 }
 
-void sound_tick(void)
+void sound_tick(char ticks)
 {
     char v;
-    for (v = 0; v < 3; ++v) {
-        if (!timer[v]) continue;
-        if (step[v]) {
-            /* Clamp the slide so it can't wrap past the SID's range. */
-            long f = (long)freq[v] + step[v];
-            freq[v] = f < 0 ? 0 : (f > 0xffff ? 0xffff : (unsigned)f);
-            apply(v);
+    for (; ticks; --ticks) {
+        for (v = 0; v < 3; ++v) {
+            if (!timer[v]) continue;
+            if (step[v]) {
+                /* Clamp the slide so it can't wrap past the SID's range. */
+                long f = (long)freq[v] + step[v];
+                freq[v] = f < 0 ? 0 : (f > 0xffff ? 0xffff : (unsigned)f);
+                apply(v);
+            }
+            if (--timer[v] == jump_at[v] && jump_at[v]) {
+                freq[v] = jump_freq[v];
+                apply(v);
+            }
+            if (!timer[v]) SID(v, CTRL) = wave[v];   /* release */
         }
-        if (--timer[v] == jump_at[v] && jump_at[v]) {
-            freq[v] = jump_freq[v];
-            apply(v);
-        }
-        if (!timer[v]) SID(v, CTRL) = wave[v];   /* release */
     }
 }
 
@@ -99,15 +105,15 @@ void sound_flap(void)
 {
     SID(FLAP, CTRL) = 0;
     SID(FLAP, AD) = FLAP_AD; SID(FLAP, SR) = FLAP_SR;
-    start(FLAP, 0x1400, 0x0500, 4, WAVE_NOISE);
+    start(FLAP, PITCH(0x1400), PITCH(0x0500), 4, WAVE_NOISE);
 }
 
 /* Point: two rising notes, "ding-ding". */
 void sound_point(void)
 {
-    start(POINT, 0x3800, 0, 7, WAVE_TRIANGLE);
+    start(POINT, PITCH(0x3800), 0, 7, WAVE_TRIANGLE);
     jump_at[POINT] = 4;
-    jump_freq[POINT] = 0x4b00;
+    jump_freq[POINT] = PITCH(0x4b00);
 }
 
 /* Crash: a low thud on the flap voice (the bird can no longer flap) and a
@@ -116,6 +122,6 @@ void sound_crash(void)
 {
     SID(FLAP, CTRL) = 0;
     SID(FLAP, AD) = THUD_AD; SID(FLAP, SR) = THUD_SR;
-    start(FLAP, 0x0c00, -0x0100, 5, WAVE_NOISE);
-    start(CRASH, 0x4000, -0x0300, 26, WAVE_PULSE);
+    start(FLAP, PITCH(0x0c00), -(int)PITCH(0x0100), 5, WAVE_NOISE);
+    start(CRASH, PITCH(0x4000), -(int)PITCH(0x0300), 26, WAVE_PULSE);
 }
